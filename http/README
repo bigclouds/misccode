@@ -1,0 +1,2 @@
+ip netns exec test3 ./wrk  -c 5000 -t1000  -d10s -H "Connection: Close" http://192.168.20.3:8080/
+ip netns exec test3 ab  -r  -c 2000 -t 50  http://192.168.20.3:8080/

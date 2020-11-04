@@ -1,0 +1,4 @@
+# modify history commiter-email info
+git filter-branch -f --env-filter  "GIT_AUTHOR_NAME='new'; GIT_AUTHOR_EMAIL='new@gmail.com'; GIT_COMMITTER_NAME='old'; GIT_COMMITTER_EMAIL='old@gmail.com';" -- --all
+
+git filter-branch -f --env-filter  "GIT_AUTHOR_NAME='new'; GIT_AUTHOR_EMAIL='new@gmail.com'; GIT_COMMITTER_NAME='old'; GIT_COMMITTER_EMAIL='old@gmail.com';" branchX 8695df7f3d4169d9343fed444313b2414b635484 fbecc2177429dddac48add6718ccdcf7cecaaf4b

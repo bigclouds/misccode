@@ -1,0 +1,1 @@
+ebtables -t nat -A PREROUTING -p arp --arp-opcode Request --arp-ip-dst 192.168.122.5 -i vnet1 -j arpreply --arpreply-mac 10:11:12:13:14:15 --arpreply-target ACCEPT

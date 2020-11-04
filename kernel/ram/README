@@ -1,0 +1,17 @@
+CONFIG_STRICT_DEVMEM  limitation is 1M
+# gcc -static -lc  -o show_phy_mem show_phy_mem.c 
+#show physical address
+./show_phy_mem
+vaddr=0x7fff8b3880c4, phy=0xfa800c4
+
+
+
+#show content of this physical address
+./fileview /dev/dram 0xfa800c4
+
+
+#show vm's memory
+cat /proc/26454/smaps
+
+#on hypvisor to show vm's content of this physical address
+virsh qemu-monitor-command 12 --hmp "xp /4 0xfa800c4"

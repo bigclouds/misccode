@@ -1,0 +1,3 @@
+# check https error log file
+check file ssl_error_log with path /var/log/httpd/ssl_error_log
+    if changed size then alert

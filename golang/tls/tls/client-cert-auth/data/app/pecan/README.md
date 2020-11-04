@@ -1,0 +1,5 @@
+hellopecan
+
+```
+pecan create hellopecan .
+```

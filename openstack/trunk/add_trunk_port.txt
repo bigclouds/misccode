@@ -1,0 +1,43 @@
+#!/bin/bash
+
+#涉及的资源name，用uuid，uuid是唯一的
+# 不需要dhcp, ip address 按统一规则分配,比如ce取偶数，vpe、vr取奇数
+DHCP="--no-dhcp"
+PROJECT="--project your_project $DHCP"
+
+#创建vpe的时候就会给它添加一块trunkport,下面1台为例,trunknet_test 只有vpe用，找一个不与租户相同的网段
+openstack network create trunknet_test --project projectA
+openstack subnet create --project projectA --network trunknet_test --subnet-range 192.168.48.0/24 --gateway 192.168.48.1 trunksubnet_yunlianwang
+openstack port create --project projectA --network trunknet_test vpe01trunkport
+openstack network trunk create --project projectA --parent-port vpe01trunkport trunkvpe01
+openstack server add port vm1bf40d367-6fa3-42bb-8b5e-753d7b2a4944 vpe01trunkport
+
+
+#演示为vpe01trunkport添加子接口
+#openstack network create $PROJECT trunknet_net_a
+#记录返回的provider:network_type,provider:segmentation_id
+#vlan=$( openstack network show trunknet_net_a | awk '/ provider:segmentation_id / { print $4 }' )"
+#type=$( openstack network show trunknet_net_a | awk '/ provider:network_type / { print $4 }' )"
+# 30位掩码
+#openstack subnet create $PROJECT  --network trunknet_net_a --subnet-range 192.168.16.0/30 trunksubnet_a
+# 31位掩码
+####openstack subnet create $PROJECT  --network trunknet_net_a --subnet-range 192.168.16.4/31 trunksubnet_a
+
+#所有子接口mac地址用trunkport的mac地址, 由于没有dhcp，ip address 按统一规则分配,比如ce取偶数，vpe、vr取奇数
+#parent_mac="$( openstack port show vpe01trunkport| awk '/ mac_address / { print $4 }' )"
+#openstack port create $PROJECT --mac-address "$parent_mac" --network trunknet_net_a --fixed-ip subnet=trunksubnet_a,ip-address=192.168.16.3 portchild_a
+
+#openstack network trunk set --subport port=portchild_a,segmentation-type=${type},segmentation_id=${vlan} trunkvpe01
+###参考##openstack network trunk set --subport port=portchild_a,segmentation-type=inherit trunkvpe01
+#登陆vm，可以创建vlan接口，设置 192.168.16.3
+#ip link add link eth0 name eth0.2871 type vlan id 2871  ; ip link set eth0.2871 up
+#ip link add link eth0 name eth0.2871 address "fa:16:3e:b8:b7:aa" type vlan id 2871
+#ip addr add 92.168.8.8/24 dev eth0.2871
+
+#openstack port show  vpe01trunkport
+#openstack port show  vpe02trunkport
+#openstack network show trunknet_test 
+#openstack subnet show trunksubnet_yunlianwang 
+#openstack network trunk list
+#openstack server show 6586c5de-518e-42a6-9a1d-ce2820d47fe6
+#openstack server show bf40d367-6fa3-42bb-8b5e-753d7b2a4944
