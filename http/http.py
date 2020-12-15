@@ -26,12 +26,12 @@ def handle_client(client_socket):
 
 
 if __name__ == "__main__":
-    #server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.bind(("0.0.0.0", 80))
+    #server_socket = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    server_socket.bind(("::", 8080))
-    #server_socket.bind(("fc00::1:5", 8080))
-    #server_socket.bind(("0.0.0.0", 8080))
+    #server_socket.bind(("::", 80))
+    #server_socket.bind(("fc00::1:5", 80))
     server_socket.listen(128)
     i = 0
 
