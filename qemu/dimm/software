@@ -1,0 +1,6 @@
+# qemu, libvirt  https://cbs.centos.org/kojifiles/packages/
+kernel 5.12.10
+
+# 0006-Enable-disable-devices-for-RHEL.patch; default-configs/devices/rh-virtio.mak, CONFIG_VIRTIO_PMEM=y
+#
+qemu 5.10  ; CONFIG_VIRTIO_PMEM

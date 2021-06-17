@@ -1,0 +1,14 @@
+*** github.com/mdlayher/vsock ***
+
+
+一. send from host to vm
+	#inside vm; -p port to listen
+	./vscp -r -p 1 > cpuinfo
+	#on host; -c vm's contest ID, -p port to connect
+	./vscp -s -c 4 -p 1 cpuinfo 
+
+二. send from vm to host
+	# on host
+	./vscp -r -p 1 > cpuinfo.txt
+	# inside vm; 2 refers to hypervisor's contest ID
+	./vscp -s -c 2 -p 1 cpuinfo 

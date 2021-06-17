@@ -1,0 +1,10 @@
+<memory model='dimm'>
+      <source>
+        <nodemask>1</nodemask>
+	<pagesize unit='KiB'>4</pagesize>
+      </source>
+      <target>
+        <size unit='KiB'>1048574</size>
+        <node>0</node>
+      </target>
+</memory>

@@ -1,0 +1,150 @@
+<!--
+WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
+OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
+  virsh edit kata9
+or other application using the libvirt API.
+-->
+
+<domain type='kvm'>
+  <name>kata9</name>
+  <uuid>37903792-5405-4945-b89f-4ed2b3c28363</uuid>
+  <maxMemory slots='4' unit='KiB'>16777216</maxMemory>
+  <memory unit='KiB'>5242878</memory>
+  <currentMemory unit='KiB'>4194304</currentMemory>
+  <memoryBacking>
+    <access mode='shared'/>
+  </memoryBacking>
+  <vcpu placement='static'>4</vcpu>
+  <cputune>
+    <shares>4096</shares>
+  </cputune>
+  <os>
+    <type arch='x86_64' machine='pc-i440fx-rhel7.6.0'>hvm</type>
+    <boot dev='hd'/>
+  </os>
+  <features>
+    <acpi/>
+    <apic/>
+  </features>
+  <cpu mode='host-model' check='partial'>
+    <topology sockets='2' dies='1' cores='2' threads='1'/>
+    <numa>
+      <cell id='0' cpus='0-3' memory='8912895' unit='KiB' memAccess='shared'/>
+    </numa>
+  </cpu>
+  <clock offset='utc'>
+    <timer name='rtc' tickpolicy='catchup'/>
+    <timer name='pit' tickpolicy='delay'/>
+    <timer name='hpet' present='no'/>
+  </clock>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>restart</on_reboot>
+  <on_crash>destroy</on_crash>
+  <pm>
+    <suspend-to-mem enabled='no'/>
+    <suspend-to-disk enabled='no'/>
+  </pm>
+  <devices>
+    <emulator>/usr/libexec/qemu-kvm</emulator>
+    <disk type='file' device='disk'>
+      <driver name='qemu' type='qcow2'/>
+      <source file='/home/vms/kata8-3.qcow2'/>
+      <target dev='vda' bus='virtio'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x0'/>
+    </disk>
+    <controller type='usb' index='0' model='ich9-ehci1'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x7'/>
+    </controller>
+    <controller type='usb' index='0' model='ich9-uhci1'>
+      <master startport='0'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0' multifunction='on'/>
+    </controller>
+    <controller type='usb' index='0' model='ich9-uhci2'>
+      <master startport='2'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x1'/>
+    </controller>
+    <controller type='usb' index='0' model='ich9-uhci3'>
+      <master startport='4'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x2'/>
+    </controller>
+    <controller type='pci' index='0' model='pci-root'/>
+    <controller type='ide' index='0'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x1'/>
+    </controller>
+    <filesystem type='mount' accessmode='passthrough'>
+      <driver type='virtiofs' queue='1024'/>
+      <binary path='/usr/libexec/virtiofsd' xattr='on'>
+        <cache mode='always'/>
+        <lock posix='on' flock='on'/>
+      </binary>
+      <source dir='/home/vms/kata9'/>
+      <target dir='kata'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
+    </filesystem>
+    <filesystem type='mount' accessmode='passthrough'>
+      <driver type='virtiofs' queue='1024'/>
+      <binary path='/usr/libexec/virtiofsd' xattr='on'>
+        <cache mode='always'/>
+        <lock posix='on' flock='on'/>
+      </binary>
+      <source dir='/mnt'/>
+      <target dir='kata1'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x0'/>
+    </filesystem>
+    <interface type='bridge'>
+      <mac address='52:54:00:b3:04:d2'/>
+      <source bridge='virbr0'/>
+      <model type='virtio'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x0'/>
+    </interface>
+    <serial type='pty'>
+      <target type='isa-serial' port='0'>
+        <model name='isa-serial'/>
+      </target>
+    </serial>
+    <console type='pty'>
+      <target type='serial' port='0'/>
+    </console>
+    <input type='mouse' bus='ps2'/>
+    <input type='keyboard' bus='ps2'/>
+    <graphics type='vnc' port='-1' autoport='yes' listen='0.0.0.0'>
+      <listen type='address' address='0.0.0.0'/>
+    </graphics>
+    <video>
+      <model type='cirrus' vram='16384' heads='1' primary='yes'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x09' function='0x0'/>
+    </video>
+    <memballoon model='virtio'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/>
+    </memballoon>
+    <memory model='dimm'>
+      <source>
+        <nodemask>1</nodemask>
+      </source>
+      <target>
+        <size unit='KiB'>1048574</size>
+        <node>0</node>
+      </target>
+      <address type='dimm' slot='1'/>
+    </memory>
+    <memory model='nvdimm' access='shared'>
+      <source>
+        <path>/home/vms/nvdimm/katanvdimm</path>
+        <pmem/>
+      </source>
+      <target>
+        <size unit='KiB'>4194304</size>
+        <node>0</node>
+        <label>
+          <size unit='KiB'>128</size>
+        </label>
+        <readonly/>
+      </target>
+      <address type='dimm' slot='0'/>
+    </memory>
+    <vsock model='virtio'>
+      <cid auto='no' address='4'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x07' function='0x0'/>
+    </vsock>
+  </devices>
+</domain>
