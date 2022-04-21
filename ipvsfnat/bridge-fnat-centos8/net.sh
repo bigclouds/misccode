@@ -1,13 +1,17 @@
 #!/bin/bash
 
 #lnstat -k in_martian_dst,in_martian_src,in_no_route
-
-#		192.168.10.2		192.168.10.3   192.168.20.3	
+#
+#							192.168.40.2
+#							[ns test4]
+#							|
+#		192.168.10.2		192.168.10.3   192.168.40.3	
 #		[ns test1]		  [ ns         test2]
 #  192.168.10.4	     ^			    ^		^
-#	[qemu]	     |test1i		    |test2i	|test23     192.168.20.2
-#	 |vnetX	     |			    |		____________test32__>[ ns test3] client
-#	 |	     |			    |
+#	[qemu]	     |test1i		    |test2i	|test23 192.168.20.3
+#	 |vnetX	     |			    |		|
+#	 |	     |			    |		|
+#	 |	     |			    |		_>test32 192.168.20.2[ ns test3] client
 #	 |	     |			    |
 #	 |	     |test1o		    |test2o		
 #	_|___________________testbr_______________________________________
@@ -107,7 +111,7 @@ ip netns exec test2 ip addr add 192.168.40.3/24 dev test24
 ip netns exec test3 ip link set lo up
 ip netns exec test3 ip link set test32 up
 ip netns exec test3 ip addr add 192.168.20.2/24 dev test32
-ip netns exec test4 ip route add default via 192.168.20.3
+ip netns exec test3 ip route add default via 192.168.20.3
 
 # ns test4/client  network
 ip netns exec test4 ip link set lo up
@@ -115,20 +119,31 @@ ip netns exec test4 ip link set test42 up
 ip netns exec test4 ip addr add 192.168.40.2/24 dev test42
 ip netns exec test4 ip route add default via 192.168.40.3
 
+function sysparam(){
+	ip netns exec $1 sysctl -w net.core.somaxconn=4096
+}
+
+function rpfilter(){
+	ip netns exec $1 sysctl -w net.ipv4.ip_local_port_range="2000 65535"
+	ip netns exec $1 sysctl -w net.ipv4.ip_forward=1
+	ip netns exec $1 sysctl -w net.ipv4.conf.all.rp_filter=0
+	ip netns exec $1 sysctl -w net.ipv4.conf.default.rp_filter=0
+	ip netns exec $1 sysctl -w net.ipv4.conf.$1i.rp_filter=0
+	ip netns exec $1 sysctl -w net.ipv4.conf.$1i.accept_local=1
+}
+
 # lb namespace setting
-ip netns exec test2 sysctl -w net.ipv4.ip_local_port_range="2000 65535"
-ip netns exec test2 sysctl -w net.ipv4.ip_forward=1
-ip netns exec test2 sysctl -w net.ipv4.conf.all.rp_filter=0
-ip netns exec test2 sysctl -w net.ipv4.conf.default.rp_filter=0
-ip netns exec test2 sysctl -w net.ipv4.conf.test2i.rp_filter=0
-ip netns exec test2 sysctl -w net.ipv4.conf.test2i.accept_local=1
+rpfilter test2
+#ip netns exec test2 sysctl -w net.ipv4.ip_local_port_range="2000 65535"
+#ip netns exec test2 sysctl -w net.ipv4.ip_forward=1
+#ip netns exec test2 sysctl -w net.ipv4.conf.all.rp_filter=0
+#ip netns exec test2 sysctl -w net.ipv4.conf.default.rp_filter=0
+#ip netns exec test2 sysctl -w net.ipv4.conf.test2i.rp_filter=0
+#ip netns exec test2 sysctl -w net.ipv4.conf.test2i.accept_local=1
 #ip netns exec test2 sysctl -w net.ipv4.conf.all.accept_local=1
 #ip netns exec test2 sysctl -w net.ipv4.conf.default.accept_local=1
 #ip netns exec test2 sysctl -w net.ipv6.conf.all.forwarding=1
 
-function sysparam(){
-	ip netns exec $1 sysctl -w net.core.somaxconn=4096
-}
 
 # http server inside ns or vm
 ip netns add test5
@@ -193,19 +208,23 @@ ip link set vnet8 master brvm8
 ip netns exec test5 ip link set lo up
 ip netns exec test5 ip link set test5i up
 ip netns exec test5 ip addr add 192.168.10.5/24 dev test5i
-ip netns exec test5 ip route add default via 192.168.10.2
+ip netns exec test5 ip route add default via 192.168.10.3
+rpfilter test5
+
 ip netns exec test6 ip link set lo up
 ip netns exec test6 ip link set test6i up
 ip netns exec test6 ip addr add 192.168.10.6/24 dev test6i
-ip netns exec test6 ip route add default via 192.168.10.2
+ip netns exec test6 ip route add default via 192.168.10.3
+
 ip netns exec test7 ip link set lo up
 ip netns exec test7 ip link set test7i up
 ip netns exec test7 ip addr add 192.168.10.7/24 dev test7i
-ip netns exec test7 ip route add default via 192.168.10.2
+ip netns exec test7 ip route add default via 192.168.10.3
+
 ip netns exec test8 ip link set lo up
 ip netns exec test8 ip link set test8i up
 ip netns exec test8 ip addr add 192.168.10.8/24 dev test8i
-ip netns exec test8 ip route add default via 192.168.10.2
+ip netns exec test8 ip route add default via 192.168.10.3
 
 
 ip netns exec test3 sysctl -w net.ipv4.ip_local_port_range="2000 65535" 

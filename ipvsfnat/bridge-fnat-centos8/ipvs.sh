@@ -4,14 +4,23 @@ rr=rr
 #rr=wrr
 #w=-w 1
 if [ "$1" = "yes" ]; then
-	ip netns exec ${ns} ipvsadm -A -t 192.168.20.3:80 -s ${rr}
-	ip netns exec ${ns} ipvsadm -a -t 192.168.20.3:80 -r 192.168.10.5:8080 -g     
-
-	ip netns exec ${ns} ipvsadm -A -t 192.168.10.3:80 -s ${rr}
-	ip netns exec ${ns} ipvsadm -a -t 192.168.10.3:80 -r 192.168.10.5:8080 -g     
+	# tunnel mode
+	ip netns exec ${ns} ipvsadm -A -t 192.168.20.3:8080 -s ${rr}
+	ip netns exec ${ns} ipvsadm -a -t 192.168.20.3:8080 -r 192.168.10.5:8080 -i
+	# dr mode
+	#ip netns exec ${ns} ipvsadm -A -t 192.168.20.3:8080 -s ${rr}
+	#ip netns exec ${ns} ipvsadm -a -t 192.168.20.3:8080 -r 192.168.10.5:8080 -g
+	# nat mode
+	#ip netns exec ${ns} ipvsadm -A -t 192.168.20.3:80 -s ${rr}
+	#ip netns exec ${ns} ipvsadm -a -t 192.168.20.3:80 -r 192.168.10.5:8080 -m    
+	# fnat-dr/nat mode
+	#ip netns exec ${ns} ipvsadm -A -t 192.168.20.3:80 -s ${rr}
+	#ip netns exec ${ns} ipvsadm -a -t 192.168.20.3:80 -r 192.168.10.5:8080 -g     
 elif [ "$1" = "no" ]; then 
 	ip netns exec ${ns} ipvsadm -D -t 192.168.20.3:80
+	ip netns exec ${ns} ipvsadm -D -t 192.168.20.3:8080
 	ip netns exec ${ns} ipvsadm -D -t 192.168.10.3:80
+	ip netns exec ${ns} ipvsadm -D -t 192.168.10.3:8080
 fi
 ip netns exec ${ns} ipvsadm -ln
 exit
