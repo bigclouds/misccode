@@ -1,6 +1,7 @@
 #https://kubernetes.io/docs/tasks/debug-application-cluster/crictl/
+# config.conf  devmapper
 
-
+#crictl runp --runtime kata-clh pod-config.json
 crictl runp --runtime kata-fc pod-config.json
 crictl create f84dd361f8dc51518ed291fbadd6db537b0496536c1d2d6c05ff943ce8c9a54f container-config.json pod-config.json
 crictl start 3e025dd50a72d956c4f14881fbb5b1080c9275674e95fb67f965f6478a957d60
