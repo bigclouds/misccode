@@ -22,8 +22,8 @@ root="/vdata/containerd"
   systemd_cgroup = false
   sandbox_image = "harbor.unicom.local/cke-init-image/pause-amd64:3.0"
   [plugins.cri.containerd]
-    snapshotter = "devmapper"
-    #snapshotter = "overlayfs"
+    #snapshotter = "devmapper"
+    snapshotter = "overlayfs"
     no_pivot = false
     [plugins.cri.containerd.runtimes]
       [plugins.cri.containerd.runtimes.runc]
@@ -47,21 +47,17 @@ root="/vdata/containerd"
     	runtime_type = "io.containerd.kata-fc.v2"
 	pod_annotations = ["*"]
         privileged_without_host_devices = true
+      [plugins.cri.containerd.runtimes.kata-clh]
+    	runtime_type = "io.containerd.kata-clh.v2"
+	pod_annotations = ["*"]
+        privileged_without_host_devices = true
   [plugins.cri.cni]
     bin_dir = "/opt/cni/bin"
     conf_dir = "/etc/cni/net.d"
   [plugins.cri.registry]
     [plugins.cri.registry.mirrors]
-      [plugins.cri.registry.mirrors."harbor.unicom.local"]
-        endpoint = ["https://harbor.unicom.local"]
-      [plugins.cri.registry.mirrors."harbor.mby.hyy.unicom.local"]
-        endpoint = ["https://harbor.mby.hyy.unicom.local"]
       [plugins.cri.registry.mirrors."myregistry.com"]
         endpoint = ["https://myregistry.com"]
     [plugins.cri.registry.configs]
-      [plugins.cri.registry.configs."harbor.unicom.local".tls]
-        ca_file = "/etc/containerd/harbor.unicom.local.crt"
-      [plugins.cri.registry.configs."harbor.mby.hyy.unicom.local".tls]
-        ca_file = "/etc/containerd/harbor.mby.hyy.unicom.local.crt"
       [plugins.cri.registry.configs."myregistry.com".tls]
         ca_file = "/etc/containerd/myregistry.com.crt"

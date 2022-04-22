@@ -1,0 +1,2 @@
+#!/bin/bash
+KATA_CONF_FILE=/usr/share/defaults/kata-containers/configuration-clh.toml /usr/bin/containerd-shim-kata-v2 $@
