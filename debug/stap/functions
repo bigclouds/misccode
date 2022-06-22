@@ -1,0 +1,569 @@
+AF_INET6:long () /* unprivileged */
+AF_INET:long () /* unprivileged */
+HZ:long () /* unprivileged */
+MAJOR:long (dev:long)
+MINOR:long (dev:long)
+MKDEV:long (major:long, minor:long)
+NFS_I:long (inode:long)
+NFS_PROTO:long (inode:long)
+NFS_SERVER:long (inode:long)
+Py2Object_GetAttr:long (object:long, attr:string)
+Py2Object_Repr:string (object:long)
+Py3Object_GetAttr:long (object:long, attr:string)
+Py3Object_Repr:string (object:long)
+WEXITSTATUS:long (f:long)
+WIFEXITED:long (f:long)
+WTERMSIG:long (f:long)
+abort:unknown () /* unprivileged */
+acct_req_desc:string (entry_type:long)
+addr:long ()
+addr_from_rqst:long (rqstp:long) /* unprivileged */
+addr_from_rqst_str:string (rqstp:long) /* unprivileged */
+addr_to_node:long (addr:long)
+ansi_clear_screen:unknown ()
+ansi_cursor_hide:unknown ()
+ansi_cursor_move:unknown (x:long, y:long)
+ansi_cursor_restore:unknown ()
+ansi_cursor_save:unknown ()
+ansi_cursor_show:unknown ()
+ansi_new_line:unknown ()
+ansi_reset_color:unknown ()
+ansi_set_color2:unknown (fg:long, bg:long)
+ansi_set_color3:unknown (fg:long, bg:long, attr:long)
+ansi_set_color:unknown (fg:long)
+ansi_set_color:unknown (fg:long, bg:long)
+ansi_set_color:unknown (fg:long, bg:long, attr:long)
+arch_bytes:long ()
+asmlinkage:unknown ()
+assert:unknown (expression:long)
+assert:unknown (expression:long, msg:string)
+atomic_long_read:long (addr:long)
+atomic_read:long (addr:long)
+backtrace:string ()
+bdevname:string (bdev:long)
+big_endian2:long (val:long)
+big_endian4:long (val:long)
+big_endian8:long (val:long)
+bio_op:long (bio:long) /* unprivileged */
+bio_rw_num:long (rw:long)
+bio_rw_str:string (rw:long)
+bytes_to_string:string (bytes:long)
+caller:string ()
+caller_addr:long ()
+callers:string (n:long) /* unprivileged */
+clones_from_clnt:long (clnt:long)
+cmdline_arg:string (n:long)
+cmdline_args:string (n:long, m:long, delim:string)
+cmdline_str:string ()
+commit:unknown (id:long)
+container_of_task_rcu:long (rcu_ptr:long)
+cpu:long () /* unprivileged */
+cpu_clock_ms:long (cpu:long)
+cpu_clock_ns:long (cpu:long) /* unprivileged */
+cpu_clock_s:long (cpu:long)
+cpu_clock_us:long (cpu:long)
+cputime_to_msecs:long (cputime:long) /* unprivileged */
+cputime_to_string:string (cputime:long)
+cputime_to_usecs:long (cputime:long) /* unprivileged */
+ctime:string (epochsecs:long)
+ctime:string ()
+current_exe_file:long ()
+d_name:string (dentry:long)
+d_path:string (nd:long)
+delete_stopwatch:unknown (name:string)
+describe_data_direction:string (state:long)
+describe_device_state:string (state:long)
+discard:unknown (id:long)
+disk_major_from_request:long (var_q:long)
+disk_minor_from_request:long (var_q:long)
+disk_name:string (hd:long, partno:long)
+dp_method_str:string (method:long)
+dp_target_str:string (target:long)
+dump_stack:unknown () /* guru */
+egid:long () /* unprivileged */
+env_var:string (name:string)
+errno_p:long (err:long)
+errno_str:string (err:long)
+error:unknown (msg:string) /* unprivileged */
+euid:long () /* unprivileged */
+execname:string () /* unprivileged */
+exit:unknown () /* unprivileged */
+fastcall:unknown ()
+format_ipaddr:string (addr:long, family:long)
+fp32_to_fp64:long (input:long)
+fp_add:long (add1:long, add2:long)
+fp_div:long (div1:long, div2:long)
+fp_eq:long (infp1:long, infp2:long)
+fp_le:long (infp1:long, infp2:long)
+fp_lt:long (infp1:long, infp2:long)
+fp_mul:long (mul1:long, mul2:long)
+fp_rem:long (div1:long, div2:long)
+fp_sqrt:long (infp:long)
+fp_sub:long (sub1:long, sub2:long)
+fp_to_long:long (infp:long, roundingMode:long, exact:long)
+fp_to_string:string (infp:long, precision:long)
+ftrace:unknown (msg:string)
+ftype:string (type:long)
+fullpath_struct_file:string (task:long, file:long)
+fullpath_struct_nameidata:string (nd:long)
+fullpath_struct_path:string (path:long)
+get_cycles:long () /* unprivileged */
+get_devstate_from_req:long (var:long)
+get_ip:string (task:long)
+get_ip_from_client:string (clnt:long) /* unprivileged */
+get_loadavg_index:long (indx:long)
+get_netdev_name:string (addr:long)
+get_prot:long (task:long)
+get_prot_from_client:long (clnt:long)
+get_sa_flags:long (act:long)
+get_sa_handler:long (act:long)
+get_sigaction_mask:long (act:long)
+get_sigset:long (sigset:long)
+gettimeofday_ms:long ()
+gettimeofday_ns:long () /* unprivileged */
+gettimeofday_s:long ()
+gettimeofday_us:long ()
+gid:long () /* unprivileged */
+htonl:long (x:long)
+htonll:long (x:long)
+htons:long (x:long)
+indent:string (delta:long)
+indent_depth:long (delta:long)
+inet_get_ip_source:string (sock:long)
+inet_get_local_port:long (sock:long)
+inode_name:string (inode:long)
+inode_path:string (inode:long)
+int_arg:long (argnum:long)
+ip_ntop:string (addr:long) /* unprivileged */
+ipmib_filter_key:long (skb:long, op:long, SourceIsLocal:long)
+ipmib_get_proto:long (skb:long)
+ipmib_local_addr:long (skb:long, SourceIsLocal:long)
+ipmib_remote_addr:long (skb:long, SourceIsLocal:long)
+ipmib_tcp_local_port:long (skb:long, SourceIsLocal:long)
+ipmib_tcp_remote_port:long (skb:long, SourceIsLocal:long)
+irqflags_str:string (f:long) /* unprivileged */
+is_myproc:long () /* unprivileged */
+is_return:long ()
+is_sig_blocked:long (task:long, sig:long)
+isdigit:long (str:string) /* unprivileged */
+isinstr:long (s1:string, s2:string) /* unprivileged */
+jiffies:long () /* unprivileged */
+json_add_array:long (name:string, description:string)
+json_add_array_numeric_metric:long (array_name:string, metric_name:string, metric_description:string, metric_units:string)
+json_add_array_string_metric:long (array_name:string, metric_name:string, metric_description:string)
+json_add_numeric_metric:long (name:string, description:string, units:string)
+json_add_string_metric:long (name:string, description:string)
+json_set_prefix:long (prefix:string)
+jstack:string ()
+jstack_call:string (max_depth:long, log_sig:long, log_native:long, print_frames:long)
+jstack_full:string ()
+jstack_full_n:string (max_depth:long)
+jstack_n:string (max_depth:long)
+kernel_buffer_quoted:string (addr:long, inlen:long)
+kernel_buffer_quoted:string (addr:long, inlen:long, outlen:long)
+kernel_buffer_quoted_error:string (addr:long, inlen:long, outlen:long)
+kernel_char:long (addr:long)
+kernel_int:long (addr:long)
+kernel_long:long (addr:long)
+kernel_pointer:long (addr:long)
+kernel_short:long (addr:long)
+kernel_string2:string (addr:long, err_msg:string)
+kernel_string2_utf16:string (addr:long, err_msg:string)
+kernel_string2_utf32:string (addr:long, err_msg:string)
+kernel_string:string (addr:long)
+kernel_string:string (addr:long, err_msg:string)
+kernel_string_n:string (addr:long, n:long)
+kernel_string_quoted:string (addr:long)
+kernel_string_quoted_utf16:string (addr:long)
+kernel_string_quoted_utf32:string (addr:long)
+kernel_string_utf16:string (addr:long)
+kernel_string_utf16:string (addr:long, err_msg:string)
+kernel_string_utf32:string (addr:long)
+kernel_string_utf32:string (addr:long, err_msg:string)
+ktime_get_ns:long () /* unprivileged */
+linuxmib_filter_key:long (sk:long, op:long)
+little_endian2:long (val:long)
+little_endian4:long (val:long)
+little_endian8:long (val:long)
+local_clock_ms:long ()
+local_clock_ns:long () /* unprivileged */
+local_clock_s:long ()
+local_clock_us:long ()
+log:unknown (msg:string) /* unprivileged */
+long_arg:long (argnum:long)
+long_to_fp:long (input:long)
+longlong_arg:long (argnum:long)
+matched:string (n:long) /* unprivileged */
+matched_str:string ()
+mdelay:unknown (ms:long) /* guru */
+mem_page_size:long () /* unprivileged */
+modname:string (addr:long)
+module_name:string () /* unprivileged */
+module_size:string ()
+msecs_to_string:string (msecs:long)
+msg_flags_num2str:string (flags:long)
+nfs3_cmode:string (cmode:long)
+nfs4_ctype:string (cmode:long)
+nfsderror:string (err:long)
+ngroups:long () /* unprivileged */
+ns_egid:long () /* unprivileged */
+ns_euid:long () /* unprivileged */
+ns_gid:long () /* unprivileged */
+ns_pgrp:long () /* unprivileged */
+ns_pid:long () /* unprivileged */
+ns_ppid:long () /* unprivileged */
+ns_sid:long () /* unprivileged */
+ns_tid:long () /* unprivileged */
+ns_uid:long () /* unprivileged */
+nsecs_to_string:string (nsecs:long)
+ntohl:long (x:long)
+ntohll:long (x:long)
+ntohs:long (x:long)
+pages_to_string:string (pages:long)
+panic:unknown (msg:string) /* guru */
+pexecname:string () /* unprivileged */
+pgrp:long () /* unprivileged */
+pid2execname:string (pid:long)
+pid2task:long (pid:long)
+pid:long () /* unprivileged */
+pn:string () /* unprivileged */
+pnlabel:string () /* unprivileged */
+pointer_arg:long (argnum:long)
+port_from_clnt:long (clnt:long)
+port_from_xprt:long (cl_xprt:long) /* unprivileged */
+pp:string () /* unprivileged */
+ppfunc:string () /* unprivileged */
+ppid:long () /* unprivileged */
+print_backtrace:unknown ()
+print_backtrace_fileline:unknown ()
+print_java_backtrace:unknown ()
+print_jstack:string ()
+print_jstack_full:string ()
+print_jstack_full_n:string (max_depth:long)
+print_jstack_n:string (max_depth:long)
+print_regs:unknown ()
+print_stack:unknown (stk:string)
+print_syms:unknown (callers:string)
+print_ubacktrace:unknown () /* myproc-unprivileged */
+print_ubacktrace:unknown (pc:long, sp:long, fp:long) /* myproc-unprivileged */
+print_ubacktrace_brief:unknown () /* myproc-unprivileged */
+print_ubacktrace_fileline:unknown () /* myproc-unprivileged */
+print_ubacktrace_fileline:unknown (pc:long, sp:long, fp:long) /* myproc-unprivileged */
+print_ustack:unknown (stk:string)
+print_usyms:unknown (callers:string)
+printk:unknown (level:long, msg:string) /* guru */
+probe_type:string () /* unprivileged */
+probefunc:string ()
+probemod:string ()
+probing_32bit_app:long ()
+proc_from_msg:long (msg:long)
+proc_mem_data:long ()
+proc_mem_data:long (pid:long)
+proc_mem_data_pid:long (pid:long)
+proc_mem_rss:long ()
+proc_mem_rss:long (pid:long)
+proc_mem_rss_pid:long (pid:long)
+proc_mem_shr:long ()
+proc_mem_shr:long (pid:long)
+proc_mem_shr_pid:long (pid:long)
+proc_mem_size:long ()
+proc_mem_size:long (pid:long)
+proc_mem_size_pid:long (pid:long)
+proc_mem_string:string ()
+proc_mem_string:string (pid:long)
+proc_mem_string_pid:string (pid:long)
+proc_mem_txt:long ()
+proc_mem_txt:long (pid:long)
+proc_mem_txt_pid:long (pid:long)
+prog_from_clnt:long (clnt:long)
+prot_from_clnt:long (clnt:long)
+pstrace:string (task:long)
+python2_get_locals:string (frame:long, flags:long)
+python2_get_var_obj:long (frame:long, var:string)
+python2_get_var_obj:long (frame:long, var:string, index:long)
+python3_get_locals:string (frame:long, flags:long)
+python3_get_var_obj:long (frame:long, var:string)
+python3_get_var_obj:long (frame:long, var:string, index:long)
+python3_initialize:long (arg1:long)
+python_print_backtrace:long ()
+python_print_backtrace:long ()
+python_sprint_backtrace:string ()
+python_sprint_backtrace:string ()
+qs_done:unknown (qname:string)
+qs_run:unknown (qname:string)
+qs_time:long ()
+qs_wait:unknown (qname:string)
+qsq_blocked:long (qname:string, scale:long)
+qsq_print:unknown (qname:string)
+qsq_service_time:long (qname:string, scale:long)
+qsq_start:unknown (qname:string)
+qsq_throughput:long (qname:string, scale:long)
+qsq_utilization:long (qname:string, scale:long)
+qsq_wait_queue_length:long (qname:string, scale:long)
+qsq_wait_time:long (qname:string, scale:long)
+raise:unknown (signo:long) /* guru */
+randint:long (n:long) /* unprivileged */
+rcu_dereference:long (protected_pointer:long)
+read_stopwatch_ms:long (name:string)
+read_stopwatch_ns:long (name:string)
+read_stopwatch_s:long (name:string)
+read_stopwatch_us:long (name:string)
+real_mount:long (vfsmnt:long)
+register:long (name:string)
+registers_valid:long () /* unprivileged */
+regparm:unknown (n:long)
+remote_id:long () /* unprivileged */
+remote_uri:string () /* unprivileged */
+return_str:string (format:long, ret:long)
+returnstr:string (format:long)
+returnval:long ()
+reverse_path_walk:string (dentry:long)
+rlimit_from_str:long (lim_str:string)
+s32_arg:long (argnum:long)
+s64_arg:long (argnum:long)
+sa_flags_str:string (sa_flags:long)
+sa_handler_str:string (handler:long)
+scsi_timer_pending:long (cmd:long)
+set_int_arg:unknown (argnum:long, value:long)
+set_kernel_char:unknown (addr:long, val:long) /* guru */
+set_kernel_int:unknown (addr:long, val:long) /* guru */
+set_kernel_long:unknown (addr:long, val:long) /* guru */
+set_kernel_pointer:unknown (addr:long, val:long) /* guru */
+set_kernel_short:unknown (addr:long, val:long) /* guru */
+set_kernel_string:unknown (addr:long, val:string) /* guru */
+set_kernel_string_n:unknown (addr:long, n:long, val:string) /* guru */
+set_long_arg:unknown (argnum:long, value:long)
+set_longlong_arg:unknown (argnum:long, value:long)
+set_pointer_arg:unknown (argnum:long, value:long)
+set_s32_arg:long (argnum:long, value:long)
+set_s64_arg:unknown (argnum:long, value:long)
+set_u32_arg:unknown (argnum:long, value:long)
+set_u64_arg:unknown (argnum:long, value:long)
+set_uint_arg:unknown (argnum:long, value:long)
+set_ulong_arg:unknown (argnum:long, value:long)
+set_ulonglong_arg:unknown (argnum:long, value:long)
+set_user_char:unknown (addr:long, val:long) /* guru */
+set_user_int:unknown (addr:long, val:long) /* guru */
+set_user_long:unknown (addr:long, val:long) /* guru */
+set_user_pointer:unknown (addr:long, val:long) /* guru */
+set_user_short:unknown (addr:long, val:long) /* guru */
+set_user_string:unknown (addr:long, val:string) /* guru */
+set_user_string_arg:unknown (addr:long, val:string)
+set_user_string_n:unknown (addr:long, n:long, val:string) /* guru */
+sid:long () /* unprivileged */
+signal_str:string (num:long)
+sigset_mask_str:string (mask:long)
+sock_fam_num2str:string (family:long)
+sock_fam_str2num:long (family:string)
+sock_flags_num2str:string (flags:long)
+sock_prot_num2str:string (proto:long)
+sock_prot_str2num:long (proto:string)
+sock_state_num2str:string (state:long)
+sock_state_str2num:long (state:string)
+sock_type_num2str:string (type:long)
+sock_type_str2num:long (type:string)
+speculate:unknown (id:long, output:string)
+speculation:long ()
+sprint_backtrace:string ()
+sprint_java_backtrace:string ()
+sprint_loadavg:string ()
+sprint_stack:string (stk:string)
+sprint_syms:string (callers:string) /* unprivileged */
+sprint_ubacktrace:string () /* myproc-unprivileged */
+sprint_ustack:string (stk:string)
+sprint_usyms:string (callers:string) /* unprivileged */
+sssd_acct_req_probestr:string (fc_name:string, entry_type:long, filter_type:long, filter_value:string, extra_value:string)
+stack:long (n:long)
+stack_size:long ()
+stack_unused:long ()
+stack_used:long ()
+start_stopwatch:unknown (name:string)
+stop_stopwatch:unknown (name:string)
+stp_pid:long ()
+stp_print_binary:unknown (n:long, arg1:long, arg2:long, arg3:long, arg4:long)
+str_replace:string (prnt_str:string, srch_str:string, rplc_str:string) /* unprivileged */
+string_quoted:string (str:string)
+string_to_fp:long (input:string)
+stringat:long (str:string, pos:long) /* unprivileged */
+strlen:long (s:string) /* unprivileged */
+strpos:long (s1:string, s2:string) /* unprivileged */
+strtol:long (str:string, base:long) /* unprivileged */
+substr:string (str:string, start:long, length:long) /* unprivileged */
+switch_file:unknown ()
+symdata:string (addr:long)
+symfile:string (addr:long)
+symfileline:string (addr:long)
+symline:string (addr:long)
+symname:string (addr:long)
+syscall_name:string (num:long)
+syscall_num:long (name:string)
+system:unknown (cmd:string) /* unprivileged */
+target:long () /* unprivileged */
+target_set_pid:long (pid:long)
+target_set_report:unknown ()
+task_ancestry:string (task:long, with_time:long)
+task_cpu:long (task:long)
+task_current:long ()
+task_cwd_path:long (task:long)
+task_dentry_path:string (task:long, dentry:long, vfsmnt:long) /* unprivileged */
+task_egid:long (task:long)
+task_euid:long (task:long)
+task_execname:string (task:long)
+task_fd_lookup:long (task:long, fd:long)
+task_gid:long (task:long)
+task_max_file_handles:long (task:long)
+task_nice:long (task:long)
+task_ns_egid:long (task:long) /* guru */
+task_ns_euid:long (task:long) /* guru */
+task_ns_gid:long (task:long) /* guru */
+task_ns_pid:long (task:long) /* guru */
+task_ns_tid:long (task:long) /* guru */
+task_ns_uid:long (task:long) /* guru */
+task_open_file_handles:long (task:long)
+task_parent:long (task:long)
+task_pid:long (task:long)
+task_prio:long (task:long)
+task_rlimit:long (task:long, lim_str:string)
+task_rlimit_as:long (task:long) /* unprivileged */
+task_rlimit_core:long (task:long) /* unprivileged */
+task_rlimit_cpu:long (task:long) /* unprivileged */
+task_rlimit_data:long (task:long) /* unprivileged */
+task_rlimit_fsize:long (task:long) /* unprivileged */
+task_rlimit_locks:long (task:long) /* unprivileged */
+task_rlimit_memlock:long (task:long) /* unprivileged */
+task_rlimit_msgqueue:long (task:long) /* unprivileged */
+task_rlimit_nice:long (task:long) /* unprivileged */
+task_rlimit_nofile:long (task:long) /* unprivileged */
+task_rlimit_nproc:long (task:long) /* unprivileged */
+task_rlimit_rss:long (task:long) /* unprivileged */
+task_rlimit_rtprio:long (task:long) /* unprivileged */
+task_rlimit_rttime:long (task:long) /* unprivileged */
+task_rlimit_sigpending:long (task:long) /* unprivileged */
+task_rlimit_stack:long (task:long) /* unprivileged */
+task_start_time:long (tid:long)
+task_state:long (task:long)
+task_stime:long () /* unprivileged */
+task_stime:long (tid:long)
+task_stime_tid:long (tid:long)
+task_tid:long (task:long)
+task_time_string:string ()
+task_time_string_tid:string (tid:long)
+task_uid:long (task:long)
+task_utime:long () /* unprivileged */
+task_utime:long (tid:long)
+task_utime_tid:long (tid:long)
+tasks_from_clnt:long (clnt:long)
+tcp_get_info_rto:long (sock:long)
+tcp_get_info_snd_cwnd:long (sock:long)
+tcp_ipv6_sockopt_str:string (optname:long)
+tcp_sockopt_str:string (optname:long)
+tcp_sockstate_str:string (state:long)
+tcp_ts_get_info_rcv_mss:long (sock:long)
+tcp_ts_get_info_snd_ssthresh:long (sock:long)
+tcp_ts_get_info_state:long (sock:long)
+tcpmib_filter_key:long (sk:long, op:long)
+tcpmib_get_state:long (sk:long)
+tcpmib_local_addr:long (sk:long)
+tcpmib_local_port:long (sk:long)
+tcpmib_remote_addr:long (sk:long)
+tcpmib_remote_port:long (sk:long)
+text_str:string (input:string) /* unprivileged */
+text_strn:string (input:string, len:long, quoted:long) /* unprivileged */
+thread_indent:string (delta:long)
+thread_indent_depth:long (delta:long)
+tid:long () /* unprivileged */
+timer_pending:long (timer:long)
+tokenize:string (delim:string)
+tokenize:string (input:string, delim:string) /* unprivileged */
+tz_ctime:string (epochsecs:long)
+tz_gmtoff:long () /* unprivileged */
+tz_name:string () /* unprivileged */
+u32_arg:long (argnum:long)
+u64_arg:long (argnum:long)
+u_register:long (name:string)
+uaddr:long () /* myproc-unprivileged */
+uarch_bytes:long ()
+ubacktrace:string () /* myproc-unprivileged */
+ucallers:string (n:long) /* unprivileged */
+udelay:unknown (us:long) /* guru */
+uid:long () /* unprivileged */
+uint_arg:long (argnum:long)
+ulong_arg:long (argnum:long)
+ulonglong_arg:long (argnum:long)
+umodname:string (addr:long) /* myproc-unprivileged */
+usecs_to_string:string (usecs:long)
+user_buffer_quoted:string (addr:long, inlen:long, outlen:long)
+user_buffer_quoted_error:string (addr:long, inlen:long, outlen:long)
+user_char:long (addr:long)
+user_char_error:long (addr:long) /* myproc-unprivileged */
+user_char_warn:long (addr:long)
+user_int16:long (addr:long)
+user_int16_error:long (addr:long) /* myproc-unprivileged */
+user_int32:long (addr:long)
+user_int32_error:long (addr:long) /* myproc-unprivileged */
+user_int64:long (addr:long)
+user_int64_error:long (addr:long) /* myproc-unprivileged */
+user_int8:long (addr:long)
+user_int8_error:long (addr:long) /* myproc-unprivileged */
+user_int:long (addr:long)
+user_int_error:long (addr:long) /* myproc-unprivileged */
+user_int_warn:long (addr:long)
+user_long:long (addr:long)
+user_long_error:long (addr:long) /* myproc-unprivileged */
+user_long_warn:long (addr:long)
+user_mode:long () /* unprivileged */
+user_short:long (addr:long)
+user_short_error:long (addr:long) /* myproc-unprivileged */
+user_short_warn:long (addr:long)
+user_string2:string (addr:long, err_msg:string) /* unprivileged */
+user_string2_n_warn:string (addr:long, n:long, warn_msg:string)
+user_string2_utf16:string (addr:long, err_msg:string)
+user_string2_utf32:string (addr:long, err_msg:string)
+user_string2_warn:string (addr:long, warn_msg:string) /* unprivileged */
+user_string:string (addr:long) /* unprivileged */
+user_string:string (addr:long, err_msg:string) /* unprivileged */
+user_string_n2:string (addr:long, n:long, err_msg:string)
+user_string_n2_quoted:string (addr:long, inlen:long, outlen:long)
+user_string_n:string (addr:long, n:long) /* myproc-unprivileged */
+user_string_n:string (addr:long, n:long, err_msg:string) /* myproc-unprivileged */
+user_string_n_nofault:string (addr:long, n:long)
+user_string_n_quoted:string (addr:long, n:long) /* unprivileged */
+user_string_n_quoted:string (addr:long, inlen:long, outlen:long)
+user_string_n_warn:string (addr:long, n:long)
+user_string_n_warn:string (addr:long, n:long, warn_msg:string) /* myproc-unprivileged */
+user_string_nofault:string (addr:long)
+user_string_quoted:string (addr:long)
+user_string_quoted_utf16:string (addr:long)
+user_string_quoted_utf32:string (addr:long)
+user_string_utf16:string (addr:long) /* myproc-unprivileged */
+user_string_utf16:string (addr:long, err_msg:string)
+user_string_utf32:string (addr:long) /* myproc-unprivileged */
+user_string_utf32:string (addr:long, err_msg:string)
+user_string_warn:string (addr:long)
+user_string_warn:string (addr:long, warn_msg:string) /* unprivileged */
+user_uint16:long (addr:long)
+user_uint16_error:long (addr:long) /* myproc-unprivileged */
+user_uint32:long (addr:long)
+user_uint32_error:long (addr:long) /* myproc-unprivileged */
+user_uint64:long (addr:long)
+user_uint64_error:long (addr:long)
+user_uint8:long (addr:long)
+user_uint8_error:long (addr:long) /* myproc-unprivileged */
+user_ulong:long (addr:long)
+user_ulong_error:long (addr:long) /* myproc-unprivileged */
+user_ulong_warn:long (addr:long)
+user_ushort:long (addr:long)
+user_ushort_error:long (addr:long) /* myproc-unprivileged */
+user_ushort_warn:long (addr:long)
+usrdev2kerndev:long (dev:long)
+ustack:long (n:long)
+usymdata:string (addr:long) /* myproc-unprivileged */
+usymfile:string (addr:long) /* myproc-unprivileged */
+usymfileline:string (addr:long) /* myproc-unprivileged */
+usymline:string (addr:long) /* myproc-unprivileged */
+usymname:string (addr:long) /* myproc-unprivileged */
+vers_from_clnt:long (clnt:long)
+vers_from_prog:long (program:long, vers:long)
+vm_fault_contains:long (value:long, test:long)
+warn:unknown (msg:string) /* unprivileged */
+xid_from_clnt:long (clnt:long)

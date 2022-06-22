@@ -1,0 +1,3 @@
+ethtool -K <ethX> ntuple <on|off>
+ethtool -N eno1 flow-type udp4 src-ip 173.20.2.3 dst-ip 173.20.2.4 action -1
+ethtool -N eno1 flow-type udp4 src-ip 173.20.2.3 dst-port 5201 action -1

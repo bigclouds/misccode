@@ -1,0 +1,2025 @@
+kernel.trace("9p:9p_client_req") $clnt:struct p9_client* $type:int8_t $tag:int
+kernel.trace("9p:9p_client_res") $clnt:struct p9_client* $type:int8_t $tag:int $err:int
+kernel.trace("9p:9p_protocol_dump") $clnt:struct p9_client* $pdu:struct p9_fcall*
+kernel.trace("alarmtimer:alarmtimer_cancel") $alarm:struct alarm* $now:ktime_t
+kernel.trace("alarmtimer:alarmtimer_fired") $alarm:struct alarm* $now:ktime_t
+kernel.trace("alarmtimer:alarmtimer_start") $alarm:struct alarm* $now:ktime_t
+kernel.trace("alarmtimer:alarmtimer_suspend") $expires:ktime_t $flag:int
+kernel.trace("asoc:snd_soc_bias_level_done") $card:struct snd_soc_card* $val:int
+kernel.trace("asoc:snd_soc_bias_level_start") $card:struct snd_soc_card* $val:int
+kernel.trace("asoc:snd_soc_dapm_connected") $paths:int $stream:int
+kernel.trace("asoc:snd_soc_dapm_done") $card:struct snd_soc_card*
+kernel.trace("asoc:snd_soc_dapm_path") $widget:struct snd_soc_dapm_widget* $dir:enum snd_soc_dapm_direction $path:struct snd_soc_dapm_path*
+kernel.trace("asoc:snd_soc_dapm_start") $card:struct snd_soc_card*
+kernel.trace("asoc:snd_soc_dapm_walk_done") $card:struct snd_soc_card*
+kernel.trace("asoc:snd_soc_dapm_widget_event_done") $w:struct snd_soc_dapm_widget* $val:int
+kernel.trace("asoc:snd_soc_dapm_widget_event_start") $w:struct snd_soc_dapm_widget* $val:int
+kernel.trace("asoc:snd_soc_dapm_widget_power") $w:struct snd_soc_dapm_widget* $val:int
+kernel.trace("asoc:snd_soc_jack_irq") $name:char const*
+kernel.trace("asoc:snd_soc_jack_notify") $jack:struct snd_soc_jack* $val:int
+kernel.trace("asoc:snd_soc_jack_report") $jack:struct snd_soc_jack* $mask:int $val:int
+kernel.trace("bcache:bcache_alloc") $ca:struct cache* $bucket:size_t
+kernel.trace("bcache:bcache_alloc_fail") $ca:struct cache* $reserve:unsigned int
+kernel.trace("bcache:bcache_btree_cache_cannibalize") $c:struct cache_set*
+kernel.trace("bcache:bcache_btree_gc_coalesce") $nodes:unsigned int
+kernel.trace("bcache:bcache_btree_insert_key") $b:struct btree* $k:struct bkey* $op:unsigned int $status:unsigned int
+kernel.trace("bcache:bcache_btree_node_alloc") $b:struct btree*
+kernel.trace("bcache:bcache_btree_node_alloc_fail") $c:struct cache_set*
+kernel.trace("bcache:bcache_btree_node_compact") $b:struct btree* $keys:unsigned int
+kernel.trace("bcache:bcache_btree_node_free") $b:struct btree*
+kernel.trace("bcache:bcache_btree_node_split") $b:struct btree* $keys:unsigned int
+kernel.trace("bcache:bcache_btree_read") $b:struct btree*
+kernel.trace("bcache:bcache_btree_set_root") $b:struct btree*
+kernel.trace("bcache:bcache_btree_write") $b:struct btree*
+kernel.trace("bcache:bcache_bypass_congested") $bio:struct bio*
+kernel.trace("bcache:bcache_bypass_sequential") $bio:struct bio*
+kernel.trace("bcache:bcache_cache_insert") $k:struct bkey*
+kernel.trace("bcache:bcache_gc_copy") $k:struct bkey*
+kernel.trace("bcache:bcache_gc_copy_collision") $k:struct bkey*
+kernel.trace("bcache:bcache_gc_end") $c:struct cache_set*
+kernel.trace("bcache:bcache_gc_start") $c:struct cache_set*
+kernel.trace("bcache:bcache_invalidate") $ca:struct cache* $bucket:size_t
+kernel.trace("bcache:bcache_journal_entry_full") $c:struct cache_set*
+kernel.trace("bcache:bcache_journal_full") $c:struct cache_set*
+kernel.trace("bcache:bcache_journal_replay_key") $k:struct bkey*
+kernel.trace("bcache:bcache_journal_write") $bio:struct bio*
+kernel.trace("bcache:bcache_keyscan") $nr_found:unsigned int $start_inode:unsigned int $start_offset:uint64_t $end_inode:unsigned int $end_offset:uint64_t
+kernel.trace("bcache:bcache_read") $bio:struct bio* $hit:bool $bypass:bool
+kernel.trace("bcache:bcache_read_retry") $bio:struct bio*
+kernel.trace("bcache:bcache_request_end") $d:struct bcache_device* $bio:struct bio*
+kernel.trace("bcache:bcache_request_start") $d:struct bcache_device* $bio:struct bio*
+kernel.trace("bcache:bcache_write") $c:struct cache_set* $inode:u64 $bio:struct bio* $writeback:bool $bypass:bool
+kernel.trace("bcache:bcache_writeback") $k:struct bkey*
+kernel.trace("bcache:bcache_writeback_collision") $k:struct bkey*
+kernel.trace("block:block_bio_backmerge") $q:struct request_queue* $rq:struct request* $bio:struct bio*
+kernel.trace("block:block_bio_bounce") $q:struct request_queue* $bio:struct bio*
+kernel.trace("block:block_bio_complete") $q:struct request_queue* $bio:struct bio*
+kernel.trace("block:block_bio_frontmerge") $q:struct request_queue* $rq:struct request* $bio:struct bio*
+kernel.trace("block:block_bio_queue") $q:struct request_queue* $bio:struct bio*
+kernel.trace("block:block_bio_remap") $q:struct request_queue* $bio:struct bio* $dev:dev_t $from:sector_t
+kernel.trace("block:block_dirty_buffer") $bh:struct buffer_head*
+kernel.trace("block:block_getrq") $q:struct request_queue* $bio:struct bio* $rw:int
+kernel.trace("block:block_plug") $q:struct request_queue*
+kernel.trace("block:block_rq_complete") $rq:struct request* $error:int $nr_bytes:unsigned int
+kernel.trace("block:block_rq_insert") $q:struct request_queue* $rq:struct request*
+kernel.trace("block:block_rq_issue") $q:struct request_queue* $rq:struct request*
+kernel.trace("block:block_rq_merge") $q:struct request_queue* $rq:struct request*
+kernel.trace("block:block_rq_remap") $q:struct request_queue* $rq:struct request* $dev:dev_t $from:sector_t
+kernel.trace("block:block_rq_requeue") $q:struct request_queue* $rq:struct request*
+kernel.trace("block:block_split") $q:struct request_queue* $bio:struct bio* $new_sector:unsigned int
+kernel.trace("block:block_touch_buffer") $bh:struct buffer_head*
+kernel.trace("block:block_unplug") $q:struct request_queue* $depth:unsigned int $explicit:bool
+kernel.trace("bpf_test_run:bpf_test_finish") $err:int*
+kernel.trace("bridge:br_fdb_add") $ndm:struct ndmsg* $dev:struct net_device* $addr:unsigned char const* $vid:u16 $nlh_flags:u16
+kernel.trace("bridge:br_fdb_external_learn_add") $br:struct net_bridge* $p:struct net_bridge_port* $addr:unsigned char const* $vid:u16
+kernel.trace("bridge:br_fdb_update") $br:struct net_bridge* $source:struct net_bridge_port* $addr:unsigned char const* $vid:u16 $added_by_user:bool
+kernel.trace("bridge:fdb_delete") $br:struct net_bridge* $f:struct net_bridge_fdb_entry*
+kernel.trace("btrfs:__extent_writepage") $page:struct page const* $inode:struct inode const* $wbc:struct writeback_control const*
+kernel.trace("btrfs:add_delayed_data_ref") $fs_info:struct btrfs_fs_info const* $ref:struct btrfs_delayed_ref_node const* $full_ref:struct btrfs_delayed_data_ref const* $action:int
+kernel.trace("btrfs:add_delayed_ref_head") $fs_info:struct btrfs_fs_info const* $head_ref:struct btrfs_delayed_ref_head const* $action:int
+kernel.trace("btrfs:add_delayed_tree_ref") $fs_info:struct btrfs_fs_info const* $ref:struct btrfs_delayed_ref_node const* $full_ref:struct btrfs_delayed_tree_ref const* $action:int
+kernel.trace("btrfs:alloc_extent_state") $state:struct extent_state const* $mask:gfp_t $IP:long unsigned int
+kernel.trace("btrfs:btrfs_add_block_group") $fs_info:struct btrfs_fs_info const* $block_group:struct btrfs_block_group_cache const* $create:int
+kernel.trace("btrfs:btrfs_add_unused_block_group") $bg_cache:struct btrfs_block_group_cache const*
+kernel.trace("btrfs:btrfs_all_work_done") $fs_info:struct btrfs_fs_info const* $wtag:void const*
+kernel.trace("btrfs:btrfs_chunk_alloc") $fs_info:struct btrfs_fs_info const* $map:struct map_lookup const* $offset:u64 $size:u64
+kernel.trace("btrfs:btrfs_chunk_free") $fs_info:struct btrfs_fs_info const* $map:struct map_lookup const* $offset:u64 $size:u64
+kernel.trace("btrfs:btrfs_cow_block") $root:struct btrfs_root const* $buf:struct extent_buffer const* $cow:struct extent_buffer const*
+kernel.trace("btrfs:btrfs_failed_cluster_setup") $block_group:struct btrfs_block_group_cache const*
+kernel.trace("btrfs:btrfs_find_cluster") $block_group:struct btrfs_block_group_cache const* $start:u64 $bytes:u64 $empty_size:u64 $min_bytes:u64
+kernel.trace("btrfs:btrfs_flush_space") $fs_info:struct btrfs_fs_info const* $flags:u64 $num_bytes:u64 $state:int $ret:int
+kernel.trace("btrfs:btrfs_get_extent") $root:struct btrfs_root const* $inode:struct btrfs_inode const* $map:struct extent_map const*
+kernel.trace("btrfs:btrfs_get_extent_show_fi_inline") $bi:struct btrfs_inode* $l:struct extent_buffer* $fi:struct btrfs_file_extent_item* $slot:int $start:u64
+kernel.trace("btrfs:btrfs_get_extent_show_fi_regular") $bi:struct btrfs_inode* $l:struct extent_buffer* $fi:struct btrfs_file_extent_item* $start:u64
+kernel.trace("btrfs:btrfs_handle_em_exist") $fs_info:struct btrfs_fs_info* $existing:struct extent_map const* $map:struct extent_map const* $start:u64 $len:u64
+kernel.trace("btrfs:btrfs_inode_evict") $inode:struct inode const*
+kernel.trace("btrfs:btrfs_inode_mod_outstanding_extents") $root:struct btrfs_root* $ino:u64 $mod:int
+kernel.trace("btrfs:btrfs_inode_new") $inode:struct inode const*
+kernel.trace("btrfs:btrfs_inode_request") $inode:struct inode const*
+kernel.trace("btrfs:btrfs_ordered_extent_add") $inode:struct inode const* $ordered:struct btrfs_ordered_extent const*
+kernel.trace("btrfs:btrfs_ordered_extent_put") $inode:struct inode const* $ordered:struct btrfs_ordered_extent const*
+kernel.trace("btrfs:btrfs_ordered_extent_remove") $inode:struct inode const* $ordered:struct btrfs_ordered_extent const*
+kernel.trace("btrfs:btrfs_ordered_extent_start") $inode:struct inode const* $ordered:struct btrfs_ordered_extent const*
+kernel.trace("btrfs:btrfs_ordered_sched") $work:struct btrfs_work const*
+kernel.trace("btrfs:btrfs_prelim_ref_insert") $fs_info:struct btrfs_fs_info const* $oldref:struct prelim_ref const* $newref:struct prelim_ref const* $tree_size:u64
+kernel.trace("btrfs:btrfs_prelim_ref_merge") $fs_info:struct btrfs_fs_info const* $oldref:struct prelim_ref const* $newref:struct prelim_ref const* $tree_size:u64
+kernel.trace("btrfs:btrfs_qgroup_account_extent") $fs_info:struct btrfs_fs_info const* $transid:u64 $bytenr:u64 $num_bytes:u64 $nr_old_roots:u64 $nr_new_roots:u64
+kernel.trace("btrfs:btrfs_qgroup_account_extents") $fs_info:struct btrfs_fs_info const* $rec:struct btrfs_qgroup_extent_record const*
+kernel.trace("btrfs:btrfs_qgroup_free_delayed_ref") $fs_info:struct btrfs_fs_info const* $ref_root:u64 $reserved:u64
+kernel.trace("btrfs:btrfs_qgroup_release_data") $inode:struct inode const* $start:u64 $len:u64 $reserved:u64 $op:int
+kernel.trace("btrfs:btrfs_qgroup_reserve_data") $inode:struct inode const* $start:u64 $len:u64 $reserved:u64 $op:int
+kernel.trace("btrfs:btrfs_qgroup_trace_extent") $fs_info:struct btrfs_fs_info const* $rec:struct btrfs_qgroup_extent_record const*
+kernel.trace("btrfs:btrfs_remove_block_group") $bg_cache:struct btrfs_block_group_cache const*
+kernel.trace("btrfs:btrfs_reserve_extent") $block_group:struct btrfs_block_group_cache const* $start:u64 $len:u64
+kernel.trace("btrfs:btrfs_reserve_extent_cluster") $block_group:struct btrfs_block_group_cache const* $start:u64 $len:u64
+kernel.trace("btrfs:btrfs_reserved_extent_alloc") $fs_info:struct btrfs_fs_info const* $start:u64 $len:u64
+kernel.trace("btrfs:btrfs_reserved_extent_free") $fs_info:struct btrfs_fs_info const* $start:u64 $len:u64
+kernel.trace("btrfs:btrfs_setup_cluster") $block_group:struct btrfs_block_group_cache const* $cluster:struct btrfs_free_cluster const* $size:u64 $bitmap:int
+kernel.trace("btrfs:btrfs_skip_unused_block_group") $bg_cache:struct btrfs_block_group_cache const*
+kernel.trace("btrfs:btrfs_space_reservation") $fs_info:struct btrfs_fs_info const* $type:char* $val:u64 $bytes:u64 $reserve:int
+kernel.trace("btrfs:btrfs_sync_file") $file:struct file const* $datasync:int
+kernel.trace("btrfs:btrfs_sync_fs") $fs_info:struct btrfs_fs_info const* $wait:int
+kernel.trace("btrfs:btrfs_transaction_commit") $root:struct btrfs_root const*
+kernel.trace("btrfs:btrfs_trigger_flush") $fs_info:struct btrfs_fs_info const* $flags:u64 $bytes:u64 $flush:int $reason:char*
+kernel.trace("btrfs:btrfs_truncate_show_fi_inline") $bi:struct btrfs_inode* $l:struct extent_buffer* $fi:struct btrfs_file_extent_item* $slot:int $start:u64
+kernel.trace("btrfs:btrfs_truncate_show_fi_regular") $bi:struct btrfs_inode* $l:struct extent_buffer* $fi:struct btrfs_file_extent_item* $start:u64
+kernel.trace("btrfs:btrfs_work_queued") $work:struct btrfs_work const*
+kernel.trace("btrfs:btrfs_work_sched") $work:struct btrfs_work const*
+kernel.trace("btrfs:btrfs_workqueue_alloc") $wq:struct __btrfs_workqueue const* $name:char const* $high:int
+kernel.trace("btrfs:btrfs_workqueue_destroy") $wq:struct __btrfs_workqueue const*
+kernel.trace("btrfs:btrfs_writepage_end_io_hook") $page:struct page const* $start:u64 $end:u64 $uptodate:int
+kernel.trace("btrfs:find_free_extent") $fs_info:struct btrfs_fs_info const* $num_bytes:u64 $empty_size:u64 $data:u64
+kernel.trace("btrfs:free_extent_state") $state:struct extent_state const* $IP:long unsigned int
+kernel.trace("btrfs:qgroup_meta_convert") $root:struct btrfs_root* $diff:s64
+kernel.trace("btrfs:qgroup_meta_free_all_pertrans") $root:struct btrfs_root*
+kernel.trace("btrfs:qgroup_meta_reserve") $root:struct btrfs_root* $diff:s64 $type:int
+kernel.trace("btrfs:qgroup_update_counters") $fs_info:struct btrfs_fs_info const* $qgroup:struct btrfs_qgroup* $cur_old_count:u64 $cur_new_count:u64
+kernel.trace("btrfs:qgroup_update_reserve") $fs_info:struct btrfs_fs_info* $qgroup:struct btrfs_qgroup* $diff:s64 $type:int
+kernel.trace("btrfs:run_delayed_data_ref") $fs_info:struct btrfs_fs_info const* $ref:struct btrfs_delayed_ref_node const* $full_ref:struct btrfs_delayed_data_ref const* $action:int
+kernel.trace("btrfs:run_delayed_ref_head") $fs_info:struct btrfs_fs_info const* $head_ref:struct btrfs_delayed_ref_head const* $action:int
+kernel.trace("btrfs:run_delayed_tree_ref") $fs_info:struct btrfs_fs_info const* $ref:struct btrfs_delayed_ref_node const* $full_ref:struct btrfs_delayed_tree_ref const* $action:int
+kernel.trace("cachefiles:cachefiles_create") $obj:struct cachefiles_object* $de:struct dentry* $ret:int
+kernel.trace("cachefiles:cachefiles_lookup") $obj:struct cachefiles_object* $de:struct dentry* $inode:struct inode*
+kernel.trace("cachefiles:cachefiles_mark_active") $obj:struct cachefiles_object* $de:struct dentry*
+kernel.trace("cachefiles:cachefiles_mark_buried") $obj:struct cachefiles_object* $de:struct dentry* $why:enum fscache_why_object_killed
+kernel.trace("cachefiles:cachefiles_mark_inactive") $obj:struct cachefiles_object* $de:struct dentry* $inode:struct inode*
+kernel.trace("cachefiles:cachefiles_mkdir") $obj:struct cachefiles_object* $de:struct dentry* $ret:int
+kernel.trace("cachefiles:cachefiles_ref") $obj:struct cachefiles_object* $cookie:struct fscache_cookie* $why:enum cachefiles_obj_ref_trace $usage:int
+kernel.trace("cachefiles:cachefiles_rename") $obj:struct cachefiles_object* $de:struct dentry* $to:struct dentry* $why:enum fscache_why_object_killed
+kernel.trace("cachefiles:cachefiles_unlink") $obj:struct cachefiles_object* $de:struct dentry* $why:enum fscache_why_object_killed
+kernel.trace("cachefiles:cachefiles_wait_active") $obj:struct cachefiles_object* $de:struct dentry* $xobj:struct cachefiles_object*
+kernel.trace("cfg80211:cfg80211_cac_event") $netdev:struct net_device* $evt:enum nl80211_radar_event
+kernel.trace("cfg80211:cfg80211_ch_switch_notify") $netdev:struct net_device* $chandef:struct cfg80211_chan_def*
+kernel.trace("cfg80211:cfg80211_ch_switch_started_notify") $netdev:struct net_device* $chandef:struct cfg80211_chan_def*
+kernel.trace("cfg80211:cfg80211_chandef_dfs_required") $wiphy:struct wiphy* $chandef:struct cfg80211_chan_def*
+kernel.trace("cfg80211:cfg80211_control_port_tx_status") $wdev:struct wireless_dev* $cookie:u64 $ack:bool
+kernel.trace("cfg80211:cfg80211_cqm_pktloss_notify") $netdev:struct net_device* $peer:u8 const* $num_packets:u32
+kernel.trace("cfg80211:cfg80211_cqm_rssi_notify") $netdev:struct net_device* $rssi_event:enum nl80211_cqm_rssi_threshold_event $rssi_level:s32
+kernel.trace("cfg80211:cfg80211_del_sta") $netdev:struct net_device* $macaddr:u8 const*
+kernel.trace("cfg80211:cfg80211_ft_event") $wiphy:struct wiphy* $netdev:struct net_device* $ft_event:struct cfg80211_ft_event_params*
+kernel.trace("cfg80211:cfg80211_get_bss") $wiphy:struct wiphy* $channel:struct ieee80211_channel* $bssid:u8 const* $ssid:u8 const* $ssid_len:size_t $bss_type:enum ieee80211_bss_type $privacy:enum ieee80211_privacy
+kernel.trace("cfg80211:cfg80211_gtk_rekey_notify") $netdev:struct net_device* $macaddr:u8 const*
+kernel.trace("cfg80211:cfg80211_ibss_joined") $netdev:struct net_device* $bssid:u8 const* $channel:struct ieee80211_channel*
+kernel.trace("cfg80211:cfg80211_inform_bss_frame") $wiphy:struct wiphy* $data:struct cfg80211_inform_bss* $mgmt:struct ieee80211_mgmt* $len:size_t
+kernel.trace("cfg80211:cfg80211_mgmt_tx_status") $wdev:struct wireless_dev* $cookie:u64 $ack:bool
+kernel.trace("cfg80211:cfg80211_michael_mic_failure") $netdev:struct net_device* $addr:u8 const* $key_type:enum nl80211_key_type $key_id:int $tsc:u8 const*
+kernel.trace("cfg80211:cfg80211_new_sta") $netdev:struct net_device* $mac_addr:u8 const* $sinfo:struct station_info*
+kernel.trace("cfg80211:cfg80211_notify_new_peer_candidate") $netdev:struct net_device* $macaddr:u8 const*
+kernel.trace("cfg80211:cfg80211_pmksa_candidate_notify") $netdev:struct net_device* $index:int $bssid:u8 const* $preauth:bool
+kernel.trace("cfg80211:cfg80211_pmsr_complete") $wiphy:struct wiphy* $wdev:struct wireless_dev* $cookie:u64
+kernel.trace("cfg80211:cfg80211_pmsr_report") $wiphy:struct wiphy* $wdev:struct wireless_dev* $cookie:u64 $addr:u8 const*
+kernel.trace("cfg80211:cfg80211_probe_status") $netdev:struct net_device* $addr:u8 const* $cookie:u64 $acked:bool
+kernel.trace("cfg80211:cfg80211_radar_event") $wiphy:struct wiphy* $chandef:struct cfg80211_chan_def*
+kernel.trace("cfg80211:cfg80211_ready_on_channel") $wdev:struct wireless_dev* $cookie:u64 $chan:struct ieee80211_channel* $duration:unsigned int
+kernel.trace("cfg80211:cfg80211_ready_on_channel_expired") $wdev:struct wireless_dev* $cookie:u64 $chan:struct ieee80211_channel*
+kernel.trace("cfg80211:cfg80211_reg_can_beacon") $wiphy:struct wiphy* $chandef:struct cfg80211_chan_def* $iftype:enum nl80211_iftype $check_no_ir:bool
+kernel.trace("cfg80211:cfg80211_report_obss_beacon") $wiphy:struct wiphy* $frame:u8 const* $len:size_t $freq:int $sig_dbm:int
+kernel.trace("cfg80211:cfg80211_report_wowlan_wakeup") $wiphy:struct wiphy* $wdev:struct wireless_dev* $wakeup:struct cfg80211_wowlan_wakeup*
+kernel.trace("cfg80211:cfg80211_return_bool") $ret:bool
+kernel.trace("cfg80211:cfg80211_return_bss") $pub:struct cfg80211_bss*
+kernel.trace("cfg80211:cfg80211_return_u32") $ret:u32
+kernel.trace("cfg80211:cfg80211_return_uint") $ret:unsigned int
+kernel.trace("cfg80211:cfg80211_rx_control_port") $netdev:struct net_device* $skb:struct sk_buff* $unencrypted:bool
+kernel.trace("cfg80211:cfg80211_rx_mgmt") $wdev:struct wireless_dev* $freq:int $sig_dbm:int
+kernel.trace("cfg80211:cfg80211_rx_mlme_mgmt") $netdev:struct net_device* $buf:u8 const* $len:int
+kernel.trace("cfg80211:cfg80211_rx_spurious_frame") $netdev:struct net_device* $addr:u8 const*
+kernel.trace("cfg80211:cfg80211_rx_unexpected_4addr_frame") $netdev:struct net_device* $addr:u8 const*
+kernel.trace("cfg80211:cfg80211_rx_unprot_mlme_mgmt") $netdev:struct net_device* $buf:u8 const* $len:int
+kernel.trace("cfg80211:cfg80211_scan_done") $request:struct cfg80211_scan_request* $info:struct cfg80211_scan_info*
+kernel.trace("cfg80211:cfg80211_sched_scan_results") $wiphy:struct wiphy* $id:u64
+kernel.trace("cfg80211:cfg80211_sched_scan_stopped") $wiphy:struct wiphy* $id:u64
+kernel.trace("cfg80211:cfg80211_send_assoc_timeout") $netdev:struct net_device* $mac:u8 const*
+kernel.trace("cfg80211:cfg80211_send_auth_timeout") $netdev:struct net_device* $mac:u8 const*
+kernel.trace("cfg80211:cfg80211_send_rx_assoc") $netdev:struct net_device* $bss:struct cfg80211_bss*
+kernel.trace("cfg80211:cfg80211_send_rx_auth") $netdev:struct net_device*
+kernel.trace("cfg80211:cfg80211_stop_iface") $wiphy:struct wiphy* $wdev:struct wireless_dev*
+kernel.trace("cfg80211:cfg80211_tdls_oper_request") $wiphy:struct wiphy* $netdev:struct net_device* $peer:u8 const* $oper:enum nl80211_tdls_operation $reason_code:u16
+kernel.trace("cfg80211:cfg80211_tx_mgmt_expired") $wdev:struct wireless_dev* $cookie:u64 $chan:struct ieee80211_channel*
+kernel.trace("cfg80211:cfg80211_tx_mlme_mgmt") $netdev:struct net_device* $buf:u8 const* $len:int $reconnect:bool
+kernel.trace("cfg80211:cfg80211_update_owe_info_event") $wiphy:struct wiphy* $netdev:struct net_device* $owe_info:struct cfg80211_update_owe_info*
+kernel.trace("cfg80211:rdev_abort_pmsr") $wiphy:struct wiphy* $wdev:struct wireless_dev* $cookie:u64
+kernel.trace("cfg80211:rdev_abort_scan") $wiphy:struct wiphy* $wdev:struct wireless_dev*
+kernel.trace("cfg80211:rdev_add_key") $wiphy:struct wiphy* $netdev:struct net_device* $key_index:u8 $pairwise:bool $mac_addr:u8 const* $mode:u8
+kernel.trace("cfg80211:rdev_add_mpath") $wiphy:struct wiphy* $netdev:struct net_device* $dst:u8* $next_hop:u8*
+kernel.trace("cfg80211:rdev_add_nan_func") $wiphy:struct wiphy* $wdev:struct wireless_dev* $func:struct cfg80211_nan_func const*
+kernel.trace("cfg80211:rdev_add_station") $wiphy:struct wiphy* $netdev:struct net_device* $mac:u8* $params:struct station_parameters*
+kernel.trace("cfg80211:rdev_add_tx_ts") $wiphy:struct wiphy* $netdev:struct net_device* $tsid:u8 $peer:u8 const* $user_prio:u8 $admitted_time:u16
+kernel.trace("cfg80211:rdev_add_virtual_intf") $wiphy:struct wiphy* $name:char* $type:enum nl80211_iftype
+kernel.trace("cfg80211:rdev_assoc") $wiphy:struct wiphy* $netdev:struct net_device* $req:struct cfg80211_assoc_request*
+kernel.trace("cfg80211:rdev_auth") $wiphy:struct wiphy* $netdev:struct net_device* $req:struct cfg80211_auth_request*
+kernel.trace("cfg80211:rdev_cancel_remain_on_channel") $wiphy:struct wiphy* $wdev:struct wireless_dev* $cookie:u64
+kernel.trace("cfg80211:rdev_change_beacon") $wiphy:struct wiphy* $netdev:struct net_device* $info:struct cfg80211_beacon_data*
+kernel.trace("cfg80211:rdev_change_bss") $wiphy:struct wiphy* $netdev:struct net_device* $params:struct bss_parameters*
+kernel.trace("cfg80211:rdev_change_mpath") $wiphy:struct wiphy* $netdev:struct net_device* $dst:u8* $next_hop:u8*
+kernel.trace("cfg80211:rdev_change_station") $wiphy:struct wiphy* $netdev:struct net_device* $mac:u8* $params:struct station_parameters*
+kernel.trace("cfg80211:rdev_change_virtual_intf") $wiphy:struct wiphy* $netdev:struct net_device* $type:enum nl80211_iftype
+kernel.trace("cfg80211:rdev_channel_switch") $wiphy:struct wiphy* $netdev:struct net_device* $params:struct cfg80211_csa_settings*
+kernel.trace("cfg80211:rdev_connect") $wiphy:struct wiphy* $netdev:struct net_device* $sme:struct cfg80211_connect_params*
+kernel.trace("cfg80211:rdev_crit_proto_start") $wiphy:struct wiphy* $wdev:struct wireless_dev* $protocol:enum nl80211_crit_proto_id $duration:u16
+kernel.trace("cfg80211:rdev_crit_proto_stop") $wiphy:struct wiphy* $wdev:struct wireless_dev*
+kernel.trace("cfg80211:rdev_deauth") $wiphy:struct wiphy* $netdev:struct net_device* $req:struct cfg80211_deauth_request*
+kernel.trace("cfg80211:rdev_del_key") $wiphy:struct wiphy* $netdev:struct net_device* $key_index:u8 $pairwise:bool $mac_addr:u8 const*
+kernel.trace("cfg80211:rdev_del_mpath") $wiphy:struct wiphy* $netdev:struct net_device* $mac:u8 const*
+kernel.trace("cfg80211:rdev_del_nan_func") $wiphy:struct wiphy* $wdev:struct wireless_dev* $cookie:u64
+kernel.trace("cfg80211:rdev_del_pmk") $wiphy:struct wiphy* $netdev:struct net_device* $aa:u8 const*
+kernel.trace("cfg80211:rdev_del_pmksa") $wiphy:struct wiphy* $netdev:struct net_device* $pmksa:struct cfg80211_pmksa*
+kernel.trace("cfg80211:rdev_del_station") $wiphy:struct wiphy* $netdev:struct net_device* $params:struct station_del_parameters*
+kernel.trace("cfg80211:rdev_del_tx_ts") $wiphy:struct wiphy* $netdev:struct net_device* $tsid:u8 $peer:u8 const*
+kernel.trace("cfg80211:rdev_del_virtual_intf") $wiphy:struct wiphy* $wdev:struct wireless_dev*
+kernel.trace("cfg80211:rdev_disassoc") $wiphy:struct wiphy* $netdev:struct net_device* $req:struct cfg80211_disassoc_request*
+kernel.trace("cfg80211:rdev_disconnect") $wiphy:struct wiphy* $netdev:struct net_device* $reason_code:u16
+kernel.trace("cfg80211:rdev_dump_mpath") $wiphy:struct wiphy* $netdev:struct net_device* $_idx:int $dst:u8* $next_hop:u8*
+kernel.trace("cfg80211:rdev_dump_mpp") $wiphy:struct wiphy* $netdev:struct net_device* $_idx:int $dst:u8* $mpp:u8*
+kernel.trace("cfg80211:rdev_dump_station") $wiphy:struct wiphy* $netdev:struct net_device* $_idx:int $mac:u8*
+kernel.trace("cfg80211:rdev_dump_survey") $wiphy:struct wiphy* $netdev:struct net_device* $_idx:int
+kernel.trace("cfg80211:rdev_end_cac") $wiphy:struct wiphy* $netdev:struct net_device*
+kernel.trace("cfg80211:rdev_external_auth") $wiphy:struct wiphy* $netdev:struct net_device* $params:struct cfg80211_external_auth_params*
+kernel.trace("cfg80211:rdev_flush_pmksa") $wiphy:struct wiphy* $netdev:struct net_device*
+kernel.trace("cfg80211:rdev_get_antenna") $wiphy:struct wiphy*
+kernel.trace("cfg80211:rdev_get_channel") $wiphy:struct wiphy* $wdev:struct wireless_dev*
+kernel.trace("cfg80211:rdev_get_ftm_responder_stats") $wiphy:struct wiphy* $netdev:struct net_device* $ftm_stats:struct cfg80211_ftm_responder_stats*
+kernel.trace("cfg80211:rdev_get_key") $wiphy:struct wiphy* $netdev:struct net_device* $key_index:u8 $pairwise:bool $mac_addr:u8 const*
+kernel.trace("cfg80211:rdev_get_mesh_config") $wiphy:struct wiphy* $netdev:struct net_device*
+kernel.trace("cfg80211:rdev_get_mpath") $wiphy:struct wiphy* $netdev:struct net_device* $dst:u8* $next_hop:u8*
+kernel.trace("cfg80211:rdev_get_mpp") $wiphy:struct wiphy* $netdev:struct net_device* $dst:u8* $mpp:u8*
+kernel.trace("cfg80211:rdev_get_station") $wiphy:struct wiphy* $netdev:struct net_device* $mac:u8 const*
+kernel.trace("cfg80211:rdev_get_tx_power") $wiphy:struct wiphy* $wdev:struct wireless_dev*
+kernel.trace("cfg80211:rdev_get_txq_stats") $wiphy:struct wiphy* $wdev:struct wireless_dev*
+kernel.trace("cfg80211:rdev_join_ibss") $wiphy:struct wiphy* $netdev:struct net_device* $params:struct cfg80211_ibss_params*
+kernel.trace("cfg80211:rdev_join_mesh") $wiphy:struct wiphy* $netdev:struct net_device* $conf:struct mesh_config const* $setup:struct mesh_setup const*
+kernel.trace("cfg80211:rdev_join_ocb") $wiphy:struct wiphy* $netdev:struct net_device* $setup:struct ocb_setup const*
+kernel.trace("cfg80211:rdev_leave_ibss") $wiphy:struct wiphy* $netdev:struct net_device*
+kernel.trace("cfg80211:rdev_leave_mesh") $wiphy:struct wiphy* $netdev:struct net_device*
+kernel.trace("cfg80211:rdev_leave_ocb") $wiphy:struct wiphy* $netdev:struct net_device*
+kernel.trace("cfg80211:rdev_libertas_set_mesh_channel") $wiphy:struct wiphy* $netdev:struct net_device* $chan:struct ieee80211_channel*
+kernel.trace("cfg80211:rdev_mgmt_tx") $wiphy:struct wiphy* $wdev:struct wireless_dev* $params:struct cfg80211_mgmt_tx_params*
+kernel.trace("cfg80211:rdev_mgmt_tx_cancel_wait") $wiphy:struct wiphy* $wdev:struct wireless_dev* $cookie:u64
+kernel.trace("cfg80211:rdev_nan_change_conf") $wiphy:struct wiphy* $wdev:struct wireless_dev* $conf:struct cfg80211_nan_conf* $changes:u32
+kernel.trace("cfg80211:rdev_probe_client") $wiphy:struct wiphy* $netdev:struct net_device* $peer:u8 const*
+kernel.trace("cfg80211:rdev_probe_mesh_link") $wiphy:struct wiphy* $netdev:struct net_device* $dest:u8 const* $buf:u8 const* $len:size_t
+kernel.trace("cfg80211:rdev_remain_on_channel") $wiphy:struct wiphy* $wdev:struct wireless_dev* $chan:struct ieee80211_channel* $duration:unsigned int
+kernel.trace("cfg80211:rdev_reset_tid_config") $wiphy:struct wiphy* $netdev:struct net_device* $peer:u8 const* $tids:u8
+kernel.trace("cfg80211:rdev_resume") $wiphy:struct wiphy*
+kernel.trace("cfg80211:rdev_return_chandef") $wiphy:struct wiphy* $ret:int $chandef:struct cfg80211_chan_def*
+kernel.trace("cfg80211:rdev_return_int") $wiphy:struct wiphy* $ret:int
+kernel.trace("cfg80211:rdev_return_int_cookie") $wiphy:struct wiphy* $ret:int $cookie:u64
+kernel.trace("cfg80211:rdev_return_int_int") $wiphy:struct wiphy* $func_ret:int $func_fill:int
+kernel.trace("cfg80211:rdev_return_int_mesh_config") $wiphy:struct wiphy* $ret:int $conf:struct mesh_config*
+kernel.trace("cfg80211:rdev_return_int_mpath_info") $wiphy:struct wiphy* $ret:int $pinfo:struct mpath_info*
+kernel.trace("cfg80211:rdev_return_int_station_info") $wiphy:struct wiphy* $ret:int $sinfo:struct station_info*
+kernel.trace("cfg80211:rdev_return_int_survey_info") $wiphy:struct wiphy* $ret:int $info:struct survey_info*
+kernel.trace("cfg80211:rdev_return_int_tx_rx") $wiphy:struct wiphy* $ret:int $tx:u32 $rx:u32
+kernel.trace("cfg80211:rdev_return_void") $wiphy:struct wiphy*
+kernel.trace("cfg80211:rdev_return_void_tx_rx") $wiphy:struct wiphy* $tx:u32 $tx_max:u32 $rx:u32 $rx_max:u32
+kernel.trace("cfg80211:rdev_return_wdev") $wiphy:struct wiphy* $wdev:struct wireless_dev*
+kernel.trace("cfg80211:rdev_rfkill_poll") $wiphy:struct wiphy*
+kernel.trace("cfg80211:rdev_scan") $wiphy:struct wiphy* $request:struct cfg80211_scan_request*
+kernel.trace("cfg80211:rdev_sched_scan_start") $wiphy:struct wiphy* $netdev:struct net_device* $id:u64
+kernel.trace("cfg80211:rdev_sched_scan_stop") $wiphy:struct wiphy* $netdev:struct net_device* $id:u64
+kernel.trace("cfg80211:rdev_set_antenna") $wiphy:struct wiphy* $tx:u32 $rx:u32
+kernel.trace("cfg80211:rdev_set_ap_chanwidth") $wiphy:struct wiphy* $netdev:struct net_device* $chandef:struct cfg80211_chan_def*
+kernel.trace("cfg80211:rdev_set_bitrate_mask") $wiphy:struct wiphy* $netdev:struct net_device* $peer:u8 const* $mask:struct cfg80211_bitrate_mask const*
+kernel.trace("cfg80211:rdev_set_coalesce") $wiphy:struct wiphy* $coalesce:struct cfg80211_coalesce*
+kernel.trace("cfg80211:rdev_set_cqm_rssi_config") $wiphy:struct wiphy* $netdev:struct net_device* $rssi_thold:s32 $rssi_hyst:u32
+kernel.trace("cfg80211:rdev_set_cqm_rssi_range_config") $wiphy:struct wiphy* $netdev:struct net_device* $low:s32 $high:s32
+kernel.trace("cfg80211:rdev_set_cqm_txe_config") $wiphy:struct wiphy* $netdev:struct net_device* $rate:u32 $pkts:u32 $intvl:u32
+kernel.trace("cfg80211:rdev_set_default_beacon_key") $wiphy:struct wiphy* $netdev:struct net_device* $key_index:u8
+kernel.trace("cfg80211:rdev_set_default_key") $wiphy:struct wiphy* $netdev:struct net_device* $key_index:u8 $unicast:bool $multicast:bool
+kernel.trace("cfg80211:rdev_set_default_mgmt_key") $wiphy:struct wiphy* $netdev:struct net_device* $key_index:u8
+kernel.trace("cfg80211:rdev_set_mac_acl") $wiphy:struct wiphy* $netdev:struct net_device* $params:struct cfg80211_acl_data*
+kernel.trace("cfg80211:rdev_set_mcast_rate") $wiphy:struct wiphy* $netdev:struct net_device* $mcast_rate:int*
+kernel.trace("cfg80211:rdev_set_monitor_channel") $wiphy:struct wiphy* $chandef:struct cfg80211_chan_def*
+kernel.trace("cfg80211:rdev_set_multicast_to_unicast") $wiphy:struct wiphy* $netdev:struct net_device* $enabled:bool const
+kernel.trace("cfg80211:rdev_set_noack_map") $wiphy:struct wiphy* $netdev:struct net_device* $noack_map:u16
+kernel.trace("cfg80211:rdev_set_pmk") $wiphy:struct wiphy* $netdev:struct net_device* $pmk_conf:struct cfg80211_pmk_conf*
+kernel.trace("cfg80211:rdev_set_pmksa") $wiphy:struct wiphy* $netdev:struct net_device* $pmksa:struct cfg80211_pmksa*
+kernel.trace("cfg80211:rdev_set_power_mgmt") $wiphy:struct wiphy* $netdev:struct net_device* $enabled:bool $timeout:int
+kernel.trace("cfg80211:rdev_set_qos_map") $wiphy:struct wiphy* $netdev:struct net_device* $qos_map:struct cfg80211_qos_map*
+kernel.trace("cfg80211:rdev_set_rekey_data") $wiphy:struct wiphy* $netdev:struct net_device*
+kernel.trace("cfg80211:rdev_set_sar_specs") $wiphy:struct wiphy* $sar:struct cfg80211_sar_specs*
+kernel.trace("cfg80211:rdev_set_tid_config") $wiphy:struct wiphy* $netdev:struct net_device* $tid_conf:struct cfg80211_tid_config*
+kernel.trace("cfg80211:rdev_set_tx_power") $wiphy:struct wiphy* $wdev:struct wireless_dev* $type:enum nl80211_tx_power_setting $mbm:int
+kernel.trace("cfg80211:rdev_set_txq_params") $wiphy:struct wiphy* $netdev:struct net_device* $params:struct ieee80211_txq_params*
+kernel.trace("cfg80211:rdev_set_wakeup") $wiphy:struct wiphy* $enabled:bool
+kernel.trace("cfg80211:rdev_set_wiphy_params") $wiphy:struct wiphy* $changed:u32
+kernel.trace("cfg80211:rdev_start_ap") $wiphy:struct wiphy* $netdev:struct net_device* $settings:struct cfg80211_ap_settings*
+kernel.trace("cfg80211:rdev_start_nan") $wiphy:struct wiphy* $wdev:struct wireless_dev* $conf:struct cfg80211_nan_conf*
+kernel.trace("cfg80211:rdev_start_p2p_device") $wiphy:struct wiphy* $wdev:struct wireless_dev*
+kernel.trace("cfg80211:rdev_start_pmsr") $wiphy:struct wiphy* $wdev:struct wireless_dev* $cookie:u64
+kernel.trace("cfg80211:rdev_start_radar_detection") $wiphy:struct wiphy* $netdev:struct net_device* $chandef:struct cfg80211_chan_def* $cac_time_ms:u32
+kernel.trace("cfg80211:rdev_stop_ap") $wiphy:struct wiphy* $netdev:struct net_device*
+kernel.trace("cfg80211:rdev_stop_nan") $wiphy:struct wiphy* $wdev:struct wireless_dev*
+kernel.trace("cfg80211:rdev_stop_p2p_device") $wiphy:struct wiphy* $wdev:struct wireless_dev*
+kernel.trace("cfg80211:rdev_suspend") $wiphy:struct wiphy* $wow:struct cfg80211_wowlan*
+kernel.trace("cfg80211:rdev_tdls_cancel_channel_switch") $wiphy:struct wiphy* $netdev:struct net_device* $addr:u8 const*
+kernel.trace("cfg80211:rdev_tdls_channel_switch") $wiphy:struct wiphy* $netdev:struct net_device* $addr:u8 const* $oper_class:u8 $chandef:struct cfg80211_chan_def*
+kernel.trace("cfg80211:rdev_tdls_mgmt") $wiphy:struct wiphy* $netdev:struct net_device* $peer:u8* $action_code:u8 $dialog_token:u8 $status_code:u16 $peer_capability:u32 $initiator:bool $buf:u8 const* $len:size_t
+kernel.trace("cfg80211:rdev_tdls_oper") $wiphy:struct wiphy* $netdev:struct net_device* $peer:u8* $oper:enum nl80211_tdls_operation
+kernel.trace("cfg80211:rdev_tx_control_port") $wiphy:struct wiphy* $netdev:struct net_device* $buf:u8 const* $len:size_t $dest:u8 const* $proto:__be16 $unencrypted:bool
+kernel.trace("cfg80211:rdev_update_connect_params") $wiphy:struct wiphy* $netdev:struct net_device* $sme:struct cfg80211_connect_params* $changed:u32
+kernel.trace("cfg80211:rdev_update_ft_ies") $wiphy:struct wiphy* $netdev:struct net_device* $ftie:struct cfg80211_update_ft_ies_params*
+kernel.trace("cfg80211:rdev_update_mesh_config") $wiphy:struct wiphy* $netdev:struct net_device* $mask:u32 $conf:struct mesh_config const*
+kernel.trace("cfg80211:rdev_update_mgmt_frame_registrations") $wiphy:struct wiphy* $wdev:struct wireless_dev* $upd:struct mgmt_frame_regs*
+kernel.trace("cfg80211:rdev_update_owe_info") $wiphy:struct wiphy* $netdev:struct net_device* $owe_info:struct cfg80211_update_owe_info*
+kernel.trace("cfg802154:802154_rdev_add_virtual_intf") $wpan_phy:struct wpan_phy* $name:char* $type:enum nl802154_iftype $extended_addr:__le64
+kernel.trace("cfg802154:802154_rdev_del_virtual_intf") $wpan_phy:struct wpan_phy* $wpan_dev:struct wpan_dev*
+kernel.trace("cfg802154:802154_rdev_resume") $wpan_phy:struct wpan_phy*
+kernel.trace("cfg802154:802154_rdev_return_int") $wpan_phy:struct wpan_phy* $ret:int
+kernel.trace("cfg802154:802154_rdev_set_ackreq_default") $wpan_phy:struct wpan_phy* $wpan_dev:struct wpan_dev* $ackreq:bool
+kernel.trace("cfg802154:802154_rdev_set_backoff_exponent") $wpan_phy:struct wpan_phy* $wpan_dev:struct wpan_dev* $min_be:u8 $max_be:u8
+kernel.trace("cfg802154:802154_rdev_set_cca_ed_level") $wpan_phy:struct wpan_phy* $ed_level:s32
+kernel.trace("cfg802154:802154_rdev_set_cca_mode") $wpan_phy:struct wpan_phy* $cca:struct wpan_phy_cca const*
+kernel.trace("cfg802154:802154_rdev_set_channel") $wpan_phy:struct wpan_phy* $page:u8 $channel:u8
+kernel.trace("cfg802154:802154_rdev_set_csma_backoffs") $wpan_phy:struct wpan_phy* $wpan_dev:struct wpan_dev* $max_csma_backoffs:u8
+kernel.trace("cfg802154:802154_rdev_set_lbt_mode") $wpan_phy:struct wpan_phy* $wpan_dev:struct wpan_dev* $mode:bool
+kernel.trace("cfg802154:802154_rdev_set_max_frame_retries") $wpan_phy:struct wpan_phy* $wpan_dev:struct wpan_dev* $max_frame_retries:s8
+kernel.trace("cfg802154:802154_rdev_set_pan_id") $wpan_phy:struct wpan_phy* $wpan_dev:struct wpan_dev* $le16arg:__le16
+kernel.trace("cfg802154:802154_rdev_set_short_addr") $wpan_phy:struct wpan_phy* $wpan_dev:struct wpan_dev* $le16arg:__le16
+kernel.trace("cfg802154:802154_rdev_set_tx_power") $wpan_phy:struct wpan_phy* $power:s32
+kernel.trace("cfg802154:802154_rdev_suspend") $wpan_phy:struct wpan_phy*
+kernel.trace("cgroup:cgroup_attach_task") $dst_cgrp:struct cgroup* $path:char const* $task:struct task_struct* $threadgroup:bool
+kernel.trace("cgroup:cgroup_destroy_root") $root:struct cgroup_root*
+kernel.trace("cgroup:cgroup_freeze") $cgrp:struct cgroup* $path:char const*
+kernel.trace("cgroup:cgroup_mkdir") $cgrp:struct cgroup* $path:char const*
+kernel.trace("cgroup:cgroup_notify_frozen") $cgrp:struct cgroup* $path:char const* $val:int
+kernel.trace("cgroup:cgroup_notify_populated") $cgrp:struct cgroup* $path:char const* $val:int
+kernel.trace("cgroup:cgroup_release") $cgrp:struct cgroup* $path:char const*
+kernel.trace("cgroup:cgroup_remount") $root:struct cgroup_root*
+kernel.trace("cgroup:cgroup_rename") $cgrp:struct cgroup* $path:char const*
+kernel.trace("cgroup:cgroup_rmdir") $cgrp:struct cgroup* $path:char const*
+kernel.trace("cgroup:cgroup_setup_root") $root:struct cgroup_root*
+kernel.trace("cgroup:cgroup_transfer_tasks") $dst_cgrp:struct cgroup* $path:char const* $task:struct task_struct* $threadgroup:bool
+kernel.trace("cgroup:cgroup_unfreeze") $cgrp:struct cgroup* $path:char const*
+kernel.trace("cifs:cifs_flush_err") $ino:long unsigned int $rc:int
+kernel.trace("cifs:cifs_fsync_err") $ino:long unsigned int $rc:int
+kernel.trace("cifs:smb3_add_credits") $currmid:__u64 $hostname:char* $credits:int $credits_to_add:int
+kernel.trace("cifs:smb3_close_done") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64
+kernel.trace("cifs:smb3_close_enter") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64
+kernel.trace("cifs:smb3_close_err") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $rc:int
+kernel.trace("cifs:smb3_cmd_done") $tid:__u32 $sesid:__u64 $cmd:__u16 $mid:__u64
+kernel.trace("cifs:smb3_cmd_enter") $tid:__u32 $sesid:__u64 $cmd:__u16 $mid:__u64
+kernel.trace("cifs:smb3_cmd_err") $tid:__u32 $sesid:__u64 $cmd:__u16 $mid:__u64 $status:__u32 $rc:int
+kernel.trace("cifs:smb3_credit_timeout") $currmid:__u64 $hostname:char* $credits:int $credits_to_add:int
+kernel.trace("cifs:smb3_delete_done") $xid:unsigned int $tid:__u32 $sesid:__u64
+kernel.trace("cifs:smb3_delete_enter") $xid:unsigned int $tid:__u32 $sesid:__u64 $full_path:char const*
+kernel.trace("cifs:smb3_delete_err") $xid:unsigned int $tid:__u32 $sesid:__u64 $rc:int
+kernel.trace("cifs:smb3_enter") $xid:unsigned int $func_name:char const*
+kernel.trace("cifs:smb3_exit_done") $xid:unsigned int $func_name:char const*
+kernel.trace("cifs:smb3_exit_err") $xid:unsigned int $func_name:char const* $rc:int
+kernel.trace("cifs:smb3_falloc_done") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $offset:__u64 $len:__u32
+kernel.trace("cifs:smb3_falloc_enter") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $offset:__u64 $len:__u32
+kernel.trace("cifs:smb3_falloc_err") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $offset:__u64 $len:__u32 $rc:int
+kernel.trace("cifs:smb3_flush_done") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64
+kernel.trace("cifs:smb3_flush_enter") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64
+kernel.trace("cifs:smb3_flush_err") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $rc:int
+kernel.trace("cifs:smb3_fsctl_err") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $infclass:__u8 $type:__u32 $rc:int
+kernel.trace("cifs:smb3_hardlink_done") $xid:unsigned int $tid:__u32 $sesid:__u64
+kernel.trace("cifs:smb3_hardlink_enter") $xid:unsigned int $tid:__u32 $sesid:__u64 $full_path:char const*
+kernel.trace("cifs:smb3_hardlink_err") $xid:unsigned int $tid:__u32 $sesid:__u64 $rc:int
+kernel.trace("cifs:smb3_lease_done") $lease_state:__u32 $tid:__u32 $sesid:__u64 $lease_key_low:__u64 $lease_key_high:__u64
+kernel.trace("cifs:smb3_lease_err") $lease_state:__u32 $tid:__u32 $sesid:__u64 $lease_key_low:__u64 $lease_key_high:__u64 $rc:int
+kernel.trace("cifs:smb3_lock_err") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $rc:int
+kernel.trace("cifs:smb3_mkdir_done") $xid:unsigned int $tid:__u32 $sesid:__u64
+kernel.trace("cifs:smb3_mkdir_enter") $xid:unsigned int $tid:__u32 $sesid:__u64 $full_path:char const*
+kernel.trace("cifs:smb3_mkdir_err") $xid:unsigned int $tid:__u32 $sesid:__u64 $rc:int
+kernel.trace("cifs:smb3_notify_done") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $infclass:__u8 $type:__u32
+kernel.trace("cifs:smb3_notify_enter") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $infclass:__u8 $type:__u32
+kernel.trace("cifs:smb3_notify_err") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $infclass:__u8 $type:__u32 $rc:int
+kernel.trace("cifs:smb3_open_done") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $create_options:int $desired_access:int
+kernel.trace("cifs:smb3_open_enter") $xid:unsigned int $tid:__u32 $sesid:__u64 $create_options:int $desired_access:int
+kernel.trace("cifs:smb3_open_err") $xid:unsigned int $tid:__u32 $sesid:__u64 $create_options:int $desired_access:int $rc:int
+kernel.trace("cifs:smb3_partial_send_reconnect") $currmid:__u64 $hostname:char*
+kernel.trace("cifs:smb3_posix_mkdir_done") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $create_options:int $desired_access:int
+kernel.trace("cifs:smb3_posix_mkdir_enter") $xid:unsigned int $tid:__u32 $sesid:__u64 $create_options:int $desired_access:int
+kernel.trace("cifs:smb3_posix_mkdir_err") $xid:unsigned int $tid:__u32 $sesid:__u64 $create_options:int $desired_access:int $rc:int
+kernel.trace("cifs:smb3_posix_query_info_compound_done") $xid:unsigned int $tid:__u32 $sesid:__u64
+kernel.trace("cifs:smb3_posix_query_info_compound_enter") $xid:unsigned int $tid:__u32 $sesid:__u64 $full_path:char const*
+kernel.trace("cifs:smb3_posix_query_info_compound_err") $xid:unsigned int $tid:__u32 $sesid:__u64 $rc:int
+kernel.trace("cifs:smb3_query_dir_done") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $offset:__u64 $len:__u32
+kernel.trace("cifs:smb3_query_dir_enter") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $offset:__u64 $len:__u32
+kernel.trace("cifs:smb3_query_dir_err") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $offset:__u64 $len:__u32 $rc:int
+kernel.trace("cifs:smb3_query_info_compound_done") $xid:unsigned int $tid:__u32 $sesid:__u64
+kernel.trace("cifs:smb3_query_info_compound_enter") $xid:unsigned int $tid:__u32 $sesid:__u64 $full_path:char const*
+kernel.trace("cifs:smb3_query_info_compound_err") $xid:unsigned int $tid:__u32 $sesid:__u64 $rc:int
+kernel.trace("cifs:smb3_query_info_done") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $infclass:__u8 $type:__u32
+kernel.trace("cifs:smb3_query_info_enter") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $infclass:__u8 $type:__u32
+kernel.trace("cifs:smb3_query_info_err") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $infclass:__u8 $type:__u32 $rc:int
+kernel.trace("cifs:smb3_read_done") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $offset:__u64 $len:__u32
+kernel.trace("cifs:smb3_read_enter") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $offset:__u64 $len:__u32
+kernel.trace("cifs:smb3_read_err") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $offset:__u64 $len:__u32 $rc:int
+kernel.trace("cifs:smb3_reconnect") $currmid:__u64 $hostname:char*
+kernel.trace("cifs:smb3_reconnect_with_invalid_credits") $currmid:__u64 $hostname:char* $credits:int $credits_to_add:int
+kernel.trace("cifs:smb3_rename_done") $xid:unsigned int $tid:__u32 $sesid:__u64
+kernel.trace("cifs:smb3_rename_enter") $xid:unsigned int $tid:__u32 $sesid:__u64 $full_path:char const*
+kernel.trace("cifs:smb3_rename_err") $xid:unsigned int $tid:__u32 $sesid:__u64 $rc:int
+kernel.trace("cifs:smb3_rmdir_done") $xid:unsigned int $tid:__u32 $sesid:__u64
+kernel.trace("cifs:smb3_rmdir_enter") $xid:unsigned int $tid:__u32 $sesid:__u64 $full_path:char const*
+kernel.trace("cifs:smb3_rmdir_err") $xid:unsigned int $tid:__u32 $sesid:__u64 $rc:int
+kernel.trace("cifs:smb3_ses_expired") $tid:__u32 $sesid:__u64 $cmd:__u16 $mid:__u64
+kernel.trace("cifs:smb3_set_eof_done") $xid:unsigned int $tid:__u32 $sesid:__u64
+kernel.trace("cifs:smb3_set_eof_enter") $xid:unsigned int $tid:__u32 $sesid:__u64 $full_path:char const*
+kernel.trace("cifs:smb3_set_eof_err") $xid:unsigned int $tid:__u32 $sesid:__u64 $rc:int
+kernel.trace("cifs:smb3_set_info_compound_done") $xid:unsigned int $tid:__u32 $sesid:__u64
+kernel.trace("cifs:smb3_set_info_compound_enter") $xid:unsigned int $tid:__u32 $sesid:__u64 $full_path:char const*
+kernel.trace("cifs:smb3_set_info_compound_err") $xid:unsigned int $tid:__u32 $sesid:__u64 $rc:int
+kernel.trace("cifs:smb3_set_info_err") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $infclass:__u8 $type:__u32 $rc:int
+kernel.trace("cifs:smb3_slow_rsp") $cmd:__u16 $mid:__u64 $pid:__u32 $when_sent:long unsigned int $when_received:long unsigned int
+kernel.trace("cifs:smb3_tcon") $xid:unsigned int $tid:__u32 $sesid:__u64 $unc_name:char const* $rc:int
+kernel.trace("cifs:smb3_write_done") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $offset:__u64 $len:__u32
+kernel.trace("cifs:smb3_write_enter") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $offset:__u64 $len:__u32
+kernel.trace("cifs:smb3_write_err") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $offset:__u64 $len:__u32 $rc:int
+kernel.trace("cifs:smb3_zero_done") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $offset:__u64 $len:__u32
+kernel.trace("cifs:smb3_zero_enter") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $offset:__u64 $len:__u32
+kernel.trace("cifs:smb3_zero_err") $xid:unsigned int $fid:__u64 $tid:__u32 $sesid:__u64 $offset:__u64 $len:__u32 $rc:int
+kernel.trace("clk:clk_disable") $core:struct clk_core*
+kernel.trace("clk:clk_disable_complete") $core:struct clk_core*
+kernel.trace("clk:clk_enable") $core:struct clk_core*
+kernel.trace("clk:clk_enable_complete") $core:struct clk_core*
+kernel.trace("clk:clk_prepare") $core:struct clk_core*
+kernel.trace("clk:clk_prepare_complete") $core:struct clk_core*
+kernel.trace("clk:clk_set_parent") $core:struct clk_core* $parent:struct clk_core*
+kernel.trace("clk:clk_set_parent_complete") $core:struct clk_core* $parent:struct clk_core*
+kernel.trace("clk:clk_set_phase") $core:struct clk_core* $phase:int
+kernel.trace("clk:clk_set_phase_complete") $core:struct clk_core* $phase:int
+kernel.trace("clk:clk_set_rate") $core:struct clk_core* $rate:long unsigned int
+kernel.trace("clk:clk_set_rate_complete") $core:struct clk_core* $rate:long unsigned int
+kernel.trace("clk:clk_unprepare") $core:struct clk_core*
+kernel.trace("clk:clk_unprepare_complete") $core:struct clk_core*
+kernel.trace("cma:cma_alloc") $pfn:long unsigned int $page:struct page const* $count:unsigned int $align:unsigned int
+kernel.trace("cma:cma_release") $pfn:long unsigned int $page:struct page const* $count:unsigned int
+kernel.trace("compaction:mm_compaction_begin") $zone_start:long unsigned int $migrate_pfn:long unsigned int $free_pfn:long unsigned int $zone_end:long unsigned int $sync:bool
+kernel.trace("compaction:mm_compaction_defer_compaction") $zone:struct zone* $order:int
+kernel.trace("compaction:mm_compaction_defer_reset") $zone:struct zone* $order:int
+kernel.trace("compaction:mm_compaction_deferred") $zone:struct zone* $order:int
+kernel.trace("compaction:mm_compaction_end") $zone_start:long unsigned int $migrate_pfn:long unsigned int $free_pfn:long unsigned int $zone_end:long unsigned int $sync:bool $status:int
+kernel.trace("compaction:mm_compaction_finished") $zone:struct zone* $order:int $ret:int
+kernel.trace("compaction:mm_compaction_isolate_freepages") $start_pfn:long unsigned int $end_pfn:long unsigned int $nr_scanned:long unsigned int $nr_taken:long unsigned int
+kernel.trace("compaction:mm_compaction_isolate_migratepages") $start_pfn:long unsigned int $end_pfn:long unsigned int $nr_scanned:long unsigned int $nr_taken:long unsigned int
+kernel.trace("compaction:mm_compaction_kcompactd_sleep") $nid:int
+kernel.trace("compaction:mm_compaction_kcompactd_wake") $nid:int $order:int $highest_zoneidx:enum zone_type
+kernel.trace("compaction:mm_compaction_migratepages") $nr_all:long unsigned int $migrate_rc:int $migratepages:struct list_head*
+kernel.trace("compaction:mm_compaction_suitable") $zone:struct zone* $order:int $ret:int
+kernel.trace("compaction:mm_compaction_try_to_compact_pages") $order:int $gfp_mask:gfp_t $prio:int
+kernel.trace("compaction:mm_compaction_wakeup_kcompactd") $nid:int $order:int $highest_zoneidx:enum zone_type
+kernel.trace("context_tracking:user_enter") $dummy:int
+kernel.trace("context_tracking:user_exit") $dummy:int
+kernel.trace("cpuhp:cpuhp_enter") $cpu:unsigned int $target:int $idx:int $fun:int (*) (unsigned int)
+kernel.trace("cpuhp:cpuhp_exit") $cpu:unsigned int $state:int $idx:int $ret:int
+kernel.trace("cpuhp:cpuhp_multi_enter") $cpu:unsigned int $target:int $idx:int $fun:int (*) (unsigned int, struct hlist_node*) $node:struct hlist_node*
+kernel.trace("devlink:devlink_health_recover_aborted") $devlink:struct devlink const* $reporter_name:char const* $health_state:bool $time_since_last_recover:u64
+kernel.trace("devlink:devlink_health_report") $devlink:struct devlink const* $reporter_name:char const* $msg:char const*
+kernel.trace("devlink:devlink_health_reporter_state_update") $devlink:struct devlink const* $reporter_name:char const* $new_state:bool
+kernel.trace("devlink:devlink_hwerr") $devlink:struct devlink const* $err:int $msg:char const*
+kernel.trace("devlink:devlink_hwmsg") $devlink:struct devlink const* $incoming:bool $type:long unsigned int $buf:u8 const* $len:size_t
+kernel.trace("devlink:devlink_trap_report") $devlink:struct devlink const* $skb:struct sk_buff* $metadata:struct devlink_trap_metadata const*
+kernel.trace("dma_fence:dma_fence_destroy") $fence:struct dma_fence*
+kernel.trace("dma_fence:dma_fence_emit") $fence:struct dma_fence*
+kernel.trace("dma_fence:dma_fence_enable_signal") $fence:struct dma_fence*
+kernel.trace("dma_fence:dma_fence_init") $fence:struct dma_fence*
+kernel.trace("dma_fence:dma_fence_signaled") $fence:struct dma_fence*
+kernel.trace("dma_fence:dma_fence_wait_end") $fence:struct dma_fence*
+kernel.trace("dma_fence:dma_fence_wait_start") $fence:struct dma_fence*
+kernel.trace("drm:drm_vblank_event") $crtc:int $seq:unsigned int $time:ktime_t $high_prec:bool
+kernel.trace("drm:drm_vblank_event_delivered") $file:struct drm_file* $crtc:int $seq:unsigned int
+kernel.trace("drm:drm_vblank_event_queued") $file:struct drm_file* $crtc:int $seq:unsigned int
+kernel.trace("exceptions:page_fault_kernel") $address:long unsigned int $regs:struct pt_regs* $error_code:long unsigned int
+kernel.trace("exceptions:page_fault_user") $address:long unsigned int $regs:struct pt_regs* $error_code:long unsigned int
+kernel.trace("ext4:ext4_alloc_da_blocks") $inode:struct inode*
+kernel.trace("ext4:ext4_allocate_blocks") $ar:struct ext4_allocation_request* $block:long long unsigned int
+kernel.trace("ext4:ext4_allocate_inode") $inode:struct inode* $dir:struct inode* $mode:int
+kernel.trace("ext4:ext4_begin_ordered_truncate") $inode:struct inode* $new_size:loff_t
+kernel.trace("ext4:ext4_collapse_range") $inode:struct inode* $offset:loff_t $len:loff_t
+kernel.trace("ext4:ext4_da_release_space") $inode:struct inode* $freed_blocks:int
+kernel.trace("ext4:ext4_da_reserve_space") $inode:struct inode*
+kernel.trace("ext4:ext4_da_update_reserve_space") $inode:struct inode* $used_blocks:int $quota_claim:int
+kernel.trace("ext4:ext4_da_write_begin") $inode:struct inode* $pos:loff_t $len:unsigned int $flags:unsigned int
+kernel.trace("ext4:ext4_da_write_end") $inode:struct inode* $pos:loff_t $len:unsigned int $copied:unsigned int
+kernel.trace("ext4:ext4_da_write_pages") $inode:struct inode* $first_page:long unsigned int $wbc:struct writeback_control*
+kernel.trace("ext4:ext4_da_write_pages_extent") $inode:struct inode* $map:struct ext4_map_blocks*
+kernel.trace("ext4:ext4_direct_IO_enter") $inode:struct inode* $offset:loff_t $len:long unsigned int $rw:int
+kernel.trace("ext4:ext4_direct_IO_exit") $inode:struct inode* $offset:loff_t $len:long unsigned int $rw:int $ret:int
+kernel.trace("ext4:ext4_discard_blocks") $sb:struct super_block* $blk:long long unsigned int $count:long long unsigned int
+kernel.trace("ext4:ext4_discard_preallocations") $inode:struct inode*
+kernel.trace("ext4:ext4_drop_inode") $inode:struct inode* $drop:int
+kernel.trace("ext4:ext4_error") $sb:struct super_block* $function:char const* $line:unsigned int
+kernel.trace("ext4:ext4_es_cache_extent") $inode:struct inode* $es:struct extent_status*
+kernel.trace("ext4:ext4_es_find_extent_range_enter") $inode:struct inode* $lblk:ext4_lblk_t
+kernel.trace("ext4:ext4_es_find_extent_range_exit") $inode:struct inode* $es:struct extent_status*
+kernel.trace("ext4:ext4_es_insert_delayed_block") $inode:struct inode* $es:struct extent_status* $allocated:bool
+kernel.trace("ext4:ext4_es_insert_extent") $inode:struct inode* $es:struct extent_status*
+kernel.trace("ext4:ext4_es_lookup_extent_enter") $inode:struct inode* $lblk:ext4_lblk_t
+kernel.trace("ext4:ext4_es_lookup_extent_exit") $inode:struct inode* $es:struct extent_status* $found:int
+kernel.trace("ext4:ext4_es_remove_extent") $inode:struct inode* $lblk:ext4_lblk_t $len:ext4_lblk_t
+kernel.trace("ext4:ext4_es_shrink") $sb:struct super_block* $nr_shrunk:int $scan_time:u64 $nr_skipped:int $retried:int
+kernel.trace("ext4:ext4_es_shrink_count") $sb:struct super_block* $nr_to_scan:int $cache_cnt:int
+kernel.trace("ext4:ext4_es_shrink_scan_enter") $sb:struct super_block* $nr_to_scan:int $cache_cnt:int
+kernel.trace("ext4:ext4_es_shrink_scan_exit") $sb:struct super_block* $nr_shrunk:int $cache_cnt:int
+kernel.trace("ext4:ext4_evict_inode") $inode:struct inode*
+kernel.trace("ext4:ext4_ext_convert_to_initialized_enter") $inode:struct inode* $map:struct ext4_map_blocks* $ux:struct ext4_extent*
+kernel.trace("ext4:ext4_ext_convert_to_initialized_fastpath") $inode:struct inode* $map:struct ext4_map_blocks* $ux:struct ext4_extent* $ix:struct ext4_extent*
+kernel.trace("ext4:ext4_ext_handle_unwritten_extents") $inode:struct inode* $map:struct ext4_map_blocks* $flags:int $allocated:unsigned int $newblock:ext4_fsblk_t
+kernel.trace("ext4:ext4_ext_in_cache") $inode:struct inode* $lblk:ext4_lblk_t $ret:int
+kernel.trace("ext4:ext4_ext_load_extent") $inode:struct inode* $lblk:ext4_lblk_t $pblk:ext4_fsblk_t
+kernel.trace("ext4:ext4_ext_map_blocks_enter") $inode:struct inode* $lblk:ext4_lblk_t $len:unsigned int $flags:unsigned int
+kernel.trace("ext4:ext4_ext_map_blocks_exit") $inode:struct inode* $flags:unsigned int $map:struct ext4_map_blocks* $ret:int
+kernel.trace("ext4:ext4_ext_put_in_cache") $inode:struct inode* $lblk:ext4_lblk_t $len:unsigned int $start:ext4_fsblk_t
+kernel.trace("ext4:ext4_ext_remove_space") $inode:struct inode* $start:ext4_lblk_t $end:ext4_lblk_t $depth:int
+kernel.trace("ext4:ext4_ext_remove_space_done") $inode:struct inode* $start:ext4_lblk_t $end:ext4_lblk_t $depth:int $pc:struct partial_cluster* $eh_entries:__le16
+kernel.trace("ext4:ext4_ext_rm_idx") $inode:struct inode* $pblk:ext4_fsblk_t
+kernel.trace("ext4:ext4_ext_rm_leaf") $inode:struct inode* $start:ext4_lblk_t $ex:struct ext4_extent* $pc:struct partial_cluster*
+kernel.trace("ext4:ext4_ext_show_extent") $inode:struct inode* $lblk:ext4_lblk_t $pblk:ext4_fsblk_t $len:short unsigned int
+kernel.trace("ext4:ext4_fallocate_enter") $inode:struct inode* $offset:loff_t $len:loff_t $mode:int
+kernel.trace("ext4:ext4_fallocate_exit") $inode:struct inode* $offset:loff_t $max_blocks:unsigned int $ret:int
+kernel.trace("ext4:ext4_find_delalloc_range") $inode:struct inode* $from:ext4_lblk_t $to:ext4_lblk_t $reverse:int $found:int $found_blk:ext4_lblk_t
+kernel.trace("ext4:ext4_forget") $inode:struct inode* $is_metadata:int $block:__u64
+kernel.trace("ext4:ext4_free_blocks") $inode:struct inode* $block:__u64 $count:long unsigned int $flags:int
+kernel.trace("ext4:ext4_free_inode") $inode:struct inode*
+kernel.trace("ext4:ext4_fsmap_high_key") $sb:struct super_block* $keydev:u32 $agno:u32 $bno:u64 $len:u64 $owner:u64
+kernel.trace("ext4:ext4_fsmap_low_key") $sb:struct super_block* $keydev:u32 $agno:u32 $bno:u64 $len:u64 $owner:u64
+kernel.trace("ext4:ext4_fsmap_mapping") $sb:struct super_block* $keydev:u32 $agno:u32 $bno:u64 $len:u64 $owner:u64
+kernel.trace("ext4:ext4_get_implied_cluster_alloc_exit") $sb:struct super_block* $map:struct ext4_map_blocks* $ret:int
+kernel.trace("ext4:ext4_get_reserved_cluster_alloc") $inode:struct inode* $lblk:ext4_lblk_t $len:unsigned int
+kernel.trace("ext4:ext4_getfsmap_high_key") $sb:struct super_block* $fsmap:struct ext4_fsmap*
+kernel.trace("ext4:ext4_getfsmap_low_key") $sb:struct super_block* $fsmap:struct ext4_fsmap*
+kernel.trace("ext4:ext4_getfsmap_mapping") $sb:struct super_block* $fsmap:struct ext4_fsmap*
+kernel.trace("ext4:ext4_ind_map_blocks_enter") $inode:struct inode* $lblk:ext4_lblk_t $len:unsigned int $flags:unsigned int
+kernel.trace("ext4:ext4_ind_map_blocks_exit") $inode:struct inode* $flags:unsigned int $map:struct ext4_map_blocks* $ret:int
+kernel.trace("ext4:ext4_insert_range") $inode:struct inode* $offset:loff_t $len:loff_t
+kernel.trace("ext4:ext4_invalidatepage") $page:struct page* $offset:unsigned int $length:unsigned int
+kernel.trace("ext4:ext4_journal_start") $sb:struct super_block* $blocks:int $rsv_blocks:int $revoke_creds:int $IP:long unsigned int
+kernel.trace("ext4:ext4_journal_start_reserved") $sb:struct super_block* $blocks:int $IP:long unsigned int
+kernel.trace("ext4:ext4_journalled_invalidatepage") $page:struct page* $offset:unsigned int $length:unsigned int
+kernel.trace("ext4:ext4_journalled_write_end") $inode:struct inode* $pos:loff_t $len:unsigned int $copied:unsigned int
+kernel.trace("ext4:ext4_load_inode") $inode:struct inode*
+kernel.trace("ext4:ext4_load_inode_bitmap") $sb:struct super_block* $group:long unsigned int
+kernel.trace("ext4:ext4_mark_inode_dirty") $inode:struct inode* $IP:long unsigned int
+kernel.trace("ext4:ext4_mb_bitmap_load") $sb:struct super_block* $group:long unsigned int
+kernel.trace("ext4:ext4_mb_buddy_bitmap_load") $sb:struct super_block* $group:long unsigned int
+kernel.trace("ext4:ext4_mb_discard_preallocations") $sb:struct super_block* $needed:int
+kernel.trace("ext4:ext4_mb_new_group_pa") $ac:struct ext4_allocation_context* $pa:struct ext4_prealloc_space*
+kernel.trace("ext4:ext4_mb_new_inode_pa") $ac:struct ext4_allocation_context* $pa:struct ext4_prealloc_space*
+kernel.trace("ext4:ext4_mb_release_group_pa") $sb:struct super_block* $pa:struct ext4_prealloc_space*
+kernel.trace("ext4:ext4_mb_release_inode_pa") $pa:struct ext4_prealloc_space* $block:long long unsigned int $count:unsigned int
+kernel.trace("ext4:ext4_mballoc_alloc") $ac:struct ext4_allocation_context*
+kernel.trace("ext4:ext4_mballoc_discard") $sb:struct super_block* $inode:struct inode* $group:ext4_group_t $start:ext4_grpblk_t $len:ext4_grpblk_t
+kernel.trace("ext4:ext4_mballoc_free") $sb:struct super_block* $inode:struct inode* $group:ext4_group_t $start:ext4_grpblk_t $len:ext4_grpblk_t
+kernel.trace("ext4:ext4_mballoc_prealloc") $ac:struct ext4_allocation_context*
+kernel.trace("ext4:ext4_nfs_commit_metadata") $inode:struct inode*
+kernel.trace("ext4:ext4_other_inode_update_time") $inode:struct inode* $orig_ino:ino_t
+kernel.trace("ext4:ext4_punch_hole") $inode:struct inode* $offset:loff_t $len:loff_t $mode:int
+kernel.trace("ext4:ext4_read_block_bitmap_load") $sb:struct super_block* $group:long unsigned int
+kernel.trace("ext4:ext4_readpage") $page:struct page*
+kernel.trace("ext4:ext4_releasepage") $page:struct page*
+kernel.trace("ext4:ext4_remove_blocks") $inode:struct inode* $ex:struct ext4_extent* $from:ext4_lblk_t $to:ext4_fsblk_t $pc:struct partial_cluster*
+kernel.trace("ext4:ext4_request_blocks") $ar:struct ext4_allocation_request*
+kernel.trace("ext4:ext4_request_inode") $dir:struct inode* $mode:int
+kernel.trace("ext4:ext4_shutdown") $sb:struct super_block* $flags:long unsigned int
+kernel.trace("ext4:ext4_sync_file_enter") $file:struct file* $datasync:int
+kernel.trace("ext4:ext4_sync_file_exit") $inode:struct inode* $ret:int
+kernel.trace("ext4:ext4_sync_fs") $sb:struct super_block* $wait:int
+kernel.trace("ext4:ext4_trim_all_free") $sb:struct super_block* $group:ext4_group_t $start:ext4_grpblk_t $len:ext4_grpblk_t
+kernel.trace("ext4:ext4_trim_extent") $sb:struct super_block* $group:ext4_group_t $start:ext4_grpblk_t $len:ext4_grpblk_t
+kernel.trace("ext4:ext4_truncate_enter") $inode:struct inode*
+kernel.trace("ext4:ext4_truncate_exit") $inode:struct inode*
+kernel.trace("ext4:ext4_unlink_enter") $parent:struct inode* $dentry:struct dentry*
+kernel.trace("ext4:ext4_unlink_exit") $dentry:struct dentry* $ret:int
+kernel.trace("ext4:ext4_write_begin") $inode:struct inode* $pos:loff_t $len:unsigned int $flags:unsigned int
+kernel.trace("ext4:ext4_write_end") $inode:struct inode* $pos:loff_t $len:unsigned int $copied:unsigned int
+kernel.trace("ext4:ext4_writepage") $page:struct page*
+kernel.trace("ext4:ext4_writepages") $inode:struct inode* $wbc:struct writeback_control*
+kernel.trace("ext4:ext4_writepages_result") $inode:struct inode* $wbc:struct writeback_control* $ret:int $pages_written:int
+kernel.trace("ext4:ext4_zero_range") $inode:struct inode* $offset:loff_t $len:loff_t $mode:int
+kernel.trace("f2fs:f2fs_background_gc") $sb:struct super_block* $wait_ms:unsigned int $prefree:unsigned int $free:unsigned int
+kernel.trace("f2fs:f2fs_commit_inmem_page") $page:struct page* $type:int
+kernel.trace("f2fs:f2fs_destroy_extent_tree") $inode:struct inode* $node_cnt:unsigned int
+kernel.trace("f2fs:f2fs_direct_IO_enter") $inode:struct inode* $offset:loff_t $len:long unsigned int $rw:int
+kernel.trace("f2fs:f2fs_direct_IO_exit") $inode:struct inode* $offset:loff_t $len:long unsigned int $rw:int $ret:int
+kernel.trace("f2fs:f2fs_do_write_data_page") $page:struct page* $type:int
+kernel.trace("f2fs:f2fs_drop_inode") $inode:struct inode* $ret:int
+kernel.trace("f2fs:f2fs_evict_inode") $inode:struct inode*
+kernel.trace("f2fs:f2fs_fallocate") $inode:struct inode* $mode:int $offset:loff_t $len:loff_t $ret:int
+kernel.trace("f2fs:f2fs_gc_begin") $sb:struct super_block* $sync:bool $background:bool $dirty_nodes:long long int $dirty_dents:long long int $dirty_imeta:long long int $free_sec:unsigned int $free_seg:unsigned int $reserved_seg:int $prefree_seg:unsigned int
+kernel.trace("f2fs:f2fs_gc_end") $sb:struct super_block* $ret:int $seg_freed:int $sec_freed:int $dirty_nodes:long long int $dirty_dents:long long int $dirty_imeta:long long int $free_sec:unsigned int $free_seg:unsigned int $reserved_seg:int $prefree_seg:unsigned int
+kernel.trace("f2fs:f2fs_get_victim") $sb:struct super_block* $type:int $gc_type:int $p:struct victim_sel_policy* $pre_victim:unsigned int $prefree:unsigned int $free:unsigned int
+kernel.trace("f2fs:f2fs_iget") $inode:struct inode*
+kernel.trace("f2fs:f2fs_iget_exit") $inode:struct inode* $ret:int
+kernel.trace("f2fs:f2fs_issue_discard") $dev:struct block_device* $blkstart:block_t $blklen:block_t
+kernel.trace("f2fs:f2fs_issue_flush") $dev:struct block_device* $nobarrier:unsigned int $flush_merge:unsigned int $ret:int
+kernel.trace("f2fs:f2fs_issue_reset_zone") $dev:struct block_device* $blkstart:block_t
+kernel.trace("f2fs:f2fs_lookup_end") $dir:struct inode* $dentry:struct dentry* $ino:nid_t $err:int
+kernel.trace("f2fs:f2fs_lookup_extent_tree_end") $inode:struct inode* $pgofs:unsigned int $ei:struct extent_info*
+kernel.trace("f2fs:f2fs_lookup_extent_tree_start") $inode:struct inode* $pgofs:unsigned int
+kernel.trace("f2fs:f2fs_lookup_start") $dir:struct inode* $dentry:struct dentry* $flags:unsigned int
+kernel.trace("f2fs:f2fs_map_blocks") $inode:struct inode* $map:struct f2fs_map_blocks* $ret:int
+kernel.trace("f2fs:f2fs_new_inode") $inode:struct inode* $ret:int
+kernel.trace("f2fs:f2fs_prepare_read_bio") $sb:struct super_block* $type:int $bio:struct bio*
+kernel.trace("f2fs:f2fs_prepare_write_bio") $sb:struct super_block* $type:int $bio:struct bio*
+kernel.trace("f2fs:f2fs_queue_discard") $dev:struct block_device* $blkstart:block_t $blklen:block_t
+kernel.trace("f2fs:f2fs_readdir") $dir:struct inode* $start_pos:loff_t $end_pos:loff_t $err:int
+kernel.trace("f2fs:f2fs_readpage") $page:struct page* $type:int
+kernel.trace("f2fs:f2fs_readpages") $inode:struct inode* $page:struct page* $nrpage:unsigned int
+kernel.trace("f2fs:f2fs_register_inmem_page") $page:struct page* $type:int
+kernel.trace("f2fs:f2fs_remove_discard") $dev:struct block_device* $blkstart:block_t $blklen:block_t
+kernel.trace("f2fs:f2fs_reserve_new_blocks") $inode:struct inode* $nid:nid_t $ofs_in_node:unsigned int $count:blkcnt_t
+kernel.trace("f2fs:f2fs_set_page_dirty") $page:struct page* $type:int
+kernel.trace("f2fs:f2fs_shrink_extent_tree") $sbi:struct f2fs_sb_info* $node_cnt:unsigned int $tree_cnt:unsigned int
+kernel.trace("f2fs:f2fs_submit_page_bio") $page:struct page* $fio:struct f2fs_io_info*
+kernel.trace("f2fs:f2fs_submit_page_write") $page:struct page* $fio:struct f2fs_io_info*
+kernel.trace("f2fs:f2fs_submit_read_bio") $sb:struct super_block* $type:int $bio:struct bio*
+kernel.trace("f2fs:f2fs_submit_write_bio") $sb:struct super_block* $type:int $bio:struct bio*
+kernel.trace("f2fs:f2fs_sync_dirty_inodes_enter") $sb:struct super_block* $type:int $count:s64
+kernel.trace("f2fs:f2fs_sync_dirty_inodes_exit") $sb:struct super_block* $type:int $count:s64
+kernel.trace("f2fs:f2fs_sync_file_enter") $inode:struct inode*
+kernel.trace("f2fs:f2fs_sync_file_exit") $inode:struct inode* $cp_reason:int $datasync:int $ret:int
+kernel.trace("f2fs:f2fs_sync_fs") $sb:struct super_block* $wait:int
+kernel.trace("f2fs:f2fs_truncate") $inode:struct inode*
+kernel.trace("f2fs:f2fs_truncate_blocks_enter") $inode:struct inode* $from:u64
+kernel.trace("f2fs:f2fs_truncate_blocks_exit") $inode:struct inode* $ret:int
+kernel.trace("f2fs:f2fs_truncate_data_blocks_range") $inode:struct inode* $nid:nid_t $ofs:unsigned int $free:int
+kernel.trace("f2fs:f2fs_truncate_inode_blocks_enter") $inode:struct inode* $from:u64
+kernel.trace("f2fs:f2fs_truncate_inode_blocks_exit") $inode:struct inode* $ret:int
+kernel.trace("f2fs:f2fs_truncate_node") $inode:struct inode* $nid:nid_t $blk_addr:block_t
+kernel.trace("f2fs:f2fs_truncate_nodes_enter") $inode:struct inode* $nid:nid_t $blk_addr:block_t
+kernel.trace("f2fs:f2fs_truncate_nodes_exit") $inode:struct inode* $ret:int
+kernel.trace("f2fs:f2fs_truncate_partial_nodes") $inode:struct inode* $nid:nid_t* $depth:int $err:int
+kernel.trace("f2fs:f2fs_unlink_enter") $dir:struct inode* $dentry:struct dentry*
+kernel.trace("f2fs:f2fs_unlink_exit") $inode:struct inode* $ret:int
+kernel.trace("f2fs:f2fs_update_extent_tree_range") $inode:struct inode* $pgofs:unsigned int $blkaddr:block_t $len:unsigned int
+kernel.trace("f2fs:f2fs_vm_page_mkwrite") $page:struct page* $type:int
+kernel.trace("f2fs:f2fs_write_begin") $inode:struct inode* $pos:loff_t $len:unsigned int $flags:unsigned int
+kernel.trace("f2fs:f2fs_write_checkpoint") $sb:struct super_block* $reason:int $msg:char*
+kernel.trace("f2fs:f2fs_write_end") $inode:struct inode* $pos:loff_t $len:unsigned int $copied:unsigned int
+kernel.trace("f2fs:f2fs_writepage") $page:struct page* $type:int
+kernel.trace("f2fs:f2fs_writepages") $inode:struct inode* $wbc:struct writeback_control* $type:int
+kernel.trace("fib6:fib6_table_lookup") $net:struct net const* $f6i:struct fib6_info const* $table:struct fib6_table* $flp:struct flowi6 const*
+kernel.trace("fib:fib_table_lookup") $tb_id:u32 $flp:struct flowi4 const* $nh:struct fib_nh const* $err:int
+kernel.trace("filelock:break_lease_block") $inode:struct inode* $fl:struct file_lock*
+kernel.trace("filelock:break_lease_noblock") $inode:struct inode* $fl:struct file_lock*
+kernel.trace("filelock:break_lease_unblock") $inode:struct inode* $fl:struct file_lock*
+kernel.trace("filelock:fcntl_setlk") $inode:struct inode* $fl:struct file_lock* $ret:int
+kernel.trace("filelock:generic_add_lease") $inode:struct inode* $fl:struct file_lock*
+kernel.trace("filelock:generic_delete_lease") $inode:struct inode* $fl:struct file_lock*
+kernel.trace("filelock:leases_conflict") $conflict:bool $lease:struct file_lock* $breaker:struct file_lock*
+kernel.trace("filelock:locks_get_lock_context") $inode:struct inode* $type:int $ctx:struct file_lock_context*
+kernel.trace("filelock:locks_remove_posix") $inode:struct inode* $fl:struct file_lock* $ret:int
+kernel.trace("filelock:posix_lock_inode") $inode:struct inode* $fl:struct file_lock* $ret:int
+kernel.trace("filelock:time_out_leases") $inode:struct inode* $fl:struct file_lock*
+kernel.trace("filemap:file_check_and_advance_wb_err") $file:struct file* $old:errseq_t
+kernel.trace("filemap:filemap_set_wb_err") $mapping:struct address_space* $eseq:errseq_t
+kernel.trace("filemap:mm_filemap_add_to_page_cache") $page:struct page*
+kernel.trace("filemap:mm_filemap_delete_from_page_cache") $page:struct page*
+kernel.trace("fs_dax:dax_insert_mapping") $inode:struct inode* $vmf:struct vm_fault* $radix_entry:void*
+kernel.trace("fs_dax:dax_insert_pfn_mkwrite") $inode:struct inode* $vmf:struct vm_fault* $result:int
+kernel.trace("fs_dax:dax_insert_pfn_mkwrite_no_entry") $inode:struct inode* $vmf:struct vm_fault* $result:int
+kernel.trace("fs_dax:dax_load_hole") $inode:struct inode* $vmf:struct vm_fault* $result:int
+kernel.trace("fs_dax:dax_pmd_fault") $inode:struct inode* $vmf:struct vm_fault* $max_pgoff:long unsigned int $result:int
+kernel.trace("fs_dax:dax_pmd_fault_done") $inode:struct inode* $vmf:struct vm_fault* $max_pgoff:long unsigned int $result:int
+kernel.trace("fs_dax:dax_pmd_insert_mapping") $inode:struct inode* $vmf:struct vm_fault* $length:long int $pfn:pfn_t $radix_entry:void*
+kernel.trace("fs_dax:dax_pmd_load_hole") $inode:struct inode* $vmf:struct vm_fault* $zero_page:struct page* $radix_entry:void*
+kernel.trace("fs_dax:dax_pmd_load_hole_fallback") $inode:struct inode* $vmf:struct vm_fault* $zero_page:struct page* $radix_entry:void*
+kernel.trace("fs_dax:dax_pte_fault") $inode:struct inode* $vmf:struct vm_fault* $result:int
+kernel.trace("fs_dax:dax_pte_fault_done") $inode:struct inode* $vmf:struct vm_fault* $result:int
+kernel.trace("fs_dax:dax_writeback_one") $inode:struct inode* $pgoff:long unsigned int $pglen:long unsigned int
+kernel.trace("fs_dax:dax_writeback_range") $inode:struct inode* $start_index:long unsigned int $end_index:long unsigned int
+kernel.trace("fs_dax:dax_writeback_range_done") $inode:struct inode* $start_index:long unsigned int $end_index:long unsigned int
+kernel.trace("fscache:fscache_acquire") $cookie:struct fscache_cookie*
+kernel.trace("fscache:fscache_check_page") $cookie:struct fscache_cookie* $page:struct page* $val:void* $n:int
+kernel.trace("fscache:fscache_cookie") $cookie:struct fscache_cookie* $where:enum fscache_cookie_trace $usage:int
+kernel.trace("fscache:fscache_disable") $cookie:struct fscache_cookie*
+kernel.trace("fscache:fscache_enable") $cookie:struct fscache_cookie*
+kernel.trace("fscache:fscache_gang_lookup") $cookie:struct fscache_cookie* $op:struct fscache_operation* $results:void** $n:int $store_limit:long unsigned int
+kernel.trace("fscache:fscache_netfs") $netfs:struct fscache_netfs*
+kernel.trace("fscache:fscache_op") $cookie:struct fscache_cookie* $op:struct fscache_operation* $why:enum fscache_op_trace
+kernel.trace("fscache:fscache_osm") $object:struct fscache_object* $state:struct fscache_state const* $wait:bool $oob:bool $event_num:s8
+kernel.trace("fscache:fscache_page") $cookie:struct fscache_cookie* $page:struct page* $why:enum fscache_page_trace
+kernel.trace("fscache:fscache_page_op") $cookie:struct fscache_cookie* $page:struct page* $op:struct fscache_operation* $what:enum fscache_page_op_trace
+kernel.trace("fscache:fscache_relinquish") $cookie:struct fscache_cookie* $retire:bool
+kernel.trace("fscache:fscache_wake_cookie") $cookie:struct fscache_cookie*
+kernel.trace("fscache:fscache_wrote_page") $cookie:struct fscache_cookie* $page:struct page* $op:struct fscache_operation* $ret:int
+kernel.trace("fsi:fsi_master_break") $master:struct fsi_master const* $link:int
+kernel.trace("fsi:fsi_master_read") $master:struct fsi_master const* $link:int $id:int $addr:uint32_t $size:size_t
+kernel.trace("fsi:fsi_master_rw_result") $master:struct fsi_master const* $link:int $id:int $addr:uint32_t $size:size_t $write:bool $data:void const* $ret:int
+kernel.trace("fsi:fsi_master_write") $master:struct fsi_master const* $link:int $id:int $addr:uint32_t $size:size_t $data:void const*
+kernel.trace("fsi_master_gpio:fsi_master_gpio_break") $master:struct fsi_master_gpio const*
+kernel.trace("fsi_master_gpio:fsi_master_gpio_in") $master:struct fsi_master_gpio const* $bits:int $msg:uint64_t
+kernel.trace("fsi_master_gpio:fsi_master_gpio_out") $master:struct fsi_master_gpio const* $bits:int $msg:uint64_t
+kernel.trace("gfs2:gfs2_ail_flush") $sdp:struct gfs2_sbd const* $wbc:struct writeback_control const* $start:int
+kernel.trace("gfs2:gfs2_block_alloc") $ip:struct gfs2_inode const* $rgd:struct gfs2_rgrpd* $block:u64 $len:unsigned int $block_state:u8
+kernel.trace("gfs2:gfs2_bmap") $ip:struct gfs2_inode const* $bh:struct buffer_head const* $lblock:sector_t $create:int $errno:int
+kernel.trace("gfs2:gfs2_demote_rq") $gl:struct gfs2_glock const* $remote:bool
+kernel.trace("gfs2:gfs2_glock_lock_time") $gl:struct gfs2_glock const* $tdiff:s64
+kernel.trace("gfs2:gfs2_glock_put") $gl:struct gfs2_glock const*
+kernel.trace("gfs2:gfs2_glock_queue") $gh:struct gfs2_holder const* $queue:int
+kernel.trace("gfs2:gfs2_glock_state_change") $gl:struct gfs2_glock const* $new_state:unsigned int
+kernel.trace("gfs2:gfs2_iomap_end") $ip:struct gfs2_inode const* $iomap:struct iomap* $ret:int
+kernel.trace("gfs2:gfs2_iomap_start") $ip:struct gfs2_inode const* $pos:loff_t $length:ssize_t $flags:u16
+kernel.trace("gfs2:gfs2_log_blocks") $sdp:struct gfs2_sbd const* $blocks:int
+kernel.trace("gfs2:gfs2_log_flush") $sdp:struct gfs2_sbd const* $start:int $flags:u32
+kernel.trace("gfs2:gfs2_pin") $bd:struct gfs2_bufdata const* $pin:int
+kernel.trace("gfs2:gfs2_promote") $gh:struct gfs2_holder const* $first:int
+kernel.trace("gfs2:gfs2_rs") $rs:struct gfs2_blkreserv const* $func:u8
+kernel.trace("gpio:gpio_direction") $gpio:unsigned int $in:int $err:int
+kernel.trace("gpio:gpio_value") $gpio:unsigned int $get:int $value:int
+kernel.trace("gpu_scheduler:drm_run_job") $sched_job:struct drm_sched_job* $entity:struct drm_sched_entity*
+kernel.trace("gpu_scheduler:drm_sched_job") $sched_job:struct drm_sched_job* $entity:struct drm_sched_entity*
+kernel.trace("gpu_scheduler:drm_sched_job_wait_dep") $sched_job:struct drm_sched_job* $fence:struct dma_fence*
+kernel.trace("gpu_scheduler:drm_sched_process_job") $fence:struct drm_sched_fence*
+kernel.trace("hda:hda_get_response") $bus:struct hdac_bus* $addr:unsigned int $res:unsigned int
+kernel.trace("hda:hda_send_cmd") $bus:struct hdac_bus* $cmd:unsigned int
+kernel.trace("hda:hda_unsol_event") $bus:struct hdac_bus* $res:u32 $res_ex:u32
+kernel.trace("hda:snd_hdac_stream_start") $bus:struct hdac_bus* $azx_dev:struct hdac_stream*
+kernel.trace("hda:snd_hdac_stream_stop") $bus:struct hdac_bus* $azx_dev:struct hdac_stream*
+kernel.trace("hda_controller:azx_get_position") $chip:struct azx* $dev:struct azx_dev* $pos:unsigned int $delay:unsigned int
+kernel.trace("hda_controller:azx_pcm_close") $chip:struct azx* $azx_dev:struct azx_dev*
+kernel.trace("hda_controller:azx_pcm_hw_params") $chip:struct azx* $azx_dev:struct azx_dev*
+kernel.trace("hda_controller:azx_pcm_open") $chip:struct azx* $azx_dev:struct azx_dev*
+kernel.trace("hda_controller:azx_pcm_prepare") $chip:struct azx* $azx_dev:struct azx_dev*
+kernel.trace("hda_controller:azx_pcm_trigger") $chip:struct azx* $dev:struct azx_dev* $cmd:int
+kernel.trace("hda_intel:azx_resume") $chip:struct azx*
+kernel.trace("hda_intel:azx_runtime_resume") $chip:struct azx*
+kernel.trace("hda_intel:azx_runtime_suspend") $chip:struct azx*
+kernel.trace("hda_intel:azx_suspend") $chip:struct azx*
+kernel.trace("host1x:host1x_cdma_begin") $name:char const*
+kernel.trace("host1x:host1x_cdma_end") $name:char const*
+kernel.trace("host1x:host1x_cdma_push") $name:char const* $op1:u32 $op2:u32
+kernel.trace("host1x:host1x_cdma_push_gather") $name:char const* $bo:struct host1x_bo* $words:u32 $offset:u32 $cmdbuf:void*
+kernel.trace("host1x:host1x_channel_open") $name:char const*
+kernel.trace("host1x:host1x_channel_release") $name:char const*
+kernel.trace("host1x:host1x_channel_submit") $name:char const* $cmdbufs:u32 $relocs:u32 $syncpt_id:u32 $syncpt_incrs:u32
+kernel.trace("host1x:host1x_channel_submit_complete") $name:char const* $count:int $thresh:u32
+kernel.trace("host1x:host1x_channel_submitted") $name:char const* $syncpt_base:u32 $syncpt_max:u32
+kernel.trace("host1x:host1x_syncpt_load_min") $id:u32 $val:u32
+kernel.trace("host1x:host1x_syncpt_wait_check") $bo:struct host1x_bo* $offset:u32 $syncpt_id:u32 $thresh:u32 $min:u32
+kernel.trace("host1x:host1x_wait_cdma") $name:char const* $eventid:u32
+kernel.trace("huge_memory:mm_collapse_huge_page") $mm:struct mm_struct* $isolated:int $status:int
+kernel.trace("huge_memory:mm_collapse_huge_page_isolate") $page:struct page* $none_or_zero:int $referenced:int $writable:bool $status:int
+kernel.trace("huge_memory:mm_collapse_huge_page_swapin") $mm:struct mm_struct* $swapped_in:int $referenced:int $ret:int
+kernel.trace("huge_memory:mm_khugepaged_scan_pmd") $mm:struct mm_struct* $page:struct page* $writable:bool $referenced:int $none_or_zero:int $status:int $unmapped:int
+kernel.trace("hyperv:hyperv_mmu_flush_tlb_others") $cpus:struct cpumask const* $info:struct flush_tlb_info const*
+kernel.trace("hyperv:hyperv_nested_flush_guest_mapping") $as:u64 $ret:int
+kernel.trace("hyperv:hyperv_nested_flush_guest_mapping_range") $as:u64 $ret:int
+kernel.trace("hyperv:hyperv_send_ipi_mask") $cpus:struct cpumask const* $vector:int
+kernel.trace("hyperv:hyperv_send_ipi_one") $cpu:int $vector:int
+kernel.trace("i2c:i2c_read") $adap:struct i2c_adapter const* $msg:struct i2c_msg const* $num:int
+kernel.trace("i2c:i2c_reply") $adap:struct i2c_adapter const* $msg:struct i2c_msg const* $num:int
+kernel.trace("i2c:i2c_result") $adap:struct i2c_adapter const* $num:int $ret:int
+kernel.trace("i2c:i2c_write") $adap:struct i2c_adapter const* $msg:struct i2c_msg const* $num:int
+kernel.trace("ib_umad:ib_umad_read_recv") $file:struct ib_umad_file* $umad_hdr:struct ib_user_mad_hdr* $mad_hdr:struct ib_mad_hdr*
+kernel.trace("ib_umad:ib_umad_read_send") $file:struct ib_umad_file* $umad_hdr:struct ib_user_mad_hdr* $mad_hdr:struct ib_mad_hdr*
+kernel.trace("ib_umad:ib_umad_write") $file:struct ib_umad_file* $umad_hdr:struct ib_user_mad_hdr* $mad_hdr:struct ib_mad_hdr*
+kernel.trace("initcall:initcall_finish") $func:initcall_t $ret:int
+kernel.trace("initcall:initcall_level") $level:char const*
+kernel.trace("initcall:initcall_start") $func:initcall_t
+kernel.trace("intel-sst:sst_ipc_inbox_rdata") $offset:unsigned int $val:unsigned int
+kernel.trace("intel-sst:sst_ipc_inbox_read") $size:unsigned int
+kernel.trace("intel-sst:sst_ipc_inbox_wdata") $offset:unsigned int $val:unsigned int
+kernel.trace("intel-sst:sst_ipc_inbox_write") $size:unsigned int
+kernel.trace("intel-sst:sst_ipc_msg_rx") $val:unsigned int
+kernel.trace("intel-sst:sst_ipc_msg_tx") $val:unsigned int
+kernel.trace("intel-sst:sst_ipc_outbox_rdata") $offset:unsigned int $val:unsigned int
+kernel.trace("intel-sst:sst_ipc_outbox_read") $size:unsigned int
+kernel.trace("intel-sst:sst_ipc_outbox_wdata") $offset:unsigned int $val:unsigned int
+kernel.trace("intel-sst:sst_ipc_outbox_write") $size:unsigned int
+kernel.trace("intel_iommu:qi_submit") $iommu:struct intel_iommu* $qw0:u64 $qw1:u64 $qw2:u64 $qw3:u64
+kernel.trace("intel_ish:ishtp_dump") $message:char const*
+kernel.trace("io_uring:io_uring_add_to_prev") $req:void* $ret:bool
+kernel.trace("io_uring:io_uring_complete") $ctx:void* $user_data:u64 $res:long int
+kernel.trace("io_uring:io_uring_cqring_wait") $ctx:void* $min_events:int
+kernel.trace("io_uring:io_uring_create") $fd:int $ctx:void* $sq_entries:u32 $cq_entries:u32 $flags:u32
+kernel.trace("io_uring:io_uring_defer") $ctx:void* $req:void* $user_data:long long unsigned int
+kernel.trace("io_uring:io_uring_fail_link") $req:void* $link:void*
+kernel.trace("io_uring:io_uring_file_get") $ctx:void* $fd:int
+kernel.trace("io_uring:io_uring_link") $ctx:void* $req:void* $target_req:void*
+kernel.trace("io_uring:io_uring_poll_arm") $ctx:void* $opcode:u8 $user_data:u64 $mask:int $events:int
+kernel.trace("io_uring:io_uring_poll_wake") $ctx:void* $opcode:u8 $user_data:u64 $mask:int
+kernel.trace("io_uring:io_uring_queue_async_work") $ctx:void* $rw:int $req:void* $work:struct io_wq_work* $flags:unsigned int
+kernel.trace("io_uring:io_uring_register") $ctx:void* $opcode:unsigned int $nr_files:unsigned int $nr_bufs:unsigned int $eventfd:bool $ret:long int
+kernel.trace("io_uring:io_uring_submit_sqe") $ctx:void* $opcode:u8 $user_data:u64 $force_nonblock:bool $sq_thread:bool
+kernel.trace("io_uring:io_uring_task_add") $ctx:void* $opcode:u8 $user_data:u64 $mask:int
+kernel.trace("io_uring:io_uring_task_run") $ctx:void* $opcode:u8 $user_data:u64
+kernel.trace("iocost:iocost_inuse_giveaway") $iocg:struct ioc_gq* $path:char const* $now:struct ioc_now* $old_inuse:u32 $new_inuse:u32 $old_hw_inuse:u64 $new_hw_inuse:u64
+kernel.trace("iocost:iocost_inuse_reset") $iocg:struct ioc_gq* $path:char const* $now:struct ioc_now* $old_inuse:u32 $new_inuse:u32 $old_hw_inuse:u64 $new_hw_inuse:u64
+kernel.trace("iocost:iocost_inuse_takeback") $iocg:struct ioc_gq* $path:char const* $now:struct ioc_now* $old_inuse:u32 $new_inuse:u32 $old_hw_inuse:u64 $new_hw_inuse:u64
+kernel.trace("iocost:iocost_ioc_vrate_adj") $ioc:struct ioc* $new_vrate:u64 $missed_ppm:u32* $rq_wait_pct:u32 $nr_lagging:int $nr_shortages:int $nr_surpluses:int
+kernel.trace("iocost:iocost_iocg_activate") $iocg:struct ioc_gq* $path:char const* $now:struct ioc_now* $last_period:u64 $cur_period:u64 $vtime:u64
+kernel.trace("iommu:add_device_to_group") $group_id:int $dev:struct device*
+kernel.trace("iommu:attach_device_to_domain") $dev:struct device*
+kernel.trace("iommu:detach_device_from_domain") $dev:struct device*
+kernel.trace("iommu:io_page_fault") $dev:struct device* $iova:long unsigned int $flags:int
+kernel.trace("iommu:map") $iova:long unsigned int $paddr:phys_addr_t $size:size_t
+kernel.trace("iommu:remove_device_from_group") $group_id:int $dev:struct device*
+kernel.trace("iommu:unmap") $iova:long unsigned int $size:size_t $unmapped_size:size_t
+kernel.trace("ipi:ipi_entry") $reason:char const*
+kernel.trace("ipi:ipi_exit") $reason:char const*
+kernel.trace("ipi:ipi_raise") $mask:struct cpumask const* $reason:char const*
+kernel.trace("irq:irq_handler_entry") $irq:int $action:struct irqaction*
+kernel.trace("irq:irq_handler_exit") $irq:int $action:struct irqaction* $ret:int
+kernel.trace("irq:softirq_entry") $vec_nr:unsigned int
+kernel.trace("irq:softirq_exit") $vec_nr:unsigned int
+kernel.trace("irq:softirq_raise") $vec_nr:unsigned int
+kernel.trace("irq_matrix:irq_matrix_alloc") $bit:int $cpu:unsigned int $matrix:struct irq_matrix* $cmap:struct cpumap*
+kernel.trace("irq_matrix:irq_matrix_alloc_managed") $bit:int $cpu:unsigned int $matrix:struct irq_matrix* $cmap:struct cpumap*
+kernel.trace("irq_matrix:irq_matrix_alloc_reserved") $bit:int $cpu:unsigned int $matrix:struct irq_matrix* $cmap:struct cpumap*
+kernel.trace("irq_matrix:irq_matrix_assign") $bit:int $cpu:unsigned int $matrix:struct irq_matrix* $cmap:struct cpumap*
+kernel.trace("irq_matrix:irq_matrix_assign_system") $bit:int $matrix:struct irq_matrix*
+kernel.trace("irq_matrix:irq_matrix_free") $bit:int $cpu:unsigned int $matrix:struct irq_matrix* $cmap:struct cpumap*
+kernel.trace("irq_matrix:irq_matrix_offline") $matrix:struct irq_matrix*
+kernel.trace("irq_matrix:irq_matrix_online") $matrix:struct irq_matrix*
+kernel.trace("irq_matrix:irq_matrix_remove_managed") $bit:int $cpu:unsigned int $matrix:struct irq_matrix* $cmap:struct cpumap*
+kernel.trace("irq_matrix:irq_matrix_remove_reserved") $matrix:struct irq_matrix*
+kernel.trace("irq_matrix:irq_matrix_reserve") $matrix:struct irq_matrix*
+kernel.trace("irq_matrix:irq_matrix_reserve_managed") $bit:int $cpu:unsigned int $matrix:struct irq_matrix* $cmap:struct cpumap*
+kernel.trace("irq_vectors:call_function_entry") $vector:int
+kernel.trace("irq_vectors:call_function_exit") $vector:int
+kernel.trace("irq_vectors:call_function_single_entry") $vector:int
+kernel.trace("irq_vectors:call_function_single_exit") $vector:int
+kernel.trace("irq_vectors:deferred_error_apic_entry") $vector:int
+kernel.trace("irq_vectors:deferred_error_apic_exit") $vector:int
+kernel.trace("irq_vectors:error_apic_entry") $vector:int
+kernel.trace("irq_vectors:error_apic_exit") $vector:int
+kernel.trace("irq_vectors:irq_work_entry") $vector:int
+kernel.trace("irq_vectors:irq_work_exit") $vector:int
+kernel.trace("irq_vectors:local_timer_entry") $vector:int
+kernel.trace("irq_vectors:local_timer_exit") $vector:int
+kernel.trace("irq_vectors:reschedule_entry") $vector:int
+kernel.trace("irq_vectors:reschedule_exit") $vector:int
+kernel.trace("irq_vectors:spurious_apic_entry") $vector:int
+kernel.trace("irq_vectors:spurious_apic_exit") $vector:int
+kernel.trace("irq_vectors:thermal_apic_entry") $vector:int
+kernel.trace("irq_vectors:thermal_apic_exit") $vector:int
+kernel.trace("irq_vectors:threshold_apic_entry") $vector:int
+kernel.trace("irq_vectors:threshold_apic_exit") $vector:int
+kernel.trace("irq_vectors:vector_activate") $irq:unsigned int $is_managed:bool $can_reserve:bool $reserve:bool
+kernel.trace("irq_vectors:vector_alloc") $irq:unsigned int $vector:unsigned int $reserved:bool $ret:int
+kernel.trace("irq_vectors:vector_alloc_managed") $irq:unsigned int $vector:unsigned int $ret:int
+kernel.trace("irq_vectors:vector_clear") $irq:unsigned int $vector:unsigned int $cpu:unsigned int $prev_vector:unsigned int $prev_cpu:unsigned int
+kernel.trace("irq_vectors:vector_config") $irq:unsigned int $vector:unsigned int $cpu:unsigned int $apicdest:unsigned int
+kernel.trace("irq_vectors:vector_deactivate") $irq:unsigned int $is_managed:bool $can_reserve:bool $reserve:bool
+kernel.trace("irq_vectors:vector_free_moved") $irq:unsigned int $cpu:unsigned int $vector:unsigned int $is_managed:bool
+kernel.trace("irq_vectors:vector_reserve") $irq:unsigned int $ret:int
+kernel.trace("irq_vectors:vector_reserve_managed") $irq:unsigned int $ret:int
+kernel.trace("irq_vectors:vector_setup") $irq:unsigned int $is_legacy:bool $ret:int
+kernel.trace("irq_vectors:vector_teardown") $irq:unsigned int $is_managed:bool $has_reserved:bool
+kernel.trace("irq_vectors:vector_update") $irq:unsigned int $vector:unsigned int $cpu:unsigned int $prev_vector:unsigned int $prev_cpu:unsigned int
+kernel.trace("irq_vectors:x86_platform_ipi_entry") $vector:int
+kernel.trace("irq_vectors:x86_platform_ipi_exit") $vector:int
+kernel.trace("iscsi:iscsi_dbg_conn") $dev:struct device* $vaf:struct va_format*
+kernel.trace("iscsi:iscsi_dbg_eh") $dev:struct device* $vaf:struct va_format*
+kernel.trace("iscsi:iscsi_dbg_session") $dev:struct device* $vaf:struct va_format*
+kernel.trace("iscsi:iscsi_dbg_sw_tcp") $dev:struct device* $vaf:struct va_format*
+kernel.trace("iscsi:iscsi_dbg_tcp") $dev:struct device* $vaf:struct va_format*
+kernel.trace("iscsi:iscsi_dbg_trans_conn") $dev:struct device* $vaf:struct va_format*
+kernel.trace("iscsi:iscsi_dbg_trans_session") $dev:struct device* $vaf:struct va_format*
+kernel.trace("iwlwifi:iwlwifi_dev_hcmd") $dev:struct device const* $cmd:struct iwl_host_cmd* $total_size:u16 $hdr:struct iwl_cmd_header_wide*
+kernel.trace("iwlwifi:iwlwifi_dev_rx") $dev:struct device const* $trans:struct iwl_trans const* $pkt:struct iwl_rx_packet* $len:size_t
+kernel.trace("iwlwifi:iwlwifi_dev_tx") $dev:struct device const* $skb:struct sk_buff* $tfd:void* $tfdlen:size_t $buf0:void* $buf0_len:size_t $hdr_len:int
+kernel.trace("iwlwifi:iwlwifi_dev_ucode_event") $dev:struct device const* $time:u32 $data:u32 $ev:u32
+kernel.trace("iwlwifi_data:iwlwifi_dev_rx_data") $dev:struct device const* $trans:struct iwl_trans const* $rxbuf:void* $len:size_t
+kernel.trace("iwlwifi_data:iwlwifi_dev_tx_tb") $dev:struct device const* $skb:struct sk_buff* $data_src:u8* $phys:dma_addr_t $data_len:size_t
+kernel.trace("iwlwifi_io:iwlwifi_dev_ict_read") $dev:struct device const* $index:u32 $value:u32
+kernel.trace("iwlwifi_io:iwlwifi_dev_ioread32") $dev:struct device const* $offs:u32 $val:u32
+kernel.trace("iwlwifi_io:iwlwifi_dev_ioread_prph32") $dev:struct device const* $offs:u32 $val:u32
+kernel.trace("iwlwifi_io:iwlwifi_dev_iowrite32") $dev:struct device const* $offs:u32 $val:u32
+kernel.trace("iwlwifi_io:iwlwifi_dev_iowrite64") $dev:struct device const* $offs:u64 $val:u64
+kernel.trace("iwlwifi_io:iwlwifi_dev_iowrite8") $dev:struct device const* $offs:u32 $val:u8
+kernel.trace("iwlwifi_io:iwlwifi_dev_iowrite_prph32") $dev:struct device const* $offs:u32 $val:u32
+kernel.trace("iwlwifi_io:iwlwifi_dev_iowrite_prph64") $dev:struct device const* $offs:u64 $val:u64
+kernel.trace("iwlwifi_io:iwlwifi_dev_irq") $dev:struct device const*
+kernel.trace("iwlwifi_io:iwlwifi_dev_irq_msix") $dev:struct device const* $msix_entry:struct msix_entry* $defirq:bool $inta_fh:u32 $inta_hw:u32
+kernel.trace("iwlwifi_msg:iwlwifi_crit") $vaf:struct va_format*
+kernel.trace("iwlwifi_msg:iwlwifi_dbg") $level:u32 $function:char const* $vaf:struct va_format*
+kernel.trace("iwlwifi_msg:iwlwifi_err") $vaf:struct va_format*
+kernel.trace("iwlwifi_msg:iwlwifi_info") $vaf:struct va_format*
+kernel.trace("iwlwifi_msg:iwlwifi_warn") $vaf:struct va_format*
+kernel.trace("iwlwifi_ucode:iwlwifi_dev_ucode_cont_event") $dev:struct device const* $time:u32 $data:u32 $ev:u32
+kernel.trace("iwlwifi_ucode:iwlwifi_dev_ucode_wrap_event") $dev:struct device const* $wraps:u32 $n_entry:u32 $p_entry:u32
+kernel.trace("jbd2:jbd2_checkpoint") $journal:journal_t* $result:int
+kernel.trace("jbd2:jbd2_checkpoint_stats") $dev:dev_t $tid:long unsigned int $stats:struct transaction_chp_stats_s*
+kernel.trace("jbd2:jbd2_commit_flushing") $journal:journal_t* $commit_transaction:transaction_t*
+kernel.trace("jbd2:jbd2_commit_locking") $journal:journal_t* $commit_transaction:transaction_t*
+kernel.trace("jbd2:jbd2_commit_logging") $journal:journal_t* $commit_transaction:transaction_t*
+kernel.trace("jbd2:jbd2_drop_transaction") $journal:journal_t* $commit_transaction:transaction_t*
+kernel.trace("jbd2:jbd2_end_commit") $journal:journal_t* $commit_transaction:transaction_t*
+kernel.trace("jbd2:jbd2_handle_extend") $dev:dev_t $tid:long unsigned int $type:unsigned int $line_no:unsigned int $buffer_credits:int $requested_blocks:int
+kernel.trace("jbd2:jbd2_handle_restart") $dev:dev_t $tid:long unsigned int $type:unsigned int $line_no:unsigned int $requested_blocks:int
+kernel.trace("jbd2:jbd2_handle_start") $dev:dev_t $tid:long unsigned int $type:unsigned int $line_no:unsigned int $requested_blocks:int
+kernel.trace("jbd2:jbd2_handle_stats") $dev:dev_t $tid:long unsigned int $type:unsigned int $line_no:unsigned int $interval:int $sync:int $requested_blocks:int $dirtied_blocks:int
+kernel.trace("jbd2:jbd2_lock_buffer_stall") $dev:dev_t $stall_ms:long unsigned int
+kernel.trace("jbd2:jbd2_run_stats") $dev:dev_t $tid:long unsigned int $stats:struct transaction_run_stats_s*
+kernel.trace("jbd2:jbd2_start_commit") $journal:journal_t* $commit_transaction:transaction_t*
+kernel.trace("jbd2:jbd2_submit_inode_data") $inode:struct inode*
+kernel.trace("jbd2:jbd2_update_log_tail") $journal:journal_t* $first_tid:tid_t $block_nr:long unsigned int $freed:long unsigned int
+kernel.trace("jbd2:jbd2_write_superblock") $journal:journal_t* $write_op:int
+kernel.trace("kmem:kfree") $call_site:long unsigned int $ptr:void const*
+kernel.trace("kmem:kmalloc") $call_site:long unsigned int $ptr:void const* $bytes_req:size_t $bytes_alloc:size_t $gfp_flags:gfp_t
+kernel.trace("kmem:kmalloc_node") $call_site:long unsigned int $ptr:void const* $bytes_req:size_t $bytes_alloc:size_t $gfp_flags:gfp_t $node:int
+kernel.trace("kmem:kmem_cache_alloc") $call_site:long unsigned int $ptr:void const* $bytes_req:size_t $bytes_alloc:size_t $gfp_flags:gfp_t
+kernel.trace("kmem:kmem_cache_alloc_node") $call_site:long unsigned int $ptr:void const* $bytes_req:size_t $bytes_alloc:size_t $gfp_flags:gfp_t $node:int
+kernel.trace("kmem:kmem_cache_free") $call_site:long unsigned int $ptr:void const* $name:char const*
+kernel.trace("kmem:mm_page_alloc") $page:struct page* $order:unsigned int $gfp_flags:gfp_t $migratetype:int
+kernel.trace("kmem:mm_page_alloc_extfrag") $page:struct page* $alloc_order:int $fallback_order:int $alloc_migratetype:int $fallback_migratetype:int
+kernel.trace("kmem:mm_page_alloc_zone_locked") $page:struct page* $order:unsigned int $migratetype:int
+kernel.trace("kmem:mm_page_free") $page:struct page* $order:unsigned int
+kernel.trace("kmem:mm_page_free_batched") $page:struct page*
+kernel.trace("kmem:mm_page_pcpu_drain") $page:struct page* $order:unsigned int $migratetype:int
+kernel.trace("kvm:kvm_ack_irq") $irqchip:unsigned int $pin:unsigned int
+kernel.trace("kvm:kvm_apic") $rw:unsigned int $reg:unsigned int $val:unsigned int
+kernel.trace("kvm:kvm_apic_accept_irq") $apicid:__u32 $dm:__u16 $tm:__u16 $vec:__u8
+kernel.trace("kvm:kvm_apic_ipi") $icr_low:__u32 $dest_id:__u32
+kernel.trace("kvm:kvm_apicv_update_request") $activate:bool $bit:long unsigned int
+kernel.trace("kvm:kvm_async_pf_completed") $address:long unsigned int $gva:u64
+kernel.trace("kvm:kvm_async_pf_doublefault") $gva:u64 $gfn:u64
+kernel.trace("kvm:kvm_async_pf_not_present") $token:u64 $gva:u64
+kernel.trace("kvm:kvm_async_pf_ready") $token:u64 $gva:u64
+kernel.trace("kvm:kvm_avic_ga_log") $vmid:u32 $vcpuid:u32
+kernel.trace("kvm:kvm_avic_incomplete_ipi") $vcpu:u32 $icrh:u32 $icrl:u32 $id:u32 $index:u32
+kernel.trace("kvm:kvm_avic_unaccelerated_access") $vcpu:u32 $offset:u32 $ft:bool $rw:bool $vec:u32
+kernel.trace("kvm:kvm_cpuid") $function:unsigned int $index:unsigned int $rax:long unsigned int $rbx:long unsigned int $rcx:long unsigned int $rdx:long unsigned int $found:bool $used_max_basic:bool
+kernel.trace("kvm:kvm_cr") $rw:unsigned int $cr:unsigned int $val:long unsigned int
+kernel.trace("kvm:kvm_dirty_ring_exit") $vcpu:struct kvm_vcpu*
+kernel.trace("kvm:kvm_dirty_ring_push") $ring:struct kvm_dirty_ring* $slot:u32 $offset:u64
+kernel.trace("kvm:kvm_dirty_ring_reset") $ring:struct kvm_dirty_ring*
+kernel.trace("kvm:kvm_emulate_insn") $vcpu:struct kvm_vcpu* $failed:__u8
+kernel.trace("kvm:kvm_enter_smm") $vcpu_id:unsigned int $smbase:u64 $entering:bool
+kernel.trace("kvm:kvm_entry") $vcpu:struct kvm_vcpu*
+kernel.trace("kvm:kvm_eoi") $apic:struct kvm_lapic* $vector:int
+kernel.trace("kvm:kvm_exit") $exit_reason:unsigned int $vcpu:struct kvm_vcpu* $isa:u32
+kernel.trace("kvm:kvm_fast_mmio") $gpa:u64
+kernel.trace("kvm:kvm_fpu") $load:int
+kernel.trace("kvm:kvm_halt_poll_ns") $grow:bool $vcpu_id:unsigned int $new:unsigned int $old:unsigned int
+kernel.trace("kvm:kvm_hv_flush_tlb") $processor_mask:u64 $address_space:u64 $flags:u64
+kernel.trace("kvm:kvm_hv_flush_tlb_ex") $valid_bank_mask:u64 $format:u64 $address_space:u64 $flags:u64
+kernel.trace("kvm:kvm_hv_hypercall") $code:__u16 $fast:bool $rep_cnt:__u16 $rep_idx:__u16 $ingpa:__u64 $outgpa:__u64
+kernel.trace("kvm:kvm_hv_notify_acked_sint") $vcpu_id:int $sint:u32
+kernel.trace("kvm:kvm_hv_send_ipi") $vector:u32 $processor_mask:u64
+kernel.trace("kvm:kvm_hv_send_ipi_ex") $vector:u32 $format:u64 $valid_bank_mask:u64
+kernel.trace("kvm:kvm_hv_stimer_callback") $vcpu_id:int $timer_index:int
+kernel.trace("kvm:kvm_hv_stimer_cleanup") $vcpu_id:int $timer_index:int
+kernel.trace("kvm:kvm_hv_stimer_expiration") $vcpu_id:int $timer_index:int $direct:int $msg_send_result:int
+kernel.trace("kvm:kvm_hv_stimer_set_config") $vcpu_id:int $timer_index:int $config:u64 $host:bool
+kernel.trace("kvm:kvm_hv_stimer_set_count") $vcpu_id:int $timer_index:int $count:u64 $host:bool
+kernel.trace("kvm:kvm_hv_stimer_start_one_shot") $vcpu_id:int $timer_index:int $time_now:u64 $count:u64
+kernel.trace("kvm:kvm_hv_stimer_start_periodic") $vcpu_id:int $timer_index:int $time_now:u64 $exp_time:u64
+kernel.trace("kvm:kvm_hv_syndbg_get_msr") $vcpu_id:int $vp_index:u32 $msr:u32 $data:u64
+kernel.trace("kvm:kvm_hv_syndbg_set_msr") $vcpu_id:int $vp_index:u32 $msr:u32 $data:u64
+kernel.trace("kvm:kvm_hv_synic_send_eoi") $vcpu_id:int $vector:int
+kernel.trace("kvm:kvm_hv_synic_set_irq") $vcpu_id:int $sint:u32 $vector:int $ret:int
+kernel.trace("kvm:kvm_hv_synic_set_msr") $vcpu_id:int $msr:u32 $data:u64 $host:bool
+kernel.trace("kvm:kvm_hv_timer_state") $vcpu_id:unsigned int $hv_timer_in_use:unsigned int
+kernel.trace("kvm:kvm_hypercall") $nr:long unsigned int $a0:long unsigned int $a1:long unsigned int $a2:long unsigned int $a3:long unsigned int
+kernel.trace("kvm:kvm_inj_exception") $exception:unsigned int $has_error:bool $error_code:unsigned int
+kernel.trace("kvm:kvm_inj_virq") $irq:unsigned int
+kernel.trace("kvm:kvm_invlpga") $rip:__u64 $asid:int $address:u64
+kernel.trace("kvm:kvm_ioapic_delayed_eoi_inj") $e:__u64
+kernel.trace("kvm:kvm_ioapic_set_irq") $e:__u64 $pin:int $coalesced:bool
+kernel.trace("kvm:kvm_mmio") $type:int $len:int $gpa:u64 $val:void*
+kernel.trace("kvm:kvm_msi_set_irq") $address:__u64 $data:__u64
+kernel.trace("kvm:kvm_msr") $write:unsigned int $ecx:u32 $data:u64 $exception:bool
+kernel.trace("kvm:kvm_nested_intercepts") $cr_read:__u16 $cr_write:__u16 $exceptions:__u32 $intercept1:__u32 $intercept2:__u32 $intercept3:__u32
+kernel.trace("kvm:kvm_nested_intr_vmexit") $rip:__u64
+kernel.trace("kvm:kvm_nested_vmenter_failed") $msg:char const* $err:u32
+kernel.trace("kvm:kvm_nested_vmexit") $exit_reason:unsigned int $vcpu:struct kvm_vcpu* $isa:u32
+kernel.trace("kvm:kvm_nested_vmexit_inject") $exit_code:__u32 $exit_info1:__u64 $exit_info2:__u64 $exit_int_info:__u32 $exit_int_info_err:__u32 $isa:__u32
+kernel.trace("kvm:kvm_nested_vmrun") $rip:__u64 $vmcb:__u64 $nested_rip:__u64 $int_ctl:__u32 $event_inj:__u32 $npt:bool
+kernel.trace("kvm:kvm_page_fault") $fault_address:long unsigned int $error_code:unsigned int
+kernel.trace("kvm:kvm_pi_irte_update") $host_irq:unsigned int $vcpu_id:unsigned int $gsi:unsigned int $gvec:unsigned int $pi_desc_addr:u64 $set:bool
+kernel.trace("kvm:kvm_pic_set_irq") $chip:__u8 $pin:__u8 $elcr:__u8 $imr:__u8 $coalesced:bool
+kernel.trace("kvm:kvm_pio") $rw:unsigned int $port:unsigned int $size:unsigned int $count:unsigned int $data:void*
+kernel.trace("kvm:kvm_ple_window_update") $vcpu_id:unsigned int $new:unsigned int $old:unsigned int
+kernel.trace("kvm:kvm_pml_full") $vcpu_id:unsigned int
+kernel.trace("kvm:kvm_pv_eoi") $apic:struct kvm_lapic* $vector:int
+kernel.trace("kvm:kvm_pv_tlb_flush") $vcpu_id:unsigned int $need_flush_tlb:bool
+kernel.trace("kvm:kvm_pvclock_update") $vcpu_id:unsigned int $pvclock:struct pvclock_vcpu_time_info*
+kernel.trace("kvm:kvm_set_irq") $gsi:unsigned int $level:int $irq_source_id:int
+kernel.trace("kvm:kvm_skinit") $rip:__u64 $slb:__u32
+kernel.trace("kvm:kvm_track_tsc") $vcpu_id:unsigned int $nr_matched:unsigned int $online_vcpus:unsigned int $use_master_clock:bool $host_clock:unsigned int
+kernel.trace("kvm:kvm_try_async_get_page") $gva:u64 $gfn:u64
+kernel.trace("kvm:kvm_update_master_clock") $use_master_clock:bool $host_clock:unsigned int $offset_matched:bool
+kernel.trace("kvm:kvm_userspace_exit") $reason:__u32 $errno:int
+kernel.trace("kvm:kvm_vcpu_wakeup") $ns:__u64 $waited:bool $valid:bool
+kernel.trace("kvm:kvm_vmgexit_enter") $vcpu_id:unsigned int $ghcb:struct ghcb*
+kernel.trace("kvm:kvm_vmgexit_exit") $vcpu_id:unsigned int $ghcb:struct ghcb*
+kernel.trace("kvm:kvm_vmgexit_msr_protocol_enter") $vcpu_id:unsigned int $ghcb_gpa:u64
+kernel.trace("kvm:kvm_vmgexit_msr_protocol_exit") $vcpu_id:unsigned int $ghcb_gpa:u64 $result:int
+kernel.trace("kvm:kvm_wait_lapic_expire") $vcpu_id:unsigned int $delta:s64
+kernel.trace("kvm:kvm_write_tsc_offset") $vcpu_id:unsigned int $previous_tsc_offset:__u64 $next_tsc_offset:__u64
+kernel.trace("kvm:kvm_xen_hypercall") $nr:long unsigned int $a0:long unsigned int $a1:long unsigned int $a2:long unsigned int $a3:long unsigned int $a4:long unsigned int $a5:long unsigned int
+kernel.trace("kvm:vcpu_match_mmio") $gva:gva_t $gpa:gpa_t $write:bool $gpa_match:bool
+kernel.trace("kyber:kyber_adjust") $q:struct request_queue* $domain:char const* $depth:unsigned int
+kernel.trace("kyber:kyber_latency") $q:struct request_queue* $domain:char const* $type:char const* $percentile:unsigned int $numerator:unsigned int $denominator:unsigned int $samples:unsigned int
+kernel.trace("kyber:kyber_throttled") $q:struct request_queue* $domain:char const*
+kernel.trace("libata:ata_eh_link_autopsy") $dev:struct ata_device* $eh_action:unsigned int $eh_err_mask:unsigned int
+kernel.trace("libata:ata_eh_link_autopsy_qc") $qc:struct ata_queued_cmd*
+kernel.trace("libata:ata_qc_complete_done") $qc:struct ata_queued_cmd*
+kernel.trace("libata:ata_qc_complete_failed") $qc:struct ata_queued_cmd*
+kernel.trace("libata:ata_qc_complete_internal") $qc:struct ata_queued_cmd*
+kernel.trace("libata:ata_qc_issue") $qc:struct ata_queued_cmd*
+kernel.trace("mac80211:api_beacon_loss") $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:api_chswitch_done") $sdata:struct ieee80211_sub_if_data* $success:bool
+kernel.trace("mac80211:api_connection_loss") $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:api_cqm_beacon_loss_notify") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:api_cqm_rssi_notify") $sdata:struct ieee80211_sub_if_data* $rssi_event:enum nl80211_cqm_rssi_threshold_event $rssi_level:s32
+kernel.trace("mac80211:api_disconnect") $sdata:struct ieee80211_sub_if_data* $reconnect:bool
+kernel.trace("mac80211:api_enable_rssi_reports") $sdata:struct ieee80211_sub_if_data* $rssi_min_thold:int $rssi_max_thold:int
+kernel.trace("mac80211:api_eosp") $local:struct ieee80211_local* $sta:struct ieee80211_sta*
+kernel.trace("mac80211:api_gtk_rekey_notify") $sdata:struct ieee80211_sub_if_data* $bssid:u8 const* $replay_ctr:u8 const*
+kernel.trace("mac80211:api_radar_detected") $local:struct ieee80211_local*
+kernel.trace("mac80211:api_ready_on_channel") $local:struct ieee80211_local*
+kernel.trace("mac80211:api_remain_on_channel_expired") $local:struct ieee80211_local*
+kernel.trace("mac80211:api_restart_hw") $local:struct ieee80211_local*
+kernel.trace("mac80211:api_scan_completed") $local:struct ieee80211_local* $aborted:bool
+kernel.trace("mac80211:api_sched_scan_results") $local:struct ieee80211_local*
+kernel.trace("mac80211:api_sched_scan_stopped") $local:struct ieee80211_local*
+kernel.trace("mac80211:api_send_eosp_nullfunc") $local:struct ieee80211_local* $sta:struct ieee80211_sta* $tid:u8
+kernel.trace("mac80211:api_sta_block_awake") $local:struct ieee80211_local* $sta:struct ieee80211_sta* $block:bool
+kernel.trace("mac80211:api_sta_set_buffered") $local:struct ieee80211_local* $sta:struct ieee80211_sta* $tid:u8 $buffered:bool
+kernel.trace("mac80211:api_start_tx_ba_cb") $sdata:struct ieee80211_sub_if_data* $ra:u8 const* $tid:u16
+kernel.trace("mac80211:api_start_tx_ba_session") $sta:struct ieee80211_sta* $tid:u16
+kernel.trace("mac80211:api_stop_tx_ba_cb") $sdata:struct ieee80211_sub_if_data* $ra:u8 const* $tid:u16
+kernel.trace("mac80211:api_stop_tx_ba_session") $sta:struct ieee80211_sta* $tid:u16
+kernel.trace("mac80211:drv_abort_channel_switch") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_abort_pmsr") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_add_chanctx") $local:struct ieee80211_local* $ctx:struct ieee80211_chanctx*
+kernel.trace("mac80211:drv_add_interface") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_add_nan_func") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $func:struct cfg80211_nan_func const*
+kernel.trace("mac80211:drv_allow_buffered_frames") $local:struct ieee80211_local* $sta:struct ieee80211_sta* $tids:u16 $num_frames:int $reason:enum ieee80211_frame_release_type $more_data:bool
+kernel.trace("mac80211:drv_ampdu_action") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $params:struct ieee80211_ampdu_params*
+kernel.trace("mac80211:drv_assign_vif_chanctx") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $ctx:struct ieee80211_chanctx*
+kernel.trace("mac80211:drv_bss_info_changed") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $info:struct ieee80211_bss_conf* $changed:u32
+kernel.trace("mac80211:drv_cancel_hw_scan") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_cancel_remain_on_channel") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_change_chanctx") $local:struct ieee80211_local* $ctx:struct ieee80211_chanctx* $changed:u32
+kernel.trace("mac80211:drv_change_interface") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $type:enum nl80211_iftype $p2p:bool
+kernel.trace("mac80211:drv_channel_switch") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $ch_switch:struct ieee80211_channel_switch*
+kernel.trace("mac80211:drv_channel_switch_beacon") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $chandef:struct cfg80211_chan_def*
+kernel.trace("mac80211:drv_channel_switch_rx_beacon") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $ch_switch:struct ieee80211_channel_switch*
+kernel.trace("mac80211:drv_conf_tx") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $ac:u16 $params:struct ieee80211_tx_queue_params const*
+kernel.trace("mac80211:drv_config") $local:struct ieee80211_local* $changed:u32
+kernel.trace("mac80211:drv_config_iface_filter") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $filter_flags:unsigned int $changed_flags:unsigned int
+kernel.trace("mac80211:drv_configure_filter") $local:struct ieee80211_local* $changed_flags:unsigned int $total_flags:unsigned int* $multicast:u64
+kernel.trace("mac80211:drv_del_nan_func") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $instance_id:u8
+kernel.trace("mac80211:drv_event_callback") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $_event:struct ieee80211_event const*
+kernel.trace("mac80211:drv_flush") $local:struct ieee80211_local* $queues:u32 $drop:bool
+kernel.trace("mac80211:drv_get_antenna") $local:struct ieee80211_local* $tx_ant:u32 $rx_ant:u32 $ret:int
+kernel.trace("mac80211:drv_get_et_sset_count") $local:struct ieee80211_local* $sset:u32
+kernel.trace("mac80211:drv_get_et_stats") $local:struct ieee80211_local*
+kernel.trace("mac80211:drv_get_et_strings") $local:struct ieee80211_local* $sset:u32
+kernel.trace("mac80211:drv_get_expected_throughput") $sta:struct ieee80211_sta*
+kernel.trace("mac80211:drv_get_ftm_responder_stats") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $ftm_stats:struct cfg80211_ftm_responder_stats*
+kernel.trace("mac80211:drv_get_key_seq") $local:struct ieee80211_local* $key:struct ieee80211_key_conf*
+kernel.trace("mac80211:drv_get_ringparam") $local:struct ieee80211_local* $tx:u32* $tx_max:u32* $rx:u32* $rx_max:u32*
+kernel.trace("mac80211:drv_get_stats") $local:struct ieee80211_local* $stats:struct ieee80211_low_level_stats* $ret:int
+kernel.trace("mac80211:drv_get_survey") $local:struct ieee80211_local* $_idx:int $survey:struct survey_info*
+kernel.trace("mac80211:drv_get_tsf") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_get_txpower") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $dbm:int $ret:int
+kernel.trace("mac80211:drv_hw_scan") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_ipv6_addr_change") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_join_ibss") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $info:struct ieee80211_bss_conf*
+kernel.trace("mac80211:drv_leave_ibss") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_mgd_prepare_tx") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $duration:u16
+kernel.trace("mac80211:drv_mgd_protect_tdls_discover") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_nan_change_conf") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $conf:struct cfg80211_nan_conf* $changes:u32
+kernel.trace("mac80211:drv_offchannel_tx_cancel_wait") $local:struct ieee80211_local*
+kernel.trace("mac80211:drv_offset_tsf") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $offset:s64
+kernel.trace("mac80211:drv_post_channel_switch") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_pre_channel_switch") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $ch_switch:struct ieee80211_channel_switch*
+kernel.trace("mac80211:drv_prepare_multicast") $local:struct ieee80211_local* $mc_count:int
+kernel.trace("mac80211:drv_reconfig_complete") $local:struct ieee80211_local* $reconfig_type:enum ieee80211_reconfig_type
+kernel.trace("mac80211:drv_release_buffered_frames") $local:struct ieee80211_local* $sta:struct ieee80211_sta* $tids:u16 $num_frames:int $reason:enum ieee80211_frame_release_type $more_data:bool
+kernel.trace("mac80211:drv_remain_on_channel") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $chan:struct ieee80211_channel* $duration:unsigned int $type:enum ieee80211_roc_type
+kernel.trace("mac80211:drv_remove_chanctx") $local:struct ieee80211_local* $ctx:struct ieee80211_chanctx*
+kernel.trace("mac80211:drv_remove_interface") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_reset_tsf") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_resume") $local:struct ieee80211_local*
+kernel.trace("mac80211:drv_return_bool") $local:struct ieee80211_local* $ret:bool
+kernel.trace("mac80211:drv_return_int") $local:struct ieee80211_local* $ret:int
+kernel.trace("mac80211:drv_return_u32") $local:struct ieee80211_local* $ret:u32
+kernel.trace("mac80211:drv_return_u64") $local:struct ieee80211_local* $ret:u64
+kernel.trace("mac80211:drv_return_void") $local:struct ieee80211_local*
+kernel.trace("mac80211:drv_sched_scan_start") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_sched_scan_stop") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_set_antenna") $local:struct ieee80211_local* $tx_ant:u32 $rx_ant:u32 $ret:int
+kernel.trace("mac80211:drv_set_bitrate_mask") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $mask:struct cfg80211_bitrate_mask const*
+kernel.trace("mac80211:drv_set_coverage_class") $local:struct ieee80211_local* $value:s16
+kernel.trace("mac80211:drv_set_default_unicast_key") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $key_idx:int
+kernel.trace("mac80211:drv_set_frag_threshold") $local:struct ieee80211_local* $value:u32
+kernel.trace("mac80211:drv_set_key") $local:struct ieee80211_local* $cmd:enum set_key_cmd $sdata:struct ieee80211_sub_if_data* $sta:struct ieee80211_sta* $key:struct ieee80211_key_conf*
+kernel.trace("mac80211:drv_set_rekey_data") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $data:struct cfg80211_gtk_rekey_data*
+kernel.trace("mac80211:drv_set_ringparam") $local:struct ieee80211_local* $tx:u32 $rx:u32
+kernel.trace("mac80211:drv_set_rts_threshold") $local:struct ieee80211_local* $value:u32
+kernel.trace("mac80211:drv_set_tim") $local:struct ieee80211_local* $sta:struct ieee80211_sta* $set:bool
+kernel.trace("mac80211:drv_set_tsf") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $tsf:u64
+kernel.trace("mac80211:drv_set_wakeup") $local:struct ieee80211_local* $enabled:bool
+kernel.trace("mac80211:drv_sta_add") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $sta:struct ieee80211_sta*
+kernel.trace("mac80211:drv_sta_notify") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $cmd:enum sta_notify_cmd $sta:struct ieee80211_sta*
+kernel.trace("mac80211:drv_sta_pre_rcu_remove") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $sta:struct ieee80211_sta*
+kernel.trace("mac80211:drv_sta_rate_tbl_update") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $sta:struct ieee80211_sta*
+kernel.trace("mac80211:drv_sta_rc_update") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $sta:struct ieee80211_sta* $changed:u32
+kernel.trace("mac80211:drv_sta_remove") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $sta:struct ieee80211_sta*
+kernel.trace("mac80211:drv_sta_set_4addr") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $sta:struct ieee80211_sta* $enabled:bool
+kernel.trace("mac80211:drv_sta_set_decap_offload") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $sta:struct ieee80211_sta* $enabled:bool
+kernel.trace("mac80211:drv_sta_set_txpwr") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $sta:struct ieee80211_sta*
+kernel.trace("mac80211:drv_sta_state") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $sta:struct ieee80211_sta* $old_state:enum ieee80211_sta_state $new_state:enum ieee80211_sta_state
+kernel.trace("mac80211:drv_sta_statistics") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $sta:struct ieee80211_sta*
+kernel.trace("mac80211:drv_start") $local:struct ieee80211_local*
+kernel.trace("mac80211:drv_start_ap") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $info:struct ieee80211_bss_conf*
+kernel.trace("mac80211:drv_start_nan") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $conf:struct cfg80211_nan_conf*
+kernel.trace("mac80211:drv_start_pmsr") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_stop") $local:struct ieee80211_local*
+kernel.trace("mac80211:drv_stop_ap") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_stop_nan") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_suspend") $local:struct ieee80211_local*
+kernel.trace("mac80211:drv_sw_scan_complete") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_sw_scan_start") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $mac_addr:u8 const*
+kernel.trace("mac80211:drv_switch_vif_chanctx") $local:struct ieee80211_local* $vifs:struct ieee80211_vif_chanctx_switch* $n_vifs:int $mode:enum ieee80211_chanctx_switch_mode
+kernel.trace("mac80211:drv_sync_rx_queues") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $sta:struct ieee80211_sta*
+kernel.trace("mac80211:drv_tdls_cancel_channel_switch") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $sta:struct ieee80211_sta*
+kernel.trace("mac80211:drv_tdls_channel_switch") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $sta:struct ieee80211_sta* $oper_class:u8 $chandef:struct cfg80211_chan_def*
+kernel.trace("mac80211:drv_tdls_recv_channel_switch") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $params:struct ieee80211_tdls_ch_sw_params*
+kernel.trace("mac80211:drv_tx_frames_pending") $local:struct ieee80211_local*
+kernel.trace("mac80211:drv_tx_last_beacon") $local:struct ieee80211_local*
+kernel.trace("mac80211:drv_unassign_vif_chanctx") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $ctx:struct ieee80211_chanctx*
+kernel.trace("mac80211:drv_update_tkip_key") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $conf:struct ieee80211_key_conf* $sta:struct ieee80211_sta* $iv32:u32
+kernel.trace("mac80211:drv_update_vif_offload") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data*
+kernel.trace("mac80211:drv_wake_tx_queue") $local:struct ieee80211_local* $sdata:struct ieee80211_sub_if_data* $txq:struct txq_info*
+kernel.trace("mac80211:stop_queue") $local:struct ieee80211_local* $queue:u16 $reason:enum queue_stop_reason
+kernel.trace("mac80211:wake_queue") $local:struct ieee80211_local* $queue:u16 $reason:enum queue_stop_reason
+kernel.trace("mac802154:802154_drv_return_int") $local:struct ieee802154_local* $ret:int
+kernel.trace("mac802154:802154_drv_return_void") $local:struct ieee802154_local*
+kernel.trace("mac802154:802154_drv_set_cca_ed_level") $local:struct ieee802154_local* $mbm:s32
+kernel.trace("mac802154:802154_drv_set_cca_mode") $local:struct ieee802154_local* $cca:struct wpan_phy_cca const*
+kernel.trace("mac802154:802154_drv_set_channel") $local:struct ieee802154_local* $page:u8 $channel:u8
+kernel.trace("mac802154:802154_drv_set_csma_params") $local:struct ieee802154_local* $min_be:u8 $max_be:u8 $max_csma_backoffs:u8
+kernel.trace("mac802154:802154_drv_set_extended_addr") $local:struct ieee802154_local* $extended_addr:__le64
+kernel.trace("mac802154:802154_drv_set_lbt_mode") $local:struct ieee802154_local* $mode:bool
+kernel.trace("mac802154:802154_drv_set_max_frame_retries") $local:struct ieee802154_local* $max_frame_retries:s8
+kernel.trace("mac802154:802154_drv_set_pan_coord") $local:struct ieee802154_local* $is_coord:bool
+kernel.trace("mac802154:802154_drv_set_pan_id") $local:struct ieee802154_local* $pan_id:__le16
+kernel.trace("mac802154:802154_drv_set_promiscuous_mode") $local:struct ieee802154_local* $on:bool
+kernel.trace("mac802154:802154_drv_set_short_addr") $local:struct ieee802154_local* $short_addr:__le16
+kernel.trace("mac802154:802154_drv_set_tx_power") $local:struct ieee802154_local* $power:s32
+kernel.trace("mac802154:802154_drv_start") $local:struct ieee802154_local*
+kernel.trace("mac802154:802154_drv_stop") $local:struct ieee802154_local*
+kernel.trace("mce:mce_record") $m:struct mce*
+kernel.trace("mdio:mdio_access") $bus:struct mii_bus* $read:char $addr:u8 $regnum:unsigned int $val:u16 $err:int
+kernel.trace("migrate:mm_migrate_pages") $succeeded:long unsigned int $failed:long unsigned int $mode:enum migrate_mode $reason:int
+kernel.trace("mlxsw:mlxsw_sp_acl_atcam_entry_add_ctcam_spill") $mlxsw_sp:struct mlxsw_sp const* $aregion:struct mlxsw_sp_acl_atcam_region const*
+kernel.trace("mlxsw:mlxsw_sp_acl_tcam_vregion_migrate") $mlxsw_sp:struct mlxsw_sp const* $vregion:struct mlxsw_sp_acl_tcam_vregion const*
+kernel.trace("mlxsw:mlxsw_sp_acl_tcam_vregion_migrate_end") $mlxsw_sp:struct mlxsw_sp const* $vregion:struct mlxsw_sp_acl_tcam_vregion const*
+kernel.trace("mlxsw:mlxsw_sp_acl_tcam_vregion_rehash") $mlxsw_sp:struct mlxsw_sp const* $vregion:struct mlxsw_sp_acl_tcam_vregion const*
+kernel.trace("mlxsw:mlxsw_sp_acl_tcam_vregion_rehash_rollback_failed") $mlxsw_sp:struct mlxsw_sp const* $vregion:struct mlxsw_sp_acl_tcam_vregion const*
+kernel.trace("mmc:mmc_request_done") $host:struct mmc_host* $mrq:struct mmc_request*
+kernel.trace("mmc:mmc_request_start") $host:struct mmc_host* $mrq:struct mmc_request*
+kernel.trace("module:module_free") $mod:struct module*
+kernel.trace("module:module_get") $mod:struct module* $ip:long unsigned int
+kernel.trace("module:module_load") $mod:struct module*
+kernel.trace("module:module_put") $mod:struct module* $ip:long unsigned int
+kernel.trace("module:module_request") $name:char* $wait:bool $ip:long unsigned int
+kernel.trace("msr:rdpmc") $msr:unsigned int $val:u64 $failed:int
+kernel.trace("msr:read_msr") $msr:unsigned int $val:u64 $failed:int
+kernel.trace("msr:write_msr") $msr:unsigned int $val:u64 $failed:int
+kernel.trace("mt7601u:bbp_read") $dev:struct mt7601u_dev* $reg:u8 $val:u8
+kernel.trace("mt7601u:bbp_write") $dev:struct mt7601u_dev* $reg:u8 $val:u8
+kernel.trace("mt7601u:ee_read") $dev:struct mt7601u_dev* $offset:int $val:u16
+kernel.trace("mt7601u:freq_cal_adjust") $dev:struct mt7601u_dev* $val:u8
+kernel.trace("mt7601u:freq_cal_offset") $dev:struct mt7601u_dev* $phy_mode:u8 $freq_off:s8
+kernel.trace("mt7601u:mt_mcu_msg_send") $dev:struct mt7601u_dev* $skb:struct sk_buff* $csum:u32 $resp:bool
+kernel.trace("mt7601u:mt_rx") $dev:struct mt7601u_dev* $rxwi:struct mt7601u_rxwi* $f:u32
+kernel.trace("mt7601u:mt_rx_dma_aggr") $dev:struct mt7601u_dev* $cnt:int $paged:bool
+kernel.trace("mt7601u:mt_submit_urb") $dev:struct mt7601u_dev* $u:struct urb*
+kernel.trace("mt7601u:mt_tx") $dev:struct mt7601u_dev* $skb:struct sk_buff* $sta:struct mt76_sta* $h:struct mt76_txwi*
+kernel.trace("mt7601u:mt_tx_dma_done") $dev:struct mt7601u_dev* $skb:struct sk_buff*
+kernel.trace("mt7601u:mt_tx_status") $dev:struct mt7601u_dev* $stat1:u32 $stat2:u32
+kernel.trace("mt7601u:mt_tx_status_cleaned") $dev:struct mt7601u_dev* $cleaned:int
+kernel.trace("mt7601u:mt_vend_req") $dev:struct mt7601u_dev* $pipe:unsigned int $req:u8 $req_type:u8 $val:u16 $offset:u16 $buf:void* $buflen:size_t $ret:int
+kernel.trace("mt7601u:read_temp") $dev:struct mt7601u_dev* $val:u8
+kernel.trace("mt7601u:reg_read") $dev:struct mt7601u_dev* $reg:u32 $val:u32
+kernel.trace("mt7601u:reg_write") $dev:struct mt7601u_dev* $reg:u32 $val:u32
+kernel.trace("mt7601u:rf_read") $dev:struct mt7601u_dev* $bank:u8 $reg:u8 $val:u8
+kernel.trace("mt7601u:rf_write") $dev:struct mt7601u_dev* $bank:u8 $reg:u8 $val:u8
+kernel.trace("mt7601u:set_key") $dev:struct mt7601u_dev* $val:u8
+kernel.trace("mt7601u:set_shared_key") $dev:struct mt7601u_dev* $vid:u8 $key:u8
+kernel.trace("mt7601u:temp_mode") $dev:struct mt7601u_dev* $val:u8
+kernel.trace("mt76:dev_irq") $dev:struct mt76_dev* $val:u32 $mask:u32
+kernel.trace("mt76:mac_txdone") $dev:struct mt76_dev* $wcid:u8 $pktid:u8
+kernel.trace("mt76:reg_rr") $dev:struct mt76_dev* $reg:u32 $val:u32
+kernel.trace("mt76:reg_wr") $dev:struct mt76_dev* $reg:u32 $val:u32
+kernel.trace("mt76_usb:rx_urb") $dev:struct mt76_dev* $u:struct urb*
+kernel.trace("mt76_usb:submit_urb") $dev:struct mt76_dev* $u:struct urb*
+kernel.trace("mt76_usb:usb_reg_rr") $dev:struct mt76_dev* $reg:u32 $val:u32
+kernel.trace("mt76_usb:usb_reg_wr") $dev:struct mt76_dev* $reg:u32 $val:u32
+kernel.trace("mt76x02:mac_txstat_fetch") $dev:struct mt76x02_dev* $stat:struct mt76x02_tx_status*
+kernel.trace("mt76x02:mac_txstat_poll") $dev:struct mt76x02_dev*
+kernel.trace("napi:napi_poll") $napi:struct napi_struct* $work:int $budget:int
+kernel.trace("neigh:neigh_cleanup_and_release") $neigh:struct neighbour* $rc:int
+kernel.trace("neigh:neigh_event_send_dead") $neigh:struct neighbour* $err:int
+kernel.trace("neigh:neigh_event_send_done") $neigh:struct neighbour* $err:int
+kernel.trace("neigh:neigh_timer_handler") $neigh:struct neighbour* $err:int
+kernel.trace("neigh:neigh_update") $n:struct neighbour* $lladdr:u8 const* $new:u8 $flags:u32 $nlmsg_pid:u32
+kernel.trace("neigh:neigh_update_done") $neigh:struct neighbour* $err:int
+kernel.trace("net:napi_gro_frags_entry") $skb:struct sk_buff const*
+kernel.trace("net:napi_gro_receive_entry") $skb:struct sk_buff const*
+kernel.trace("net:net_dev_queue") $skb:struct sk_buff*
+kernel.trace("net:net_dev_start_xmit") $skb:struct sk_buff const* $dev:struct net_device const*
+kernel.trace("net:net_dev_xmit") $skb:struct sk_buff* $rc:int $dev:struct net_device* $skb_len:unsigned int
+kernel.trace("net:net_dev_xmit_timeout") $dev:struct net_device* $queue_index:int
+kernel.trace("net:netif_receive_skb") $skb:struct sk_buff*
+kernel.trace("net:netif_receive_skb_entry") $skb:struct sk_buff const*
+kernel.trace("net:netif_rx") $skb:struct sk_buff*
+kernel.trace("net:netif_rx_entry") $skb:struct sk_buff const*
+kernel.trace("net:netif_rx_ni_entry") $skb:struct sk_buff const*
+kernel.trace("netlink:netlink_extack") $msg:char const*
+kernel.trace("nfs4:ff_layout_commit_error") $data:struct nfs_commit_data const*
+kernel.trace("nfs4:ff_layout_read_error") $hdr:struct nfs_pgio_header const*
+kernel.trace("nfs4:ff_layout_write_error") $hdr:struct nfs_pgio_header const*
+kernel.trace("nfs4:nfs4_access") $inode:struct inode const* $error:int
+kernel.trace("nfs4:nfs4_bind_conn_to_session") $clp:struct nfs_client const* $error:int
+kernel.trace("nfs4:nfs4_cached_open") $state:struct nfs4_state const*
+kernel.trace("nfs4:nfs4_cb_getattr") $clp:struct nfs_client const* $fhandle:struct nfs_fh const* $inode:struct inode const* $error:int
+kernel.trace("nfs4:nfs4_cb_layoutrecall_file") $clp:struct nfs_client const* $fhandle:struct nfs_fh const* $inode:struct inode const* $stateid:nfs4_stateid const* $error:int
+kernel.trace("nfs4:nfs4_cb_recall") $clp:struct nfs_client const* $fhandle:struct nfs_fh const* $inode:struct inode const* $stateid:nfs4_stateid const* $error:int
+kernel.trace("nfs4:nfs4_cb_seqid_err") $args:struct cb_sequenceargs const* $status:__be32
+kernel.trace("nfs4:nfs4_cb_sequence") $args:struct cb_sequenceargs const* $res:struct cb_sequenceres const* $status:__be32
+kernel.trace("nfs4:nfs4_close") $state:struct nfs4_state const* $args:struct nfs_closeargs const* $res:struct nfs_closeres const* $error:int
+kernel.trace("nfs4:nfs4_close_stateid_update_wait") $inode:struct inode const* $stateid:nfs4_stateid const* $error:int
+kernel.trace("nfs4:nfs4_commit") $data:struct nfs_commit_data const* $error:int
+kernel.trace("nfs4:nfs4_create_session") $clp:struct nfs_client const* $error:int
+kernel.trace("nfs4:nfs4_delegreturn") $inode:struct inode const* $stateid:nfs4_stateid const* $error:int
+kernel.trace("nfs4:nfs4_delegreturn_exit") $args:struct nfs4_delegreturnargs const* $res:struct nfs4_delegreturnres const* $error:int
+kernel.trace("nfs4:nfs4_destroy_clientid") $clp:struct nfs_client const* $error:int
+kernel.trace("nfs4:nfs4_destroy_session") $clp:struct nfs_client const* $error:int
+kernel.trace("nfs4:nfs4_deviceid_free") $clp:struct nfs_client const* $deviceid:struct nfs4_deviceid const*
+kernel.trace("nfs4:nfs4_exchange_id") $clp:struct nfs_client const* $error:int
+kernel.trace("nfs4:nfs4_find_deviceid") $server:struct nfs_server const* $deviceid:struct nfs4_deviceid const* $status:int
+kernel.trace("nfs4:nfs4_fsinfo") $server:struct nfs_server const* $fhandle:struct nfs_fh const* $fattr:struct nfs_fattr const* $error:int
+kernel.trace("nfs4:nfs4_get_acl") $inode:struct inode const* $error:int
+kernel.trace("nfs4:nfs4_get_fs_locations") $dir:struct inode const* $nfs4_get_fs_locations:struct qstr const* $error:int
+kernel.trace("nfs4:nfs4_get_lock") $request:struct file_lock const* $state:struct nfs4_state const* $cmd:int $error:int
+kernel.trace("nfs4:nfs4_get_security_label") $inode:struct inode const* $error:int
+kernel.trace("nfs4:nfs4_getattr") $server:struct nfs_server const* $fhandle:struct nfs_fh const* $fattr:struct nfs_fattr const* $error:int
+kernel.trace("nfs4:nfs4_getdeviceinfo") $server:struct nfs_server const* $deviceid:struct nfs4_deviceid const* $status:int
+kernel.trace("nfs4:nfs4_layoutcommit") $inode:struct inode const* $stateid:nfs4_stateid const* $error:int
+kernel.trace("nfs4:nfs4_layouterror") $inode:struct inode const* $stateid:nfs4_stateid const* $error:int
+kernel.trace("nfs4:nfs4_layoutget") $ctx:struct nfs_open_context const* $args:struct pnfs_layout_range const* $res:struct pnfs_layout_range const* $layout_stateid:nfs4_stateid const* $error:int
+kernel.trace("nfs4:nfs4_layoutreturn") $inode:struct inode const* $stateid:nfs4_stateid const* $error:int
+kernel.trace("nfs4:nfs4_layoutreturn_on_close") $inode:struct inode const* $stateid:nfs4_stateid const* $error:int
+kernel.trace("nfs4:nfs4_layoutstats") $inode:struct inode const* $stateid:nfs4_stateid const* $error:int
+kernel.trace("nfs4:nfs4_lookup") $dir:struct inode const* $nfs4_lookup:struct qstr const* $error:int
+kernel.trace("nfs4:nfs4_lookup_root") $server:struct nfs_server const* $fhandle:struct nfs_fh const* $fattr:struct nfs_fattr const* $error:int
+kernel.trace("nfs4:nfs4_lookupp") $inode:struct inode const* $error:int
+kernel.trace("nfs4:nfs4_map_gid_to_group") $nfs4_map_gid_to_group:char const* $len:int $id:u32 $error:int
+kernel.trace("nfs4:nfs4_map_group_to_gid") $nfs4_map_group_to_gid:char const* $len:int $id:u32 $error:int
+kernel.trace("nfs4:nfs4_map_name_to_uid") $nfs4_map_name_to_uid:char const* $len:int $id:u32 $error:int
+kernel.trace("nfs4:nfs4_map_uid_to_name") $nfs4_map_uid_to_name:char const* $len:int $id:u32 $error:int
+kernel.trace("nfs4:nfs4_mkdir") $dir:struct inode const* $nfs4_mkdir:struct qstr const* $error:int
+kernel.trace("nfs4:nfs4_mknod") $dir:struct inode const* $nfs4_mknod:struct qstr const* $error:int
+kernel.trace("nfs4:nfs4_open_expired") $ctx:struct nfs_open_context const* $flags:int $error:int
+kernel.trace("nfs4:nfs4_open_file") $ctx:struct nfs_open_context const* $flags:int $error:int
+kernel.trace("nfs4:nfs4_open_reclaim") $ctx:struct nfs_open_context const* $flags:int $error:int
+kernel.trace("nfs4:nfs4_open_stateid_update") $inode:struct inode const* $stateid:nfs4_stateid const* $error:int
+kernel.trace("nfs4:nfs4_open_stateid_update_wait") $inode:struct inode const* $stateid:nfs4_stateid const* $error:int
+kernel.trace("nfs4:nfs4_pnfs_commit_ds") $data:struct nfs_commit_data const* $error:int
+kernel.trace("nfs4:nfs4_pnfs_read") $hdr:struct nfs_pgio_header const* $error:int
+kernel.trace("nfs4:nfs4_pnfs_write") $hdr:struct nfs_pgio_header const* $error:int
+kernel.trace("nfs4:nfs4_read") $hdr:struct nfs_pgio_header const* $error:int
+kernel.trace("nfs4:nfs4_readdir") $inode:struct inode const* $error:int
+kernel.trace("nfs4:nfs4_readlink") $inode:struct inode const* $error:int
+kernel.trace("nfs4:nfs4_reclaim_complete") $clp:struct nfs_client const* $error:int
+kernel.trace("nfs4:nfs4_reclaim_delegation") $inode:struct inode const* $fmode:fmode_t
+kernel.trace("nfs4:nfs4_remove") $dir:struct inode const* $nfs4_remove:struct qstr const* $error:int
+kernel.trace("nfs4:nfs4_rename") $olddir:struct inode const* $oldname:struct qstr const* $newdir:struct inode const* $newname:struct qstr const* $error:int
+kernel.trace("nfs4:nfs4_renew") $clp:struct nfs_client const* $error:int
+kernel.trace("nfs4:nfs4_renew_async") $clp:struct nfs_client const* $error:int
+kernel.trace("nfs4:nfs4_secinfo") $dir:struct inode const* $nfs4_secinfo:struct qstr const* $error:int
+kernel.trace("nfs4:nfs4_sequence") $clp:struct nfs_client const* $error:int
+kernel.trace("nfs4:nfs4_sequence_done") $session:struct nfs4_session const* $res:struct nfs4_sequence_res const*
+kernel.trace("nfs4:nfs4_set_acl") $inode:struct inode const* $error:int
+kernel.trace("nfs4:nfs4_set_delegation") $inode:struct inode const* $fmode:fmode_t
+kernel.trace("nfs4:nfs4_set_lock") $request:struct file_lock const* $state:struct nfs4_state const* $lockstateid:nfs4_stateid const* $cmd:int $error:int
+kernel.trace("nfs4:nfs4_set_security_label") $inode:struct inode const* $error:int
+kernel.trace("nfs4:nfs4_setattr") $inode:struct inode const* $stateid:nfs4_stateid const* $error:int
+kernel.trace("nfs4:nfs4_setclientid") $clp:struct nfs_client const* $error:int
+kernel.trace("nfs4:nfs4_setclientid_confirm") $clp:struct nfs_client const* $error:int
+kernel.trace("nfs4:nfs4_setup_sequence") $session:struct nfs4_session const* $args:struct nfs4_sequence_args const*
+kernel.trace("nfs4:nfs4_state_lock_reclaim") $state:struct nfs4_state const* $lock:struct nfs4_lock_state const*
+kernel.trace("nfs4:nfs4_state_mgr") $clp:struct nfs_client const*
+kernel.trace("nfs4:nfs4_state_mgr_failed") $clp:struct nfs_client const* $section:char const* $status:int
+kernel.trace("nfs4:nfs4_symlink") $dir:struct inode const* $nfs4_symlink:struct qstr const* $error:int
+kernel.trace("nfs4:nfs4_test_delegation_stateid") $state:struct nfs4_state const* $lsp:struct nfs4_lock_state const* $error:int
+kernel.trace("nfs4:nfs4_test_lock_stateid") $state:struct nfs4_state const* $lsp:struct nfs4_lock_state const* $error:int
+kernel.trace("nfs4:nfs4_test_open_stateid") $state:struct nfs4_state const* $lsp:struct nfs4_lock_state const* $error:int
+kernel.trace("nfs4:nfs4_unlock") $request:struct file_lock const* $state:struct nfs4_state const* $cmd:int $error:int
+kernel.trace("nfs4:nfs4_write") $hdr:struct nfs_pgio_header const* $error:int
+kernel.trace("nfs4:nfs4_xdr_status") $xdr:struct xdr_stream const* $op:u32 $error:u32
+kernel.trace("nfs4:nfs_cb_badprinc") $xid:__be32 $cb_ident:u32
+kernel.trace("nfs4:nfs_cb_no_clp") $xid:__be32 $cb_ident:u32
+kernel.trace("nfs4:pnfs_mds_fallback_pg_get_mirror_count") $inode:struct inode* $pos:loff_t $count:u64 $iomode:enum pnfs_iomode $lo:struct pnfs_layout_hdr* $lseg:struct pnfs_layout_segment*
+kernel.trace("nfs4:pnfs_mds_fallback_pg_init_read") $inode:struct inode* $pos:loff_t $count:u64 $iomode:enum pnfs_iomode $lo:struct pnfs_layout_hdr* $lseg:struct pnfs_layout_segment*
+kernel.trace("nfs4:pnfs_mds_fallback_pg_init_write") $inode:struct inode* $pos:loff_t $count:u64 $iomode:enum pnfs_iomode $lo:struct pnfs_layout_hdr* $lseg:struct pnfs_layout_segment*
+kernel.trace("nfs4:pnfs_mds_fallback_read_done") $inode:struct inode* $pos:loff_t $count:u64 $iomode:enum pnfs_iomode $lo:struct pnfs_layout_hdr* $lseg:struct pnfs_layout_segment*
+kernel.trace("nfs4:pnfs_mds_fallback_read_pagelist") $inode:struct inode* $pos:loff_t $count:u64 $iomode:enum pnfs_iomode $lo:struct pnfs_layout_hdr* $lseg:struct pnfs_layout_segment*
+kernel.trace("nfs4:pnfs_mds_fallback_write_done") $inode:struct inode* $pos:loff_t $count:u64 $iomode:enum pnfs_iomode $lo:struct pnfs_layout_hdr* $lseg:struct pnfs_layout_segment*
+kernel.trace("nfs4:pnfs_mds_fallback_write_pagelist") $inode:struct inode* $pos:loff_t $count:u64 $iomode:enum pnfs_iomode $lo:struct pnfs_layout_hdr* $lseg:struct pnfs_layout_segment*
+kernel.trace("nfs4:pnfs_update_layout") $inode:struct inode* $pos:loff_t $count:u64 $iomode:enum pnfs_iomode $lo:struct pnfs_layout_hdr* $lseg:struct pnfs_layout_segment* $reason:enum pnfs_update_layout_reason
+kernel.trace("nfsd:nfsd_cant_encode_err") $rqstp:struct svc_rqst const*
+kernel.trace("nfsd:nfsd_cb_args") $clp:struct nfs4_client const* $conn:struct nfs4_cb_conn const*
+kernel.trace("nfsd:nfsd_cb_done") $clp:struct nfs4_client const* $status:int
+kernel.trace("nfsd:nfsd_cb_nodelegs") $clp:struct nfs4_client const*
+kernel.trace("nfsd:nfsd_cb_setup") $clp:struct nfs4_client const*
+kernel.trace("nfsd:nfsd_cb_setup_err") $clp:struct nfs4_client const* $error:long int
+kernel.trace("nfsd:nfsd_cb_shutdown") $clp:struct nfs4_client const*
+kernel.trace("nfsd:nfsd_cb_state") $clp:struct nfs4_client const*
+kernel.trace("nfsd:nfsd_cb_work") $clp:struct nfs4_client const* $procedure:char const*
+kernel.trace("nfsd:nfsd_clid_expired") $clid:clientid_t const*
+kernel.trace("nfsd:nfsd_clid_find") $nn:struct nfsd_net const* $namelen:unsigned int $namedata:unsigned char const*
+kernel.trace("nfsd:nfsd_clid_inuse_err") $clp:struct nfs4_client const*
+kernel.trace("nfsd:nfsd_clid_purged") $clid:clientid_t const*
+kernel.trace("nfsd:nfsd_clid_reclaim") $nn:struct nfsd_net const* $namelen:unsigned int $namedata:unsigned char const*
+kernel.trace("nfsd:nfsd_clid_renew") $clid:clientid_t const*
+kernel.trace("nfsd:nfsd_clid_stale") $clid:clientid_t const*
+kernel.trace("nfsd:nfsd_compound") $rqst:struct svc_rqst const* $args_opcnt:u32
+kernel.trace("nfsd:nfsd_compound_decode_err") $rqstp:struct svc_rqst const* $args_opcnt:u32 $resp_opcnt:u32 $opnum:u32 $status:__be32
+kernel.trace("nfsd:nfsd_compound_encode_err") $rqstp:struct svc_rqst const* $opnum:u32 $status:__be32
+kernel.trace("nfsd:nfsd_compound_status") $args_opcnt:u32 $resp_opcnt:u32 $status:__be32 $name:char const*
+kernel.trace("nfsd:nfsd_deleg_break") $stp:stateid_t*
+kernel.trace("nfsd:nfsd_deleg_read") $stp:stateid_t*
+kernel.trace("nfsd:nfsd_deleg_recall") $stp:stateid_t*
+kernel.trace("nfsd:nfsd_drc_found") $nn:struct nfsd_net const* $rqstp:struct svc_rqst const* $result:int
+kernel.trace("nfsd:nfsd_drc_mismatch") $nn:struct nfsd_net const* $key:struct svc_cacherep const* $rp:struct svc_cacherep const*
+kernel.trace("nfsd:nfsd_exp_find_key") $key:struct svc_expkey const* $status:int
+kernel.trace("nfsd:nfsd_exp_get_by_name") $key:struct svc_export const* $status:int
+kernel.trace("nfsd:nfsd_expkey_update") $key:struct svc_expkey const* $exp_path:char const*
+kernel.trace("nfsd:nfsd_export_update") $key:struct svc_export const*
+kernel.trace("nfsd:nfsd_garbage_args_err") $rqstp:struct svc_rqst const*
+kernel.trace("nfsd:nfsd_grace_complete") $nn:struct nfsd_net const*
+kernel.trace("nfsd:nfsd_grace_start") $nn:struct nfsd_net const*
+kernel.trace("nfsd:nfsd_layout_commit_lookup_fail") $stp:stateid_t*
+kernel.trace("nfsd:nfsd_layout_get_lookup_fail") $stp:stateid_t*
+kernel.trace("nfsd:nfsd_layout_recall") $stp:stateid_t*
+kernel.trace("nfsd:nfsd_layout_recall_done") $stp:stateid_t*
+kernel.trace("nfsd:nfsd_layout_recall_fail") $stp:stateid_t*
+kernel.trace("nfsd:nfsd_layout_recall_release") $stp:stateid_t*
+kernel.trace("nfsd:nfsd_layout_return_lookup_fail") $stp:stateid_t*
+kernel.trace("nfsd:nfsd_layoutstate_alloc") $stp:stateid_t*
+kernel.trace("nfsd:nfsd_layoutstate_free") $stp:stateid_t*
+kernel.trace("nfsd:nfsd_layoutstate_unhash") $stp:stateid_t*
+kernel.trace("nfsd:nfsd_open") $stp:stateid_t*
+kernel.trace("nfsd:nfsd_open_confirm") $seqid:u32 $stp:stateid_t const*
+kernel.trace("nfsd:nfsd_preprocess") $seqid:u32 $stp:stateid_t const*
+kernel.trace("nfsd:nfsd_read_done") $rqstp:struct svc_rqst* $fhp:struct svc_fh* $offset:loff_t $len:long unsigned int
+kernel.trace("nfsd:nfsd_read_err") $rqstp:struct svc_rqst* $fhp:struct svc_fh* $offset:loff_t $len:int
+kernel.trace("nfsd:nfsd_read_io_done") $rqstp:struct svc_rqst* $fhp:struct svc_fh* $offset:loff_t $len:long unsigned int
+kernel.trace("nfsd:nfsd_read_splice") $rqstp:struct svc_rqst* $fhp:struct svc_fh* $offset:loff_t $len:long unsigned int
+kernel.trace("nfsd:nfsd_read_start") $rqstp:struct svc_rqst* $fhp:struct svc_fh* $offset:loff_t $len:long unsigned int
+kernel.trace("nfsd:nfsd_read_vector") $rqstp:struct svc_rqst* $fhp:struct svc_fh* $offset:loff_t $len:long unsigned int
+kernel.trace("nfsd:nfsd_set_fh_dentry_badexport") $rqstp:struct svc_rqst* $fhp:struct svc_fh* $status:int
+kernel.trace("nfsd:nfsd_set_fh_dentry_badhandle") $rqstp:struct svc_rqst* $fhp:struct svc_fh* $status:int
+kernel.trace("nfsd:nfsd_write_done") $rqstp:struct svc_rqst* $fhp:struct svc_fh* $offset:loff_t $len:long unsigned int
+kernel.trace("nfsd:nfsd_write_err") $rqstp:struct svc_rqst* $fhp:struct svc_fh* $offset:loff_t $len:int
+kernel.trace("nfsd:nfsd_write_io_done") $rqstp:struct svc_rqst* $fhp:struct svc_fh* $offset:loff_t $len:long unsigned int
+kernel.trace("nfsd:nfsd_write_opened") $rqstp:struct svc_rqst* $fhp:struct svc_fh* $offset:loff_t $len:long unsigned int
+kernel.trace("nfsd:nfsd_write_start") $rqstp:struct svc_rqst* $fhp:struct svc_fh* $offset:loff_t $len:long unsigned int
+kernel.trace("nilfs2:nilfs2_collection_stage_transition") $sci:struct nilfs_sc_info*
+kernel.trace("nilfs2:nilfs2_mdt_insert_new_block") $inode:struct inode* $ino:long unsigned int $block:long unsigned int
+kernel.trace("nilfs2:nilfs2_mdt_submit_block") $inode:struct inode* $ino:long unsigned int $blkoff:long unsigned int $mode:int
+kernel.trace("nilfs2:nilfs2_segment_usage_allocated") $sufile:struct inode* $segnum:__u64
+kernel.trace("nilfs2:nilfs2_segment_usage_check") $sufile:struct inode* $segnum:__u64 $cnt:long unsigned int
+kernel.trace("nilfs2:nilfs2_segment_usage_freed") $sufile:struct inode* $segnum:__u64
+kernel.trace("nilfs2:nilfs2_transaction_transition") $sb:struct super_block* $ti:struct nilfs_transaction_info* $count:int $flags:unsigned int $state:enum nilfs2_transaction_transition_state
+kernel.trace("nmi:nmi_handler") $handler:void* $delta_ns:s64 $handled:int
+kernel.trace("objagg:objagg_create") $objagg:struct objagg const*
+kernel.trace("objagg:objagg_destroy") $objagg:struct objagg const*
+kernel.trace("objagg:objagg_obj_create") $objagg:struct objagg const* $obj:struct objagg_obj const*
+kernel.trace("objagg:objagg_obj_destroy") $objagg:struct objagg const* $obj:struct objagg_obj const*
+kernel.trace("objagg:objagg_obj_get") $objagg:struct objagg const* $obj:struct objagg_obj const* $refcount:unsigned int
+kernel.trace("objagg:objagg_obj_parent_assign") $objagg:struct objagg const* $obj:struct objagg_obj const* $parent:struct objagg_obj const* $parent_refcount:unsigned int
+kernel.trace("objagg:objagg_obj_parent_unassign") $objagg:struct objagg const* $obj:struct objagg_obj const* $parent:struct objagg_obj const* $parent_refcount:unsigned int
+kernel.trace("objagg:objagg_obj_put") $objagg:struct objagg const* $obj:struct objagg_obj const* $refcount:unsigned int
+kernel.trace("objagg:objagg_obj_root_create") $objagg:struct objagg const* $obj:struct objagg_obj const*
+kernel.trace("objagg:objagg_obj_root_destroy") $objagg:struct objagg const* $obj:struct objagg_obj const*
+kernel.trace("oom:compact_retry") $order:int $priority:enum compact_priority $result:enum compact_result $retries:int $max_retries:int $ret:bool
+kernel.trace("oom:finish_task_reaping") $pid:int
+kernel.trace("oom:mark_victim") $pid:int
+kernel.trace("oom:oom_score_adj_update") $task:struct task_struct*
+kernel.trace("oom:reclaim_retry_zone") $zoneref:struct zoneref* $order:int $reclaimable:long unsigned int $available:long unsigned int $min_wmark:long unsigned int $no_progress_loops:int $wmark_check:bool
+kernel.trace("oom:skip_task_reaping") $pid:int
+kernel.trace("oom:start_task_reaping") $pid:int
+kernel.trace("oom:wake_reaper") $pid:int
+kernel.trace("openvswitch:ovs_do_execute_action") $dp:struct datapath* $skb:struct sk_buff* $key:struct sw_flow_key* $a:struct nlattr const* $rem:int
+kernel.trace("openvswitch:ovs_dp_upcall") $dp:struct datapath* $skb:struct sk_buff* $key:struct sw_flow_key const* $upcall_info:struct dp_upcall_info const*
+kernel.trace("page_isolation:test_pages_isolated") $start_pfn:long unsigned int $end_pfn:long unsigned int $fin_pfn:long unsigned int
+kernel.trace("page_pool:page_pool_release") $pool:struct page_pool const* $inflight:s32 $hold:u32 $release:u32
+kernel.trace("page_pool:page_pool_state_hold") $pool:struct page_pool const* $page:struct page const* $hold:u32
+kernel.trace("page_pool:page_pool_state_release") $pool:struct page_pool const* $page:struct page const* $release:u32
+kernel.trace("page_pool:page_pool_update_nid") $pool:struct page_pool const* $new_nid:int
+kernel.trace("page_ref:page_ref_freeze") $page:struct page* $v:int $ret:int
+kernel.trace("page_ref:page_ref_mod") $page:struct page* $v:int
+kernel.trace("page_ref:page_ref_mod_and_return") $page:struct page* $v:int $ret:int
+kernel.trace("page_ref:page_ref_mod_and_test") $page:struct page* $v:int $ret:int
+kernel.trace("page_ref:page_ref_mod_unless") $page:struct page* $v:int $ret:int
+kernel.trace("page_ref:page_ref_set") $page:struct page* $v:int
+kernel.trace("page_ref:page_ref_unfreeze") $page:struct page* $v:int
+kernel.trace("pagemap:mm_lru_activate") $page:struct page*
+kernel.trace("pagemap:mm_lru_insertion") $page:struct page* $lru:int
+kernel.trace("percpu:percpu_alloc_percpu") $reserved:bool $is_atomic:bool $size:size_t $align:size_t $base_addr:void* $off:int $ptr:void*
+kernel.trace("percpu:percpu_alloc_percpu_fail") $reserved:bool $is_atomic:bool $size:size_t $align:size_t
+kernel.trace("percpu:percpu_create_chunk") $base_addr:void*
+kernel.trace("percpu:percpu_destroy_chunk") $base_addr:void*
+kernel.trace("percpu:percpu_free_percpu") $base_addr:void* $off:int $ptr:void*
+kernel.trace("power:clock_disable") $name:char const* $state:unsigned int $cpu_id:unsigned int
+kernel.trace("power:clock_enable") $name:char const* $state:unsigned int $cpu_id:unsigned int
+kernel.trace("power:clock_set_rate") $name:char const* $state:unsigned int $cpu_id:unsigned int
+kernel.trace("power:cpu_frequency") $frequency:unsigned int $cpu_id:unsigned int
+kernel.trace("power:cpu_frequency_limits") $policy:struct cpufreq_policy*
+kernel.trace("power:cpu_idle") $state:unsigned int $cpu_id:unsigned int
+kernel.trace("power:cpu_migrate_begin") $timestamp:u64 $cpu_hwid:u32
+kernel.trace("power:cpu_migrate_current") $timestamp:u64 $cpu_hwid:u32
+kernel.trace("power:cpu_migrate_finish") $timestamp:u64 $cpu_hwid:u32
+kernel.trace("power:dev_pm_qos_add_request") $name:char const* $type:enum dev_pm_qos_req_type $new_value:s32
+kernel.trace("power:dev_pm_qos_remove_request") $name:char const* $type:enum dev_pm_qos_req_type $new_value:s32
+kernel.trace("power:dev_pm_qos_update_request") $name:char const* $type:enum dev_pm_qos_req_type $new_value:s32
+kernel.trace("power:device_pm_callback_end") $dev:struct device* $error:int
+kernel.trace("power:device_pm_callback_start") $dev:struct device* $pm_ops:char const* $event:int
+kernel.trace("power:pm_qos_add_request") $value:s32
+kernel.trace("power:pm_qos_remove_request") $value:s32
+kernel.trace("power:pm_qos_update_flags") $action:enum pm_qos_req_action $prev_value:int $curr_value:int
+kernel.trace("power:pm_qos_update_request") $value:s32
+kernel.trace("power:pm_qos_update_target") $action:enum pm_qos_req_action $prev_value:int $curr_value:int
+kernel.trace("power:power_domain_target") $name:char const* $state:unsigned int $cpu_id:unsigned int
+kernel.trace("power:powernv_throttle") $chip_id:int $reason:char const* $pmax:int
+kernel.trace("power:pstate_sample") $core_busy:u32 $scaled_busy:u32 $from:u32 $to:u32 $mperf:u64 $aperf:u64 $tsc:u64 $freq:u32 $io_boost:u32
+kernel.trace("power:suspend_resume") $action:char const* $val:int $start:bool
+kernel.trace("power:wakeup_source_activate") $name:char const* $state:unsigned int
+kernel.trace("power:wakeup_source_deactivate") $name:char const* $state:unsigned int
+kernel.trace("printk:console") $text:char const* $len:size_t
+kernel.trace("qdisc:qdisc_create") $ops:struct Qdisc_ops const* $dev:struct net_device* $parent:u32
+kernel.trace("qdisc:qdisc_dequeue") $qdisc:struct Qdisc* $txq:struct netdev_queue const* $packets:int $skb:struct sk_buff*
+kernel.trace("qdisc:qdisc_destroy") $q:struct Qdisc*
+kernel.trace("qdisc:qdisc_reset") $q:struct Qdisc*
+kernel.trace("qla:ql_dbg_log") $buf:char const* $vaf:struct va_format*
+kernel.trace("qrtr:qrtr_ns_message") $ctrl_pkt_str:char const* const $sq_node:__u32 $sq_port:__u32
+kernel.trace("qrtr:qrtr_ns_server_add") $service:__le32 $instance:__le32 $node:__le32 $port:__le32
+kernel.trace("qrtr:qrtr_ns_service_announce_del") $service:__le32 $instance:__le32 $node:__le32 $port:__le32
+kernel.trace("qrtr:qrtr_ns_service_announce_new") $service:__le32 $instance:__le32 $node:__le32 $port:__le32
+kernel.trace("radeon:radeon_bo_create") $bo:struct radeon_bo*
+kernel.trace("radeon:radeon_cs") $p:struct radeon_cs_parser*
+kernel.trace("radeon:radeon_fence_emit") $dev:struct drm_device* $ring:int $seqno:u32
+kernel.trace("radeon:radeon_fence_wait_begin") $dev:struct drm_device* $ring:int $seqno:u32
+kernel.trace("radeon:radeon_fence_wait_end") $dev:struct drm_device* $ring:int $seqno:u32
+kernel.trace("radeon:radeon_semaphore_signale") $ring:int $sem:struct radeon_semaphore*
+kernel.trace("radeon:radeon_semaphore_wait") $ring:int $sem:struct radeon_semaphore*
+kernel.trace("radeon:radeon_vm_bo_update") $bo_va:struct radeon_bo_va*
+kernel.trace("radeon:radeon_vm_flush") $pd_addr:uint64_t $ring:unsigned int $id:unsigned int
+kernel.trace("radeon:radeon_vm_grab_id") $vmid:unsigned int $ring:int
+kernel.trace("radeon:radeon_vm_set_page") $pe:uint64_t $addr:uint64_t $count:unsigned int $incr:uint32_t $flags:uint32_t
+kernel.trace("random:add_device_randomness") $bytes:int $IP:long unsigned int
+kernel.trace("random:add_disk_randomness") $dev:dev_t $input_bits:int
+kernel.trace("random:add_input_randomness") $input_bits:int
+kernel.trace("random:credit_entropy_bits") $pool_name:char const* $bits:int $entropy_count:int $entropy_total:int $IP:long unsigned int
+kernel.trace("random:debit_entropy") $pool_name:char const* $debit_bits:int
+kernel.trace("random:extract_entropy") $pool_name:char const* $nbytes:int $entropy_count:int $IP:long unsigned int
+kernel.trace("random:extract_entropy_user") $pool_name:char const* $nbytes:int $entropy_count:int $IP:long unsigned int
+kernel.trace("random:get_random_bytes") $nbytes:int $IP:long unsigned int
+kernel.trace("random:get_random_bytes_arch") $nbytes:int $IP:long unsigned int
+kernel.trace("random:mix_pool_bytes") $pool_name:char const* $bytes:int $IP:long unsigned int
+kernel.trace("random:mix_pool_bytes_nolock") $pool_name:char const* $bytes:int $IP:long unsigned int
+kernel.trace("random:push_to_pool") $pool_name:char const* $pool_bits:int $input_bits:int
+kernel.trace("random:random_read") $got_bits:int $need_bits:int $pool_left:int $input_left:int
+kernel.trace("random:urandom_read") $got_bits:int $pool_left:int $input_left:int
+kernel.trace("random:xfer_secondary_pool") $pool_name:char const* $xfer_bits:int $request_bits:int $pool_entropy:int $input_entropy:int
+kernel.trace("ras:aer_event") $dev_name:char const* $status:u32 const $severity:u8 const $tlp_header_valid:u8 const $tlp:struct aer_header_log_regs*
+kernel.trace("ras:arm_event") $proc:struct cper_sec_proc_arm const*
+kernel.trace("ras:extlog_mem_event") $mem:struct cper_sec_mem_err* $err_seq:u32 $fru_id:uuid_le const* $fru_text:char const* $sev:u8
+kernel.trace("ras:mc_event") $err_type:unsigned int const $error_msg:char const* $label:char const* $error_count:int const $mc_index:u8 const $top_layer:s8 const $mid_layer:s8 const $low_layer:s8 const $address:long unsigned int $grain_bits:u8 const $syndrome:long unsigned int $driver_detail:char const*
+kernel.trace("ras:memory_failure_event") $pfn:long unsigned int $type:int $result:int
+kernel.trace("ras:non_standard_event") $sec_type:uuid_le const* $fru_id:uuid_le const* $fru_text:char const* $sev:u8 const $err:u8 const* $len:u32 const
+kernel.trace("raw_syscalls:sys_enter") $regs:struct pt_regs* $id:long int
+kernel.trace("raw_syscalls:sys_exit") $regs:struct pt_regs* $ret:long int
+kernel.trace("rcu:rcu_utilization") $s:char const*
+kernel.trace("rdma_core:cq_alloc") $cq:struct ib_cq const* $nr_cqe:int $comp_vector:int $poll_ctx:enum ib_poll_context
+kernel.trace("rdma_core:cq_alloc_error") $nr_cqe:int $comp_vector:int $poll_ctx:enum ib_poll_context $rc:int
+kernel.trace("rdma_core:cq_drain_complete") $cq:struct ib_cq const*
+kernel.trace("rdma_core:cq_free") $cq:struct ib_cq const*
+kernel.trace("rdma_core:cq_modify") $cq:struct ib_cq const* $comps:u16 $usec:u16
+kernel.trace("rdma_core:cq_poll") $cq:struct ib_cq const* $requested:int $rc:int
+kernel.trace("rdma_core:cq_process") $cq:struct ib_cq const*
+kernel.trace("rdma_core:cq_reschedule") $cq:struct ib_cq*
+kernel.trace("rdma_core:cq_schedule") $cq:struct ib_cq*
+kernel.trace("rdma_core:mr_alloc") $pd:struct ib_pd const* $mr_type:enum ib_mr_type $max_num_sg:u32 $mr:struct ib_mr const*
+kernel.trace("rdma_core:mr_dereg") $mr:struct ib_mr const*
+kernel.trace("rdma_core:mr_integ_alloc") $pd:struct ib_pd const* $max_num_data_sg:u32 $max_num_meta_sg:u32 $mr:struct ib_mr const*
+kernel.trace("regmap:regcache_drop_region") $map:struct regmap* $from:unsigned int $to:unsigned int
+kernel.trace("regmap:regcache_sync") $map:struct regmap* $type:char const* $status:char const*
+kernel.trace("regmap:regmap_async_complete_done") $map:struct regmap*
+kernel.trace("regmap:regmap_async_complete_start") $map:struct regmap*
+kernel.trace("regmap:regmap_async_io_complete") $map:struct regmap*
+kernel.trace("regmap:regmap_async_write_start") $map:struct regmap* $reg:unsigned int $count:int
+kernel.trace("regmap:regmap_cache_bypass") $map:struct regmap* $flag:bool
+kernel.trace("regmap:regmap_cache_only") $map:struct regmap* $flag:bool
+kernel.trace("regmap:regmap_hw_read_done") $map:struct regmap* $reg:unsigned int $count:int
+kernel.trace("regmap:regmap_hw_read_start") $map:struct regmap* $reg:unsigned int $count:int
+kernel.trace("regmap:regmap_hw_write_done") $map:struct regmap* $reg:unsigned int $count:int
+kernel.trace("regmap:regmap_hw_write_start") $map:struct regmap* $reg:unsigned int $count:int
+kernel.trace("regmap:regmap_reg_read") $map:struct regmap* $reg:unsigned int $val:unsigned int
+kernel.trace("regmap:regmap_reg_read_cache") $map:struct regmap* $reg:unsigned int $val:unsigned int
+kernel.trace("regmap:regmap_reg_write") $map:struct regmap* $reg:unsigned int $val:unsigned int
+kernel.trace("regulator:regulator_disable") $name:char const*
+kernel.trace("regulator:regulator_disable_complete") $name:char const*
+kernel.trace("regulator:regulator_enable") $name:char const*
+kernel.trace("regulator:regulator_enable_complete") $name:char const*
+kernel.trace("regulator:regulator_enable_delay") $name:char const*
+kernel.trace("regulator:regulator_set_voltage") $name:char const* $min:int $max:int
+kernel.trace("regulator:regulator_set_voltage_complete") $name:char const* $value:unsigned int
+kernel.trace("rpm:rpm_idle") $dev:struct device* $flags:int
+kernel.trace("rpm:rpm_resume") $dev:struct device* $flags:int
+kernel.trace("rpm:rpm_return_int") $dev:struct device* $ip:long unsigned int $ret:int
+kernel.trace("rpm:rpm_suspend") $dev:struct device* $flags:int
+kernel.trace("rseq:rseq_ip_fixup") $regs_ip:long unsigned int $start_ip:long unsigned int $post_commit_offset:long unsigned int $abort_ip:long unsigned int
+kernel.trace("rseq:rseq_update") $t:struct task_struct*
+kernel.trace("rtc:rtc_alarm_irq_enable") $enabled:unsigned int $err:int
+kernel.trace("rtc:rtc_irq_set_freq") $freq:int $err:int
+kernel.trace("rtc:rtc_irq_set_state") $enabled:int $err:int
+kernel.trace("rtc:rtc_read_alarm") $secs:time64_t $err:int
+kernel.trace("rtc:rtc_read_offset") $offset:long int $err:int
+kernel.trace("rtc:rtc_read_time") $secs:time64_t $err:int
+kernel.trace("rtc:rtc_set_alarm") $secs:time64_t $err:int
+kernel.trace("rtc:rtc_set_offset") $offset:long int $err:int
+kernel.trace("rtc:rtc_set_time") $secs:time64_t $err:int
+kernel.trace("rtc:rtc_timer_dequeue") $timer:struct rtc_timer*
+kernel.trace("rtc:rtc_timer_enqueue") $timer:struct rtc_timer*
+kernel.trace("rtc:rtc_timer_fired") $timer:struct rtc_timer*
+kernel.trace("sched:pelt_cfs_tp") $cfs_rq:struct cfs_rq*
+kernel.trace("sched:pelt_dl_tp") $rq:struct rq*
+kernel.trace("sched:pelt_irq_tp") $rq:struct rq*
+kernel.trace("sched:pelt_rt_tp") $rq:struct rq*
+kernel.trace("sched:pelt_se_tp") $se:struct sched_entity*
+kernel.trace("sched:sched_cpu_capacity_tp") $rq:struct rq*
+kernel.trace("sched:sched_kthread_stop") $t:struct task_struct*
+kernel.trace("sched:sched_kthread_stop_ret") $ret:int
+kernel.trace("sched:sched_migrate_task") $p:struct task_struct* $dest_cpu:int
+kernel.trace("sched:sched_move_numa") $tsk:struct task_struct* $src_cpu:int $dst_cpu:int
+kernel.trace("sched:sched_overutilized_tp") $rd:struct root_domain* $overutilized:bool
+kernel.trace("sched:sched_pi_setprio") $tsk:struct task_struct* $pi_task:struct task_struct*
+kernel.trace("sched:sched_process_exec") $p:struct task_struct* $old_pid:pid_t $bprm:struct linux_binprm*
+kernel.trace("sched:sched_process_exit") $p:struct task_struct*
+kernel.trace("sched:sched_process_fork") $parent:struct task_struct* $child:struct task_struct*
+kernel.trace("sched:sched_process_free") $p:struct task_struct*
+kernel.trace("sched:sched_process_hang") $tsk:struct task_struct*
+kernel.trace("sched:sched_process_wait") $pid:struct pid*
+kernel.trace("sched:sched_stat_blocked") $tsk:struct task_struct* $delay:u64
+kernel.trace("sched:sched_stat_iowait") $tsk:struct task_struct* $delay:u64
+kernel.trace("sched:sched_stat_runtime") $tsk:struct task_struct* $runtime:u64 $vruntime:u64
+kernel.trace("sched:sched_stat_sleep") $tsk:struct task_struct* $delay:u64
+kernel.trace("sched:sched_stat_wait") $tsk:struct task_struct* $delay:u64
+kernel.trace("sched:sched_stick_numa") $src_tsk:struct task_struct* $src_cpu:int $dst_tsk:struct task_struct* $dst_cpu:int
+kernel.trace("sched:sched_swap_numa") $src_tsk:struct task_struct* $src_cpu:int $dst_tsk:struct task_struct* $dst_cpu:int
+kernel.trace("sched:sched_switch") $preempt:bool $prev:struct task_struct* $next:struct task_struct*
+kernel.trace("sched:sched_update_nr_running_tp") $rq:struct rq* $change:int
+kernel.trace("sched:sched_util_est_cfs_tp") $cfs_rq:struct cfs_rq*
+kernel.trace("sched:sched_util_est_se_tp") $se:struct sched_entity*
+kernel.trace("sched:sched_wait_task") $p:struct task_struct*
+kernel.trace("sched:sched_wake_idle_without_ipi") $cpu:int
+kernel.trace("sched:sched_wakeup") $p:struct task_struct*
+kernel.trace("sched:sched_wakeup_new") $p:struct task_struct*
+kernel.trace("sched:sched_waking") $p:struct task_struct*
+kernel.trace("scsi:scsi_dispatch_cmd_done") $cmd:struct scsi_cmnd*
+kernel.trace("scsi:scsi_dispatch_cmd_error") $cmd:struct scsi_cmnd* $rtn:int
+kernel.trace("scsi:scsi_dispatch_cmd_start") $cmd:struct scsi_cmnd*
+kernel.trace("scsi:scsi_dispatch_cmd_timeout") $cmd:struct scsi_cmnd*
+kernel.trace("scsi:scsi_eh_wakeup") $shost:struct Scsi_Host*
+kernel.trace("sctp:sctp_probe") $ep:struct sctp_endpoint const* $asoc:struct sctp_association const* $chunk:struct sctp_chunk*
+kernel.trace("sctp:sctp_probe_path") $sp:struct sctp_transport* $asoc:struct sctp_association const*
+kernel.trace("signal:signal_deliver") $sig:int $info:struct kernel_siginfo* $ka:struct k_sigaction*
+kernel.trace("signal:signal_generate") $sig:int $info:struct kernel_siginfo* $task:struct task_struct* $group:int $result:int
+kernel.trace("siox:siox_get_data") $smaster:struct siox_master const* $sdevice:struct siox_device const* $devno:unsigned int $status_clean:u8 $bufoffset:size_t
+kernel.trace("siox:siox_set_data") $smaster:struct siox_master const* $sdevice:struct siox_device const* $devno:unsigned int $bufoffset:size_t
+kernel.trace("skb:consume_skb") $skb:struct sk_buff*
+kernel.trace("skb:kfree_skb") $skb:struct sk_buff* $location:void*
+kernel.trace("skb:skb_copy_datagram_iovec") $skb:struct sk_buff const* $len:int
+kernel.trace("smbus:smbus_read") $adap:struct i2c_adapter const* $addr:u16 $flags:short unsigned int $read_write:char $command:u8 $protocol:int
+kernel.trace("smbus:smbus_reply") $adap:struct i2c_adapter const* $addr:u16 $flags:short unsigned int $read_write:char $command:u8 $protocol:int $data:union i2c_smbus_data const* $res:int
+kernel.trace("smbus:smbus_result") $adap:struct i2c_adapter const* $addr:u16 $flags:short unsigned int $read_write:char $command:u8 $protocol:int $res:int
+kernel.trace("smbus:smbus_write") $adap:struct i2c_adapter const* $addr:u16 $flags:short unsigned int $read_write:char $command:u8 $protocol:int $data:union i2c_smbus_data const*
+kernel.trace("snd_pcm:applptr") $substream:struct snd_pcm_substream* $prev:snd_pcm_uframes_t $curr:snd_pcm_uframes_t
+kernel.trace("snd_pcm:hw_interval_param") $substream:struct snd_pcm_substream* $type:snd_pcm_hw_param_t $index:int $prev:struct snd_interval const* $curr:struct snd_interval const*
+kernel.trace("snd_pcm:hw_mask_param") $substream:struct snd_pcm_substream* $type:snd_pcm_hw_param_t $index:int $prev:struct snd_mask const* $curr:struct snd_mask const*
+kernel.trace("snd_pcm:hw_ptr_error") $substream:struct snd_pcm_substream* $why:char const*
+kernel.trace("snd_pcm:hwptr") $substream:struct snd_pcm_substream* $pos:snd_pcm_uframes_t $irq:bool
+kernel.trace("snd_pcm:xrun") $substream:struct snd_pcm_substream*
+kernel.trace("sock:inet_sock_set_state") $sk:struct sock const* $oldstate:int const $newstate:int const
+kernel.trace("sock:sock_exceed_buf_limit") $sk:struct sock* $prot:struct proto* $allocated:long int
+kernel.trace("sock:sock_rcvqueue_full") $sk:struct sock* $skb:struct sk_buff*
+kernel.trace("spi:spi_controller_busy") $controller:struct spi_controller*
+kernel.trace("spi:spi_controller_idle") $controller:struct spi_controller*
+kernel.trace("spi:spi_message_done") $msg:struct spi_message*
+kernel.trace("spi:spi_message_start") $msg:struct spi_message*
+kernel.trace("spi:spi_message_submit") $msg:struct spi_message*
+kernel.trace("spi:spi_transfer_start") $msg:struct spi_message* $xfer:struct spi_transfer*
+kernel.trace("spi:spi_transfer_stop") $msg:struct spi_message* $xfer:struct spi_transfer*
+kernel.trace("spmi:spmi_cmd") $opcode:u8 $sid:u8 $ret:int
+kernel.trace("spmi:spmi_read_begin") $opcode:u8 $sid:u8 $addr:u16
+kernel.trace("spmi:spmi_read_end") $opcode:u8 $sid:u8 $addr:u16 $ret:int $len:u8 $buf:u8 const*
+kernel.trace("spmi:spmi_write_begin") $opcode:u8 $sid:u8 $addr:u16 $len:u8 $buf:u8 const*
+kernel.trace("spmi:spmi_write_end") $opcode:u8 $sid:u8 $addr:u16 $ret:int
+kernel.trace("sunrpc:cache_entry_expired") $cd:struct cache_detail const* $h:struct cache_head const*
+kernel.trace("sunrpc:cache_entry_make_negative") $cd:struct cache_detail const* $h:struct cache_head const*
+kernel.trace("sunrpc:cache_entry_no_listener") $cd:struct cache_detail const* $h:struct cache_head const*
+kernel.trace("sunrpc:cache_entry_upcall") $cd:struct cache_detail const* $h:struct cache_head const*
+kernel.trace("sunrpc:cache_entry_update") $cd:struct cache_detail const* $h:struct cache_head const*
+kernel.trace("sunrpc:pmap_register") $program:u32 $version:u32 $protocol:int $port:short unsigned int
+kernel.trace("sunrpc:rpc__auth_tooweak") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc__bad_creds") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc__garbage_args") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc__mismatch") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc__proc_unavail") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc__prog_mismatch") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc__prog_unavail") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc__stale_creds") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc__unparsable") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc_bad_callhdr") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc_bad_verifier") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc_buf_alloc") $task:struct rpc_task const* $status:int
+kernel.trace("sunrpc:rpc_call_rpcerror") $task:struct rpc_task const* $tk_status:int $rpc_status:int
+kernel.trace("sunrpc:rpc_call_status") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc_clnt_clone_err") $clnt:struct rpc_clnt const* $error:int
+kernel.trace("sunrpc:rpc_clnt_free") $clnt:struct rpc_clnt const*
+kernel.trace("sunrpc:rpc_clnt_killall") $clnt:struct rpc_clnt const*
+kernel.trace("sunrpc:rpc_clnt_new") $clnt:struct rpc_clnt const* $xprt:struct rpc_xprt const* $program:char const* $server:char const*
+kernel.trace("sunrpc:rpc_clnt_new_err") $program:char const* $server:char const* $error:int
+kernel.trace("sunrpc:rpc_clnt_release") $clnt:struct rpc_clnt const*
+kernel.trace("sunrpc:rpc_clnt_replace_xprt") $clnt:struct rpc_clnt const*
+kernel.trace("sunrpc:rpc_clnt_replace_xprt_err") $clnt:struct rpc_clnt const*
+kernel.trace("sunrpc:rpc_clnt_shutdown") $clnt:struct rpc_clnt const*
+kernel.trace("sunrpc:rpc_connect_status") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc_refresh_status") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc_request") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc_retry_refresh_status") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc_socket_close") $xprt:struct rpc_xprt* $socket:struct socket*
+kernel.trace("sunrpc:rpc_socket_connect") $xprt:struct rpc_xprt* $socket:struct socket* $error:int
+kernel.trace("sunrpc:rpc_socket_error") $xprt:struct rpc_xprt* $socket:struct socket* $error:int
+kernel.trace("sunrpc:rpc_socket_nospace") $rqst:struct rpc_rqst const* $transport:struct sock_xprt const*
+kernel.trace("sunrpc:rpc_socket_reset_connection") $xprt:struct rpc_xprt* $socket:struct socket* $error:int
+kernel.trace("sunrpc:rpc_socket_shutdown") $xprt:struct rpc_xprt* $socket:struct socket*
+kernel.trace("sunrpc:rpc_socket_state_change") $xprt:struct rpc_xprt* $socket:struct socket*
+kernel.trace("sunrpc:rpc_stats_latency") $task:struct rpc_task const* $backlog:ktime_t $rtt:ktime_t $execute:ktime_t
+kernel.trace("sunrpc:rpc_task_begin") $task:struct rpc_task const* $action:void const*
+kernel.trace("sunrpc:rpc_task_complete") $task:struct rpc_task const* $action:void const*
+kernel.trace("sunrpc:rpc_task_end") $task:struct rpc_task const* $action:void const*
+kernel.trace("sunrpc:rpc_task_run_action") $task:struct rpc_task const* $action:void const*
+kernel.trace("sunrpc:rpc_task_signalled") $task:struct rpc_task const* $action:void const*
+kernel.trace("sunrpc:rpc_task_sleep") $task:struct rpc_task const* $q:struct rpc_wait_queue const*
+kernel.trace("sunrpc:rpc_task_sync_sleep") $task:struct rpc_task const* $action:void const*
+kernel.trace("sunrpc:rpc_task_sync_wake") $task:struct rpc_task const* $action:void const*
+kernel.trace("sunrpc:rpc_task_timeout") $task:struct rpc_task const* $action:void const*
+kernel.trace("sunrpc:rpc_task_wakeup") $task:struct rpc_task const* $q:struct rpc_wait_queue const*
+kernel.trace("sunrpc:rpc_timeout_status") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpc_xdr_alignment") $xdr:struct xdr_stream const* $offset:size_t $copied:unsigned int
+kernel.trace("sunrpc:rpc_xdr_overflow") $xdr:struct xdr_stream const* $requested:size_t
+kernel.trace("sunrpc:rpc_xdr_recvfrom") $task:struct rpc_task const* $xdr:struct xdr_buf const*
+kernel.trace("sunrpc:rpc_xdr_reply_pages") $task:struct rpc_task const* $xdr:struct xdr_buf const*
+kernel.trace("sunrpc:rpc_xdr_sendto") $task:struct rpc_task const* $xdr:struct xdr_buf const*
+kernel.trace("sunrpc:rpcb_bind_version_err") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpcb_getport") $clnt:struct rpc_clnt const* $task:struct rpc_task const* $bind_version:unsigned int
+kernel.trace("sunrpc:rpcb_prog_unavail_err") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpcb_register") $program:u32 $version:u32 $addr:char const* $netid:char const*
+kernel.trace("sunrpc:rpcb_setport") $task:struct rpc_task const* $status:int $port:short unsigned int
+kernel.trace("sunrpc:rpcb_timeout_err") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpcb_unreachable_err") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpcb_unrecognized_err") $task:struct rpc_task const*
+kernel.trace("sunrpc:rpcb_unregister") $program:u32 $version:u32 $netid:char const*
+kernel.trace("sunrpc:svc_authenticate") $rqst:struct svc_rqst const* $auth_res:int $auth_stat:__be32
+kernel.trace("sunrpc:svc_defer") $rqst:struct svc_rqst const*
+kernel.trace("sunrpc:svc_defer_drop") $dr:struct svc_deferred_req const*
+kernel.trace("sunrpc:svc_defer_queue") $dr:struct svc_deferred_req const*
+kernel.trace("sunrpc:svc_defer_recv") $dr:struct svc_deferred_req const*
+kernel.trace("sunrpc:svc_drop") $rqst:struct svc_rqst const*
+kernel.trace("sunrpc:svc_handle_xprt") $xprt:struct svc_xprt* $len:int
+kernel.trace("sunrpc:svc_noregister") $program:char const* $version:u32 const $family:int const $protocol:short unsigned int const $port:short unsigned int const $error:int
+kernel.trace("sunrpc:svc_process") $rqst:struct svc_rqst const* $name:char const*
+kernel.trace("sunrpc:svc_register") $program:char const* $version:u32 const $family:int const $protocol:short unsigned int const $port:short unsigned int const $error:int
+kernel.trace("sunrpc:svc_send") $rqst:struct svc_rqst* $status:int
+kernel.trace("sunrpc:svc_stats_latency") $rqst:struct svc_rqst const*
+kernel.trace("sunrpc:svc_unregister") $program:char const* $version:u32 const $error:int
+kernel.trace("sunrpc:svc_wake_up") $pid:int
+kernel.trace("sunrpc:svc_xdr_recvfrom") $xdr:struct xdr_buf const*
+kernel.trace("sunrpc:svc_xdr_sendto") $xid:__be32 $xdr:struct xdr_buf const*
+kernel.trace("sunrpc:svc_xprt_accept") $xprt:struct svc_xprt const* $service:char const*
+kernel.trace("sunrpc:svc_xprt_close") $xprt:struct svc_xprt*
+kernel.trace("sunrpc:svc_xprt_create_err") $program:char const* $protocol:char const* $sap:struct sockaddr* $xprt:struct svc_xprt const*
+kernel.trace("sunrpc:svc_xprt_dequeue") $rqst:struct svc_rqst*
+kernel.trace("sunrpc:svc_xprt_detach") $xprt:struct svc_xprt*
+kernel.trace("sunrpc:svc_xprt_do_enqueue") $xprt:struct svc_xprt* $rqst:struct svc_rqst*
+kernel.trace("sunrpc:svc_xprt_free") $xprt:struct svc_xprt*
+kernel.trace("sunrpc:svc_xprt_no_write_space") $xprt:struct svc_xprt*
+kernel.trace("sunrpc:svcsock_accept_err") $xprt:struct svc_xprt const* $service:char const* $status:long int
+kernel.trace("sunrpc:svcsock_data_ready") $xprt:struct svc_xprt const* $result:ssize_t
+kernel.trace("sunrpc:svcsock_getpeername_err") $xprt:struct svc_xprt const* $service:char const* $status:long int
+kernel.trace("sunrpc:svcsock_marker") $xprt:struct svc_xprt const* $marker:__be32
+kernel.trace("sunrpc:svcsock_new_socket") $socket:struct socket const*
+kernel.trace("sunrpc:svcsock_tcp_recv") $xprt:struct svc_xprt const* $result:ssize_t
+kernel.trace("sunrpc:svcsock_tcp_recv_eagain") $xprt:struct svc_xprt const* $result:ssize_t
+kernel.trace("sunrpc:svcsock_tcp_recv_err") $xprt:struct svc_xprt const* $result:ssize_t
+kernel.trace("sunrpc:svcsock_tcp_recv_short") $xprt:struct svc_xprt const* $expected:u32 $received:u32
+kernel.trace("sunrpc:svcsock_tcp_send") $xprt:struct svc_xprt const* $result:ssize_t
+kernel.trace("sunrpc:svcsock_tcp_state") $xprt:struct svc_xprt const* $socket:struct socket const*
+kernel.trace("sunrpc:svcsock_udp_recv") $xprt:struct svc_xprt const* $result:ssize_t
+kernel.trace("sunrpc:svcsock_udp_recv_err") $xprt:struct svc_xprt const* $result:ssize_t
+kernel.trace("sunrpc:svcsock_udp_send") $xprt:struct svc_xprt const* $result:ssize_t
+kernel.trace("sunrpc:svcsock_write_space") $xprt:struct svc_xprt const* $result:ssize_t
+kernel.trace("sunrpc:xprt_connect") $xprt:struct rpc_xprt const*
+kernel.trace("sunrpc:xprt_create") $xprt:struct rpc_xprt const*
+kernel.trace("sunrpc:xprt_destroy") $xprt:struct rpc_xprt const*
+kernel.trace("sunrpc:xprt_disconnect_auto") $xprt:struct rpc_xprt const*
+kernel.trace("sunrpc:xprt_disconnect_cleanup") $xprt:struct rpc_xprt const*
+kernel.trace("sunrpc:xprt_disconnect_done") $xprt:struct rpc_xprt const*
+kernel.trace("sunrpc:xprt_disconnect_force") $xprt:struct rpc_xprt const*
+kernel.trace("sunrpc:xprt_get_cong") $xprt:struct rpc_xprt const* $task:struct rpc_task const*
+kernel.trace("sunrpc:xprt_lookup_rqst") $xprt:struct rpc_xprt const* $xid:__be32 $status:int
+kernel.trace("sunrpc:xprt_ping") $xprt:struct rpc_xprt const* $status:int
+kernel.trace("sunrpc:xprt_put_cong") $xprt:struct rpc_xprt const* $task:struct rpc_task const*
+kernel.trace("sunrpc:xprt_release_cong") $xprt:struct rpc_xprt const* $task:struct rpc_task const*
+kernel.trace("sunrpc:xprt_release_xprt") $xprt:struct rpc_xprt const* $task:struct rpc_task const*
+kernel.trace("sunrpc:xprt_reserve") $rqst:struct rpc_rqst const*
+kernel.trace("sunrpc:xprt_reserve_cong") $xprt:struct rpc_xprt const* $task:struct rpc_task const*
+kernel.trace("sunrpc:xprt_reserve_xprt") $xprt:struct rpc_xprt const* $task:struct rpc_task const*
+kernel.trace("sunrpc:xprt_timer") $xprt:struct rpc_xprt const* $xid:__be32 $status:int
+kernel.trace("sunrpc:xprt_transmit") $rqst:struct rpc_rqst const* $status:int
+kernel.trace("sunrpc:xprt_transmit_queued") $xprt:struct rpc_xprt const* $task:struct rpc_task const*
+kernel.trace("sunrpc:xs_stream_read_data") $xprt:struct rpc_xprt* $err:ssize_t $total:size_t
+kernel.trace("sunrpc:xs_stream_read_request") $xs:struct sock_xprt*
+kernel.trace("sunvnet:vnet_rx_one") $lsid:int $rsid:int $index:int $needs_ack:int
+kernel.trace("sunvnet:vnet_rx_stopped_ack") $lsid:int $rsid:int $end:int
+kernel.trace("sunvnet:vnet_skip_tx_trigger") $lsid:int $rsid:int $last:int
+kernel.trace("sunvnet:vnet_tx_defer_stopped_ack") $lsid:int $rsid:int $ack_end:int $npkts:int
+kernel.trace("sunvnet:vnet_tx_pending_stopped_ack") $lsid:int $rsid:int $ack_end:int $npkts:int
+kernel.trace("sunvnet:vnet_tx_send_stopped_ack") $lsid:int $rsid:int $ack_end:int $npkts:int
+kernel.trace("sunvnet:vnet_tx_trigger") $lsid:int $rsid:int $start:int $err:int
+kernel.trace("swiotlb:swiotlb_bounced") $dev:struct device* $dev_addr:dma_addr_t $size:size_t $swiotlb_force:enum swiotlb_force
+kernel.trace("target:target_cmd_complete") $cmd:struct se_cmd*
+kernel.trace("target:target_sequencer_start") $cmd:struct se_cmd*
+kernel.trace("task:task_newtask") $task:struct task_struct* $clone_flags:long unsigned int
+kernel.trace("task:task_rename") $task:struct task_struct* $comm:char const*
+kernel.trace("tcp:tcp_destroy_sock") $sk:struct sock*
+kernel.trace("tcp:tcp_probe") $sk:struct sock* $skb:struct sk_buff*
+kernel.trace("tcp:tcp_rcv_space_adjust") $sk:struct sock*
+kernel.trace("tcp:tcp_receive_reset") $sk:struct sock*
+kernel.trace("tcp:tcp_retransmit_skb") $sk:struct sock const* $skb:struct sk_buff const*
+kernel.trace("tcp:tcp_retransmit_synack") $sk:struct sock const* $req:struct request_sock const*
+kernel.trace("tcp:tcp_send_reset") $sk:struct sock const* $skb:struct sk_buff const*
+kernel.trace("thermal:cdev_update") $cdev:struct thermal_cooling_device* $target:long unsigned int
+kernel.trace("thermal:thermal_temperature") $tz:struct thermal_zone_device*
+kernel.trace("thermal:thermal_zone_trip") $tz:struct thermal_zone_device* $trip:int $trip_type:enum thermal_trip_type
+kernel.trace("thermal_power_allocator:thermal_power_allocator") $tz:struct thermal_zone_device* $req_power:u32* $total_req_power:u32 $granted_power:u32* $total_granted_power:u32 $num_actors:size_t $power_range:u32 $max_allocatable_power:u32 $current_temp:int $delta_temp:s32
+kernel.trace("thermal_power_allocator:thermal_power_allocator_pid") $tz:struct thermal_zone_device* $err:s32 $err_integral:s32 $p:s64 $i:s64 $d:s64 $output:s32
+kernel.trace("thp:hugepage_invalidate") $addr:long unsigned int $pte:long unsigned int
+kernel.trace("thp:hugepage_set_pmd") $addr:long unsigned int $pmd:long unsigned int
+kernel.trace("thp:hugepage_splitting") $addr:long unsigned int $pte:long unsigned int
+kernel.trace("thp:hugepage_update") $addr:long unsigned int $pte:long unsigned int $clr:long unsigned int $set:long unsigned int
+kernel.trace("timer:hrtimer_cancel") $hrtimer:struct hrtimer*
+kernel.trace("timer:hrtimer_expire_entry") $hrtimer:struct hrtimer* $now:ktime_t*
+kernel.trace("timer:hrtimer_expire_exit") $hrtimer:struct hrtimer*
+kernel.trace("timer:hrtimer_init") $hrtimer:struct hrtimer* $clockid:clockid_t $mode:enum hrtimer_mode
+kernel.trace("timer:hrtimer_start") $hrtimer:struct hrtimer* $mode:enum hrtimer_mode
+kernel.trace("timer:itimer_expire") $which:int $pid:struct pid* $now:long long unsigned int
+kernel.trace("timer:itimer_state") $which:int $value:struct itimerval const* const $expires:long long unsigned int
+kernel.trace("timer:tick_stop") $success:int $dependency:int
+kernel.trace("timer:timer_cancel") $timer:struct timer_list*
+kernel.trace("timer:timer_expire_entry") $timer:struct timer_list* $baseclk:long unsigned int
+kernel.trace("timer:timer_expire_exit") $timer:struct timer_list*
+kernel.trace("timer:timer_init") $timer:struct timer_list*
+kernel.trace("timer:timer_start") $timer:struct timer_list* $expires:long unsigned int $flags:unsigned int
+kernel.trace("tipc:tipc_l2_device_event") $dev:struct net_device* $b:struct tipc_bearer* $evt:long unsigned int
+kernel.trace("tipc:tipc_link_bc_ack") $r:struct tipc_link* $f:u16 $t:u16 $tq:struct sk_buff_head*
+kernel.trace("tipc:tipc_link_conges") $l:struct tipc_link* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_link_dump") $l:struct tipc_link* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_link_fsm") $name:char const* $os:u32 $ns:u32 $evt:int
+kernel.trace("tipc:tipc_link_reset") $l:struct tipc_link* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_link_retrans") $r:struct tipc_link* $f:u16 $t:u16 $tq:struct sk_buff_head*
+kernel.trace("tipc:tipc_link_timeout") $l:struct tipc_link* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_link_too_silent") $l:struct tipc_link* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_list_dump") $list:struct sk_buff_head* $more:bool $header:char const*
+kernel.trace("tipc:tipc_node_check_state") $n:struct tipc_node* $more:bool $header:char const*
+kernel.trace("tipc:tipc_node_create") $n:struct tipc_node* $more:bool $header:char const*
+kernel.trace("tipc:tipc_node_delete") $n:struct tipc_node* $more:bool $header:char const*
+kernel.trace("tipc:tipc_node_dump") $n:struct tipc_node* $more:bool $header:char const*
+kernel.trace("tipc:tipc_node_fsm") $name:char const* $os:u32 $ns:u32 $evt:int
+kernel.trace("tipc:tipc_node_link_down") $n:struct tipc_node* $more:bool $header:char const*
+kernel.trace("tipc:tipc_node_link_up") $n:struct tipc_node* $more:bool $header:char const*
+kernel.trace("tipc:tipc_node_lost_contact") $n:struct tipc_node* $more:bool $header:char const*
+kernel.trace("tipc:tipc_node_reset_links") $n:struct tipc_node* $more:bool $header:char const*
+kernel.trace("tipc:tipc_node_timeout") $n:struct tipc_node* $more:bool $header:char const*
+kernel.trace("tipc:tipc_proto_build") $skb:struct sk_buff* $more:bool $header:char const*
+kernel.trace("tipc:tipc_proto_rcv") $skb:struct sk_buff* $more:bool $header:char const*
+kernel.trace("tipc:tipc_sk_advance_rx") $sk:struct sock* $skb:struct sk_buff* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_sk_create") $sk:struct sock* $skb:struct sk_buff* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_sk_drop_msg") $sk:struct sock* $skb:struct sk_buff* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_sk_dump") $sk:struct sock* $skb:struct sk_buff* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_sk_filter_rcv") $sk:struct sock* $skb:struct sk_buff* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_sk_overlimit1") $sk:struct sock* $skb:struct sk_buff* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_sk_overlimit2") $sk:struct sock* $skb:struct sk_buff* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_sk_poll") $sk:struct sock* $skb:struct sk_buff* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_sk_rej_msg") $sk:struct sock* $skb:struct sk_buff* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_sk_release") $sk:struct sock* $skb:struct sk_buff* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_sk_sendmcast") $sk:struct sock* $skb:struct sk_buff* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_sk_sendmsg") $sk:struct sock* $skb:struct sk_buff* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_sk_sendstream") $sk:struct sock* $skb:struct sk_buff* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_sk_shutdown") $sk:struct sock* $skb:struct sk_buff* $dqueues:u16 $header:char const*
+kernel.trace("tipc:tipc_skb_dump") $skb:struct sk_buff* $more:bool $header:char const*
+kernel.trace("tlb:tlb_flush") $reason:int $pages:long unsigned int
+kernel.trace("tls:tls_device_decrypted") $sk:struct sock* $tcp_seq:u32 $rec_no:u8* $rec_len:u32 $encrypted:bool $decrypted:bool
+kernel.trace("tls:tls_device_offload_set") $sk:struct sock* $dir:int $tcp_seq:u32 $rec_no:u8* $ret:int
+kernel.trace("tls:tls_device_rx_resync_nh_delay") $sk:struct sock* $sock_data:u32 $rec_len:u32
+kernel.trace("tls:tls_device_rx_resync_nh_schedule") $sk:struct sock*
+kernel.trace("tls:tls_device_rx_resync_send") $sk:struct sock* $tcp_seq:u32 $rec_no:u8* $sync_type:int
+kernel.trace("tls:tls_device_tx_resync_req") $sk:struct sock* $tcp_seq:u32 $exp_tcp_seq:u32
+kernel.trace("tls:tls_device_tx_resync_send") $sk:struct sock* $tcp_seq:u32 $rec_no:u8*
+kernel.trace("udp:udp_fail_queue_rcv_skb") $rc:int $sk:struct sock*
+kernel.trace("ufs:ufshcd_auto_bkops_state") $dev_name:char const* $state:char const*
+kernel.trace("ufs:ufshcd_clk_gating") $dev_name:char const* $state:int
+kernel.trace("ufs:ufshcd_clk_scaling") $dev_name:char const* $state:char const* $clk:char const* $prev_state:u32 $curr_state:u32
+kernel.trace("ufs:ufshcd_command") $dev_name:char const* $str:char const* $tag:unsigned int $doorbell:u32 $transfer_len:int $intr:u32 $lba:u64 $opcode:u8
+kernel.trace("ufs:ufshcd_init") $dev_name:char const* $err:int $usecs:s64 $dev_state:int $link_state:int
+kernel.trace("ufs:ufshcd_profile_clk_gating") $dev_name:char const* $profile_info:char const* $time_us:s64 $err:int
+kernel.trace("ufs:ufshcd_profile_clk_scaling") $dev_name:char const* $profile_info:char const* $time_us:s64 $err:int
+kernel.trace("ufs:ufshcd_profile_hibern8") $dev_name:char const* $profile_info:char const* $time_us:s64 $err:int
+kernel.trace("ufs:ufshcd_runtime_resume") $dev_name:char const* $err:int $usecs:s64 $dev_state:int $link_state:int
+kernel.trace("ufs:ufshcd_runtime_suspend") $dev_name:char const* $err:int $usecs:s64 $dev_state:int $link_state:int
+kernel.trace("ufs:ufshcd_system_resume") $dev_name:char const* $err:int $usecs:s64 $dev_state:int $link_state:int
+kernel.trace("ufs:ufshcd_system_suspend") $dev_name:char const* $err:int $usecs:s64 $dev_state:int $link_state:int
+kernel.trace("ufs:ufshcd_upiu") $dev_name:char const* $str:char const* $hdr:void* $tsf:void*
+kernel.trace("v4l2:v4l2_dqbuf") $minor:int $buf:struct v4l2_buffer*
+kernel.trace("v4l2:v4l2_qbuf") $minor:int $buf:struct v4l2_buffer*
+kernel.trace("v4l2:vb2_v4l2_buf_done") $q:struct vb2_queue* $vb:struct vb2_buffer*
+kernel.trace("v4l2:vb2_v4l2_buf_queue") $q:struct vb2_queue* $vb:struct vb2_buffer*
+kernel.trace("v4l2:vb2_v4l2_dqbuf") $q:struct vb2_queue* $vb:struct vb2_buffer*
+kernel.trace("v4l2:vb2_v4l2_qbuf") $q:struct vb2_queue* $vb:struct vb2_buffer*
+kernel.trace("vb2:vb2_buf_done") $q:struct vb2_queue* $vb:struct vb2_buffer*
+kernel.trace("vb2:vb2_buf_queue") $q:struct vb2_queue* $vb:struct vb2_buffer*
+kernel.trace("vb2:vb2_dqbuf") $q:struct vb2_queue* $vb:struct vb2_buffer*
+kernel.trace("vb2:vb2_qbuf") $q:struct vb2_queue* $vb:struct vb2_buffer*
+kernel.trace("vmscan:mm_shrink_slab_end") $shr:struct shrinker* $nid:int $shrinker_retval:int $unused_scan_cnt:long int $new_scan_cnt:long int $total_scan:long int
+kernel.trace("vmscan:mm_shrink_slab_start") $shr:struct shrinker* $sc:struct shrink_control* $nr_objects_to_shrink:long int $cache_items:long unsigned int $delta:long long unsigned int $total_scan:long unsigned int $priority:int
+kernel.trace("vmscan:mm_vmscan_direct_reclaim_begin") $order:int $gfp_flags:gfp_t
+kernel.trace("vmscan:mm_vmscan_direct_reclaim_end") $nr_reclaimed:long unsigned int
+kernel.trace("vmscan:mm_vmscan_inactive_list_is_low") $nid:int $reclaim_idx:int $total_inactive:long unsigned int $inactive:long unsigned int $total_active:long unsigned int $active:long unsigned int $ratio:long unsigned int $file:int
+kernel.trace("vmscan:mm_vmscan_kswapd_sleep") $nid:int
+kernel.trace("vmscan:mm_vmscan_kswapd_wake") $nid:int $zid:int $order:int
+kernel.trace("vmscan:mm_vmscan_lru_isolate") $highest_zoneidx:int $order:int $nr_requested:long unsigned int $nr_scanned:long unsigned int $nr_skipped:long unsigned int $nr_taken:long unsigned int $isolate_mode:isolate_mode_t $lru:int
+kernel.trace("vmscan:mm_vmscan_lru_shrink_active") $nid:int $nr_taken:long unsigned int $nr_active:long unsigned int $nr_deactivated:long unsigned int $nr_referenced:long unsigned int $priority:int $file:int
+kernel.trace("vmscan:mm_vmscan_lru_shrink_inactive") $nid:int $nr_scanned:long unsigned int $nr_reclaimed:long unsigned int $stat:struct reclaim_stat* $priority:int $file:int
+kernel.trace("vmscan:mm_vmscan_memcg_reclaim_begin") $order:int $gfp_flags:gfp_t
+kernel.trace("vmscan:mm_vmscan_memcg_reclaim_end") $nr_reclaimed:long unsigned int
+kernel.trace("vmscan:mm_vmscan_memcg_softlimit_reclaim_begin") $order:int $gfp_flags:gfp_t
+kernel.trace("vmscan:mm_vmscan_memcg_softlimit_reclaim_end") $nr_reclaimed:long unsigned int
+kernel.trace("vmscan:mm_vmscan_node_reclaim_begin") $nid:int $order:int $gfp_flags:gfp_t
+kernel.trace("vmscan:mm_vmscan_node_reclaim_end") $nr_reclaimed:long unsigned int
+kernel.trace("vmscan:mm_vmscan_wakeup_kswapd") $nid:int $zid:int $order:int $gfp_flags:gfp_t
+kernel.trace("vmscan:mm_vmscan_writepage") $page:struct page*
+kernel.trace("vsock:virtio_transport_alloc_pkt") $src_cid:__u32 $src_port:__u32 $dst_cid:__u32 $dst_port:__u32 $len:__u32 $type:__u16 $op:__u16 $flags:__u32
+kernel.trace("vsock:virtio_transport_recv_pkt") $src_cid:__u32 $src_port:__u32 $dst_cid:__u32 $dst_port:__u32 $len:__u32 $type:__u16 $op:__u16 $flags:__u32 $buf_alloc:__u32 $fwd_cnt:__u32
+kernel.trace("vsyscall:emulate_vsyscall") $nr:int
+kernel.trace("wbt:wbt_lat") $bdi:struct backing_dev_info* $lat:long unsigned int
+kernel.trace("wbt:wbt_stat") $bdi:struct backing_dev_info* $stat:struct blk_rq_stat*
+kernel.trace("wbt:wbt_step") $bdi:struct backing_dev_info* $msg:char const* $step:int $window:long unsigned int $bg:unsigned int $normal:unsigned int $max:unsigned int
+kernel.trace("wbt:wbt_timer") $bdi:struct backing_dev_info* $status:unsigned int $step:int $inflight:unsigned int
+kernel.trace("workqueue:workqueue_activate_work") $work:struct work_struct*
+kernel.trace("workqueue:workqueue_execute_end") $work:struct work_struct*
+kernel.trace("workqueue:workqueue_execute_start") $work:struct work_struct*
+kernel.trace("workqueue:workqueue_queue_work") $req_cpu:unsigned int $pwq:struct pool_workqueue* $work:struct work_struct*
+kernel.trace("writeback:balance_dirty_pages") $wb:struct bdi_writeback* $thresh:long unsigned int $bg_thresh:long unsigned int $dirty:long unsigned int $bdi_thresh:long unsigned int $bdi_dirty:long unsigned int $dirty_ratelimit:long unsigned int $task_ratelimit:long unsigned int $dirtied:long unsigned int $period:long unsigned int $pause:long int $start_time:long unsigned int
+kernel.trace("writeback:bdi_dirty_ratelimit") $wb:struct bdi_writeback* $dirty_rate:long unsigned int $task_ratelimit:long unsigned int
+kernel.trace("writeback:flush_foreign") $wb:struct bdi_writeback* $frn_bdi_id:unsigned int $frn_memcg_id:unsigned int
+kernel.trace("writeback:global_dirty_state") $background_thresh:long unsigned int $dirty_thresh:long unsigned int
+kernel.trace("writeback:inode_foreign_history") $inode:struct inode* $wbc:struct writeback_control* $history:unsigned int
+kernel.trace("writeback:inode_switch_wbs") $inode:struct inode* $old_wb:struct bdi_writeback* $new_wb:struct bdi_writeback*
+kernel.trace("writeback:sb_clear_inode_writeback") $inode:struct inode*
+kernel.trace("writeback:sb_mark_inode_writeback") $inode:struct inode*
+kernel.trace("writeback:track_foreign_dirty") $page:struct page* $wb:struct bdi_writeback*
+kernel.trace("writeback:wait_on_page_writeback") $page:struct page* $mapping:struct address_space*
+kernel.trace("writeback:wbc_writepage") $wbc:struct writeback_control* $bdi:struct backing_dev_info*
+kernel.trace("writeback:writeback_bdi_register") $bdi:struct backing_dev_info*
+kernel.trace("writeback:writeback_congestion_wait") $usec_timeout:unsigned int $usec_delayed:unsigned int
+kernel.trace("writeback:writeback_dirty_inode") $inode:struct inode* $flags:int
+kernel.trace("writeback:writeback_dirty_inode_enqueue") $inode:struct inode*
+kernel.trace("writeback:writeback_dirty_inode_start") $inode:struct inode* $flags:int
+kernel.trace("writeback:writeback_dirty_page") $page:struct page* $mapping:struct address_space*
+kernel.trace("writeback:writeback_exec") $wb:struct bdi_writeback* $work:struct wb_writeback_work*
+kernel.trace("writeback:writeback_lazytime") $inode:struct inode*
+kernel.trace("writeback:writeback_lazytime_iput") $inode:struct inode*
+kernel.trace("writeback:writeback_mark_inode_dirty") $inode:struct inode* $flags:int
+kernel.trace("writeback:writeback_pages_written") $pages_written:long int
+kernel.trace("writeback:writeback_queue") $wb:struct bdi_writeback* $work:struct wb_writeback_work*
+kernel.trace("writeback:writeback_queue_io") $wb:struct bdi_writeback* $work:struct wb_writeback_work* $dirtied_before:long unsigned int $moved:int
+kernel.trace("writeback:writeback_sb_inodes_requeue") $inode:struct inode*
+kernel.trace("writeback:writeback_single_inode") $inode:struct inode* $wbc:struct writeback_control* $nr_to_write:long unsigned int
+kernel.trace("writeback:writeback_single_inode_start") $inode:struct inode* $wbc:struct writeback_control* $nr_to_write:long unsigned int
+kernel.trace("writeback:writeback_start") $wb:struct bdi_writeback* $work:struct wb_writeback_work*
+kernel.trace("writeback:writeback_wait") $wb:struct bdi_writeback* $work:struct wb_writeback_work*
+kernel.trace("writeback:writeback_wait_iff_congested") $usec_timeout:unsigned int $usec_delayed:unsigned int
+kernel.trace("writeback:writeback_wake_background") $wb:struct bdi_writeback*
+kernel.trace("writeback:writeback_write_inode") $inode:struct inode* $wbc:struct writeback_control*
+kernel.trace("writeback:writeback_write_inode_start") $inode:struct inode* $wbc:struct writeback_control*
+kernel.trace("writeback:writeback_written") $wb:struct bdi_writeback* $work:struct wb_writeback_work*
+kernel.trace("x86_fpu:x86_fpu_after_restore") $fpu:struct fpu*
+kernel.trace("x86_fpu:x86_fpu_after_save") $fpu:struct fpu*
+kernel.trace("x86_fpu:x86_fpu_before_restore") $fpu:struct fpu*
+kernel.trace("x86_fpu:x86_fpu_before_save") $fpu:struct fpu*
+kernel.trace("x86_fpu:x86_fpu_copy_dst") $fpu:struct fpu*
+kernel.trace("x86_fpu:x86_fpu_copy_src") $fpu:struct fpu*
+kernel.trace("x86_fpu:x86_fpu_dropped") $fpu:struct fpu*
+kernel.trace("x86_fpu:x86_fpu_init_state") $fpu:struct fpu*
+kernel.trace("x86_fpu:x86_fpu_regs_activated") $fpu:struct fpu*
+kernel.trace("x86_fpu:x86_fpu_regs_deactivated") $fpu:struct fpu*
+kernel.trace("x86_fpu:x86_fpu_xstate_check_failed") $fpu:struct fpu*
+kernel.trace("xdp:mem_connect") $xa:struct xdp_mem_allocator const* $rxq:struct xdp_rxq_info const*
+kernel.trace("xdp:mem_disconnect") $xa:struct xdp_mem_allocator const*
+kernel.trace("xdp:mem_return_failed") $mem:struct xdp_mem_info const* $page:struct page const*
+kernel.trace("xdp:xdp_bulk_tx") $dev:struct net_device const* $sent:int $drops:int $err:int
+kernel.trace("xdp:xdp_cpumap_enqueue") $map_id:int $processed:unsigned int $drops:unsigned int $to_cpu:int
+kernel.trace("xdp:xdp_cpumap_kthread") $map_id:int $processed:unsigned int $drops:unsigned int $sched:int $xdp_stats:struct xdp_cpumap_stats*
+kernel.trace("xdp:xdp_devmap_xmit") $from_dev:struct net_device const* $to_dev:struct net_device const* $sent:int $drops:int $err:int
+kernel.trace("xdp:xdp_exception") $dev:struct net_device const* $xdp:struct bpf_prog const* $act:u32
+kernel.trace("xdp:xdp_redirect") $dev:struct net_device const* $xdp:struct bpf_prog const* $tgt:void const* $err:int $map:struct bpf_map const* $index:u32
+kernel.trace("xdp:xdp_redirect_err") $dev:struct net_device const* $xdp:struct bpf_prog const* $tgt:void const* $err:int $map:struct bpf_map const* $index:u32
+kernel.trace("xdp:xdp_redirect_map") $dev:struct net_device const* $xdp:struct bpf_prog const* $tgt:void const* $err:int $map:struct bpf_map const* $index:u32
+kernel.trace("xdp:xdp_redirect_map_err") $dev:struct net_device const* $xdp:struct bpf_prog const* $tgt:void const* $err:int $map:struct bpf_map const* $index:u32
+kernel.trace("xen:xen_cpu_load_idt") $desc:struct desc_ptr const*
+kernel.trace("xen:xen_cpu_set_ldt") $addr:void const* $entries:unsigned int
+kernel.trace("xen:xen_cpu_write_gdt_entry") $dt:struct desc_struct* $entrynum:int $desc:void const* $type:int
+kernel.trace("xen:xen_cpu_write_idt_entry") $dt:gate_desc* $entrynum:int $ent:gate_desc const*
+kernel.trace("xen:xen_cpu_write_ldt_entry") $dt:struct desc_struct* $entrynum:int $desc:u64
+kernel.trace("xen:xen_mc_batch") $mode:enum paravirt_lazy_mode
+kernel.trace("xen:xen_mc_callback") $fn:xen_mc_callback_fn_t $data:void*
+kernel.trace("xen:xen_mc_entry") $mc:struct multicall_entry* $nargs:unsigned int
+kernel.trace("xen:xen_mc_entry_alloc") $args:size_t
+kernel.trace("xen:xen_mc_extend_args") $op:long unsigned int $args:size_t $res:enum xen_mc_extend_args
+kernel.trace("xen:xen_mc_flush") $mcidx:unsigned int $argidx:unsigned int $cbidx:unsigned int
+kernel.trace("xen:xen_mc_flush_reason") $reason:enum xen_mc_flush_reason
+kernel.trace("xen:xen_mc_issue") $mode:enum paravirt_lazy_mode
+kernel.trace("xen:xen_mmu_alloc_ptpage") $mm:struct mm_struct* $pfn:long unsigned int $level:unsigned int $pinned:bool
+kernel.trace("xen:xen_mmu_flush_tlb_one_user") $addr:long unsigned int
+kernel.trace("xen:xen_mmu_flush_tlb_others") $cpus:struct cpumask const* $mm:struct mm_struct* $addr:long unsigned int $end:long unsigned int
+kernel.trace("xen:xen_mmu_pgd_pin") $mm:struct mm_struct* $pgd:pgd_t*
+kernel.trace("xen:xen_mmu_pgd_unpin") $mm:struct mm_struct* $pgd:pgd_t*
+kernel.trace("xen:xen_mmu_ptep_modify_prot_commit") $mm:struct mm_struct* $addr:long unsigned int $ptep:pte_t* $pteval:pte_t
+kernel.trace("xen:xen_mmu_ptep_modify_prot_start") $mm:struct mm_struct* $addr:long unsigned int $ptep:pte_t* $pteval:pte_t
+kernel.trace("xen:xen_mmu_release_ptpage") $pfn:long unsigned int $level:unsigned int $pinned:bool
+kernel.trace("xen:xen_mmu_set_p4d") $p4dp:p4d_t* $user_p4dp:p4d_t* $p4dval:p4d_t
+kernel.trace("xen:xen_mmu_set_pmd") $pmdp:pmd_t* $pmdval:pmd_t
+kernel.trace("xen:xen_mmu_set_pte") $ptep:pte_t* $pteval:pte_t
+kernel.trace("xen:xen_mmu_set_pte_at") $mm:struct mm_struct* $addr:long unsigned int $ptep:pte_t* $pteval:pte_t
+kernel.trace("xen:xen_mmu_set_pud") $pudp:pud_t* $pudval:pud_t
+kernel.trace("xen:xen_mmu_write_cr3") $kernel:bool $cr3:long unsigned int
+kernel.trace("xhci-hcd:xhci_add_endpoint") $ctx:struct xhci_ep_ctx*
+kernel.trace("xhci-hcd:xhci_address_ctrl_ctx") $ctrl_ctx:struct xhci_input_control_ctx*
+kernel.trace("xhci-hcd:xhci_address_ctx") $xhci:struct xhci_hcd* $ctx:struct xhci_container_ctx* $ep_num:unsigned int
+kernel.trace("xhci-hcd:xhci_alloc_dev") $ctx:struct xhci_slot_ctx*
+kernel.trace("xhci-hcd:xhci_alloc_virt_device") $vdev:struct xhci_virt_device*
+kernel.trace("xhci-hcd:xhci_configure_endpoint") $ctx:struct xhci_slot_ctx*
+kernel.trace("xhci-hcd:xhci_configure_endpoint_ctrl_ctx") $ctrl_ctx:struct xhci_input_control_ctx*
+kernel.trace("xhci-hcd:xhci_dbc_alloc_request") $req:struct dbc_request*
+kernel.trace("xhci-hcd:xhci_dbc_free_request") $req:struct dbc_request*
+kernel.trace("xhci-hcd:xhci_dbc_gadget_ep_queue") $ring:struct xhci_ring* $trb:struct xhci_generic_trb*
+kernel.trace("xhci-hcd:xhci_dbc_giveback_request") $req:struct dbc_request*
+kernel.trace("xhci-hcd:xhci_dbc_handle_event") $ring:struct xhci_ring* $trb:struct xhci_generic_trb*
+kernel.trace("xhci-hcd:xhci_dbc_handle_transfer") $ring:struct xhci_ring* $trb:struct xhci_generic_trb*
+kernel.trace("xhci-hcd:xhci_dbc_queue_request") $req:struct dbc_request*
+kernel.trace("xhci-hcd:xhci_dbg_address") $vaf:struct va_format*
+kernel.trace("xhci-hcd:xhci_dbg_cancel_urb") $vaf:struct va_format*
+kernel.trace("xhci-hcd:xhci_dbg_context_change") $vaf:struct va_format*
+kernel.trace("xhci-hcd:xhci_dbg_init") $vaf:struct va_format*
+kernel.trace("xhci-hcd:xhci_dbg_quirks") $vaf:struct va_format*
+kernel.trace("xhci-hcd:xhci_dbg_reset_ep") $vaf:struct va_format*
+kernel.trace("xhci-hcd:xhci_dbg_ring_expansion") $vaf:struct va_format*
+kernel.trace("xhci-hcd:xhci_discover_or_reset_device") $ctx:struct xhci_slot_ctx*
+kernel.trace("xhci-hcd:xhci_free_dev") $ctx:struct xhci_slot_ctx*
+kernel.trace("xhci-hcd:xhci_free_virt_device") $vdev:struct xhci_virt_device*
+kernel.trace("xhci-hcd:xhci_get_port_status") $portnum:u32 $portsc:u32
+kernel.trace("xhci-hcd:xhci_handle_cmd_addr_dev") $ctx:struct xhci_slot_ctx*
+kernel.trace("xhci-hcd:xhci_handle_cmd_config_ep") $ctx:struct xhci_ep_ctx*
+kernel.trace("xhci-hcd:xhci_handle_cmd_disable_slot") $ctx:struct xhci_slot_ctx*
+kernel.trace("xhci-hcd:xhci_handle_cmd_reset_dev") $ctx:struct xhci_slot_ctx*
+kernel.trace("xhci-hcd:xhci_handle_cmd_reset_ep") $ctx:struct xhci_ep_ctx*
+kernel.trace("xhci-hcd:xhci_handle_cmd_set_deq") $ctx:struct xhci_slot_ctx*
+kernel.trace("xhci-hcd:xhci_handle_cmd_set_deq_ep") $ctx:struct xhci_ep_ctx*
+kernel.trace("xhci-hcd:xhci_handle_cmd_stop_ep") $ctx:struct xhci_ep_ctx*
+kernel.trace("xhci-hcd:xhci_handle_command") $ring:struct xhci_ring* $trb:struct xhci_generic_trb*
+kernel.trace("xhci-hcd:xhci_handle_event") $ring:struct xhci_ring* $trb:struct xhci_generic_trb*
+kernel.trace("xhci-hcd:xhci_handle_port_status") $portnum:u32 $portsc:u32
+kernel.trace("xhci-hcd:xhci_handle_transfer") $ring:struct xhci_ring* $trb:struct xhci_generic_trb*
+kernel.trace("xhci-hcd:xhci_hub_status_data") $portnum:u32 $portsc:u32
+kernel.trace("xhci-hcd:xhci_inc_deq") $ring:struct xhci_ring*
+kernel.trace("xhci-hcd:xhci_inc_enq") $ring:struct xhci_ring*
+kernel.trace("xhci-hcd:xhci_queue_trb") $ring:struct xhci_ring* $trb:struct xhci_generic_trb*
+kernel.trace("xhci-hcd:xhci_ring_alloc") $ring:struct xhci_ring*
+kernel.trace("xhci-hcd:xhci_ring_ep_doorbell") $slot:u32 $doorbell:u32
+kernel.trace("xhci-hcd:xhci_ring_expansion") $ring:struct xhci_ring*
+kernel.trace("xhci-hcd:xhci_ring_free") $ring:struct xhci_ring*
+kernel.trace("xhci-hcd:xhci_ring_host_doorbell") $slot:u32 $doorbell:u32
+kernel.trace("xhci-hcd:xhci_setup_addressable_virt_device") $vdev:struct xhci_virt_device*
+kernel.trace("xhci-hcd:xhci_setup_device") $vdev:struct xhci_virt_device*
+kernel.trace("xhci-hcd:xhci_setup_device_slot") $ctx:struct xhci_slot_ctx*
+kernel.trace("xhci-hcd:xhci_stop_device") $vdev:struct xhci_virt_device*
+kernel.trace("xhci-hcd:xhci_urb_dequeue") $urb:struct urb*
+kernel.trace("xhci-hcd:xhci_urb_enqueue") $urb:struct urb*
+kernel.trace("xhci-hcd:xhci_urb_giveback") $urb:struct urb*

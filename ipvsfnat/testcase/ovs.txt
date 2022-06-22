@@ -1,0 +1,31 @@
+# virsh start cirrosvm1
+# virsh start cirrosvm2
+# virsh start cirrosvm3
+# virsh start cirrosvm4
+
+#vm1
+# ip route add default via 192.168.10.1
+echo "10.5" > a
+nc -n -v -l -p 8085 < a
+
+#vm2
+# ip route add default via 192.168.10.1
+echo "10.6" > a
+nc -n -v -l -p 8086 < a
+
+#vm3
+# ip route add default via 192.168.10.1
+echo "10.7" > a
+nc -n -v -l -p 8087 < a
+
+#vm4
+# ip route add default via 192.168.10.1
+echo "10.8" > a
+nc -n -v -l -p 8088 < a
+
+#call vip to verify
+ip netns exec nsclient nc -i 15 192.168.20.3 8080
+
+
+# verify via looking at the output of nc, where '192.168.20.2' is client's ip
+# connect to [::ffff:192.168.10.5]:8085 from [::ffff:192.168.20.2]:53306 ([::ffff:192.168.20.2]:53306)

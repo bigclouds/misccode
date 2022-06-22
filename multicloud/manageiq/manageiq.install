@@ -1,0 +1,6 @@
+#docker
+
+service docker start
+docker pull manageiq/manageiq:ivanchuk-2
+docker run -d -p 8443:443 manageiq/manageiq:ivanchuk-2
+# web https://127.0.0.1:8443 , admin/smartvm

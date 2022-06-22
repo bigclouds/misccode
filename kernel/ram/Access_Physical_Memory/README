@@ -1,0 +1,4 @@
+mknod /dev/dram c 85 0
+insmod ./dram.ko
+
+make fileview

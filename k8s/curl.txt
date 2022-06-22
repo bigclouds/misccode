@@ -1,0 +1,25 @@
+ETCDCTL_API=3 etcdctl  --endpoints=127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/peer.crt --key=/etc/kubernetes/pki/etcd/peer.key --prefix --keys-only=false get /registry/pods/
+
+# iptable
+CLOUDCOREIPS=172.20.47.126
+iptables -t nat -I PREROUTING 2 -p tcp -s 10.200.0.0/16 -d 172.20.13.159 --dport 10350 -j DNAT --to $CLOUDCOREIPS:10003
+iptables -t nat -I PREROUTING 2 -p tcp -s 10.200.0.0/16 -d 172.20.13.159 --dport 9100 -j DNAT --to $CLOUDCOREIPS:10003
+iptables -t nat -I PREROUTING 2 -p tcp -s 10.200.0.0/16 -d 172.20.13.159 --dport 10255 -j DNAT --to $CLOUDCOREIPS:10003
+
+curl -k  -v -s --cacert /etc/kubernetes/pki/ca.crt --cert /etc/kubernetes/pki/apiserver-kubelet-client.crt --key /etc/kubrnetes/pki/apiserver-kubelet-client.key https://10.200.0.23:443/apis/metrics.k8s.io/v1beta1/pods
+
+kubectl -n kube-system get secret -o name  | grep names
+kubectl -n kube-system describe secret/namespace-controller-token-cgvbv | grep token
+
+
+curl -k  -v -s --cacert /etc/kubernetes/pki/ca.crt --cert /etc/kubernetes/pki/apiserver-kubelet-client.crt --key /etc/kubernetes/pki/apiserver-kubelet-client.key https://127.0.0.1:10250/metrics
+
+
+curl -k  -v -s --cacert /etc/kubernetes/pki/ca.crt --cert /etc/kubernetes/pki/apiserver-kubelet-client.crt --key /etc/kubernetes/pki/apiserver-kubelet-client.key https://127.0.0.1:10250/metrics/cadvisor
+
+curl -k  -v -s --cacert /etc/kubernetes/pki/ca.crt --cert /etc/kubernetes/pki/apiserver-kubelet-client.crt --key /etc/kubernetes/pki/apiserver-kubelet-client.key https://127.0.0.1:10250/stats/container
+
+curl -k  -v -s --cacert /etc/kubernetes/pki/ca.crt --cert /etc/kubernetes/pki/apiserver-kubelet-client.crt --key /etc/kubenetes/pki/apiserver-kubelet-client.key https://127.0.0.1:10250/stats/summary?only_cpu_and_memory=true
+
+# stats pod/container
+curl -k  -v -s --cacert /etc/kubernetes/pki/ca.crt --cert /etc/kubernetes/pki/apiserver-kubelet-client.crt --key /etc/kubernetes/pki/apiserver-kubelet-client.key https://127.0.0.1:10250/stats/busybox126/busybox?only_cpu_and_memory=true

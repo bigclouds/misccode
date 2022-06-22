@@ -1,0 +1,13 @@
+<memory model='nvdimm' access='shared'>
+      <source>
+        <path>/home/vms/nvdimm/nvdimm2</path>
+	<alignsize unit='KiB'>2048</alignsize>
+      </source>
+      <target>
+        <size unit='M'>1024</size>
+	<label>
+          <size unit='KiB'>128</size>
+        </label>
+        <node>0</node>
+      </target>
+</memory>

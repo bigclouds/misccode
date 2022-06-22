@@ -1,0 +1,10 @@
+tc qdisc add dev qr-869fbdc2-1e handle 1: root htb
+tc class add dev qr-869fbdc2-1e parent 1: classid 1:11 htb rate 60Mbps
+tc qdisc add dev qr-869fbdc2-1e ingress handle ffff:
+tc filter add dev qr-869fbdc2-1e parent ffff: protocol ipv6 u32 match ip6 src any flowid 1:11
+tc filter add dev qr-869fbdc2-1e parent ffff: protocol ipv6 u32 match ip6 src any police rate 10mbps burst 90k drop
+tc filter add dev qr-869fbdc2-1e parent ffff: protocol ipv6 u32 match ip6 src any police rate 10mbit burst 1M drop
+
+
+#ovs
+tc filter add dev qr-869fbdc2-1e parent ffff: handle 1 basic police rate 10mbit burst 1M mtu 64Kb drop

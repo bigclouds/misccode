@@ -1,0 +1,10 @@
+// stap -e 'probe syscall.openat { printf ("%s(%d) open\n", execname(), pid()); exit() }'
+probe syscall.openat
+{
+	printf("%s (%d) open (%s)n", execname(), pid(), argstr)
+}
+
+//probe time.s(4)
+//{
+//	exit()
+//}

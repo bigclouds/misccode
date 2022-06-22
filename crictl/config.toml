@@ -1,0 +1,63 @@
+disabled_plugins = [""]
+subreaper = true 
+oom_score = -999
+root="/vdata/containerd"
+[debug]
+ level = "debug"
+[metrics]
+ address = "127.0.0.1:1338"
+[plugins]
+ [plugins.linux]
+   shim_debug = true
+ [plugins.devmapper]
+    pool_name = "fcpool"
+    root_path = "/vdata/fc"
+    base_image_size = "2GB"
+    discard_blocks = true
+ [plugins.cri]
+  stream_server_address = "127.0.0.1"
+  stream_server_port = "10010"
+  enable_selinux = false
+  stats_collect_period = 10
+  systemd_cgroup = false
+  sandbox_image = "harbor.local/cke-init-image/pause-amd64:3.0"
+  [plugins.cri.containerd]
+    #snapshotter = "devmapper"
+    snapshotter = "overlayfs"
+    no_pivot = false
+    [plugins.cri.containerd.runtimes]
+      [plugins.cri.containerd.runtimes.runc]
+        runtime_type = "io.containerd.runc.v2"
+        privileged_without_host_devices = false
+        [plugins.cri.containerd.runtimes.runc.options]
+          NoPivotRoot = false
+          NoNewKeyring = false
+          ShimCgroup = ""
+          IoUid = 0
+          IoGid = 0
+          BinaryName = "runc"
+          Root = ""
+          CriuPath = ""
+          SystemdCgroup = false
+      [plugins.cri.containerd.runtimes.kata]
+        runtime_type = "io.containerd.kata.v2"
+	pod_annotations = ["*"]
+        privileged_without_host_devices = true
+      [plugins.cri.containerd.runtimes.kata-fc]
+    	runtime_type = "io.containerd.kata-fc.v2"
+	pod_annotations = ["*"]
+        privileged_without_host_devices = true
+      [plugins.cri.containerd.runtimes.kata-clh]
+    	runtime_type = "io.containerd.kata-clh.v2"
+	pod_annotations = ["*"]
+        privileged_without_host_devices = true
+  [plugins.cri.cni]
+    bin_dir = "/opt/cni/bin"
+    conf_dir = "/etc/cni/net.d"
+  [plugins.cri.registry]
+    [plugins.cri.registry.mirrors]
+      [plugins.cri.registry.mirrors."myregistry.com"]
+        endpoint = ["https://myregistry.com"]
+    [plugins.cri.registry.configs]
+      [plugins.cri.registry.configs."myregistry.com".tls]
+        ca_file = "/etc/containerd/myregistry.com.crt"

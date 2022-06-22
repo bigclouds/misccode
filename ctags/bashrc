@@ -1,0 +1,1 @@
+alias grep='grep --color --exclude=tags --exclude-dir="./neutron/tests" --exclude-dir=qa --exclude-dir=net//ipv6 --exclude-dir=net//decnet --exclude-dir=net//ax25 --exclude-dir=net//appletalk --exclude-dir=net//decnet --exclude-dir=net//mac80211 --exclude-dir=net//bluetooth'

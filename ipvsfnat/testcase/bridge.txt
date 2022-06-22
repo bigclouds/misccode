@@ -1,0 +1,18 @@
+#ip netns exec test5  ./http -p ":8080" -v -vv
+#ip netns exec test6  ./http -p ":8080" -v -vv
+#ip netns exec test7  ./http -p ":8080" -v -vv
+#ip netns exec test8  ./http -p ":8080" -v -vv
+
+# launch test
+# ip netns exec test3 curl http://192.168.20.3:8080
+# ip netns exec test3 curl "http://\[fc00:2::3\]:8070"
+# ip netns exec test3 wget -6 "http://[fc00:2::3]:8070/file/bigfiles"
+# ip netns exec test3  ab -c 1000 -n 200000 -k "http://[fc00:2::3]:8070/"
+# ip netns exec test3 ./wrk  -c 5000 -t1000  -d10s -H "Connection: Close" http://192.168.20.3:8080/
+# ip netns exec test3 ./wrk  -c 5000 -t1000  -d10s -H "Connection: Close" "http://[fc00:2::3]:8070/"
+# or
+# ip netns exec test3 curl http://192.168.20.3:8080/file/a
+# or
+# ip netns exec test3 ab -c 1 -n 10 http://192.168.20.3:8080/
+
+#verify if romote ip is client's ip , rather than test2's local-ip

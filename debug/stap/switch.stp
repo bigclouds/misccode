@@ -1,0 +1,4 @@
+probe kernel.trace("sched:sched_switch")
+{
+		printf("prev pid: %d next pid:%d\n", $prev->pid, $next->pid);
+}

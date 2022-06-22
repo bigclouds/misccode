@@ -1,0 +1,10 @@
+#first enable sysctl
+sysctl -w net.ipv4.conf.ens18.arp_accept=1
+#arp reply
+arping -A -I eth0 -s 172.20.12.98 172.20.12.98
+11:47:35.604006 ARP, Reply 172.20.12.98 is-at 52:e3:77:93:e1:7a, length 46
+
+#arp request
+arping -U -I eth0 -c 3 -s 172.20.12.98 172.20.12.99
+17:10:52.667704 52:e3:77:93:e1:7a > ca:65:94:e9:86:17, ethertype ARP (0x0806), length 60: Request who-has 172.20.12.99 (ca:65:94:e9:86:17) tell 172.20.12.98, length 46
+17:10:52.667734 ca:65:94:e9:86:17 > 52:e3:77:93:e1:7a, ethertype ARP (0x0806), length 42: Reply 172.20.12.99 is-at ca:65:94:e9:86:17, length 28

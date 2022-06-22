@@ -1,0 +1,8 @@
+ip link add vxlan20 type vxlan id 20 dev eth0 remote 172.20.12.98 local 172.20.12.99 dstport 4790 srcport 4791 4800
+ip addr add 192.168.101.99/24 dev vxlan20
+ip link set vxlan20 up
+
+
+ip link add vxlan20 type vxlan id 20 dev eth0 remote 172.20.12.99 local 172.20.12.98 dstport 4790 srcport 4791 4800
+ip addr add 192.168.101.98/24 dev vxlan20
+ip link set vxlan20 up

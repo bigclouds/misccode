@@ -1,0 +1,19 @@
+1.
+stap -e 'probe kernel.function("vfs_read") {
+           printf ("current files_stat max_files: %d\n",
+                   @var("files_stat@fs/file_table.c")->max_files);
+           exit(); }'
+
+## 打印变量
+stap -e 'probe kernel.function("vfs_read") { printf ("current files_stat max_files: %d\n",@var("sysctl_mount_max@fs/namespace
+.c")); exit(); }'
+
+## https://sourceware.org/systemtap/SystemTap_Beginners_Guide/targetvariables.html
+2. stap -e 'probe kernel.function("vfs_read") {printf("%s\n", $$parms); exit(); }'
+3. stap -e 'probe kernel.function("vfs_read") {printf("%s\n", $$parms$); exit(); }'
+4. stap -e 'probe kernel.function("vfs_read") {printf("%s\n", $$parms$$); exit(); }'
+
+
+##  do_umount
+stap -e 'probe kernel.function("ksys_umount") {printf("%s\n", $$parms$); exit(); }'
+stap -e 'probe kernel.function("do_umount") {printf("%s\n", $$parms$); exit(); }' 

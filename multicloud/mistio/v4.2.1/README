@@ -1,0 +1,25 @@
+
+
+
+
+文档：
+https://github.com/mistio/mist-ee
+
+V3.2, v4.2.1 尝试过，可以跑起来
+wget https://github.com/mistio/mist-ce/releases/download/v3.2.0/docker-compose.yml
+wget https://github.com/mistio/mist-ce/releases/download/v4.2.1/docker-compose.yml
+
+
+跑起来后创建用户：
+docker-compose exec api sh
+./bin/adduser --admin admin@example.com
+
+登陆 http://ip/
+
+
+
+问题：
+Openstack api 版本问题
+# 修改
+vi libcloud/libcloud/common/openstack.py
+     self._auth_version = "3.x_password"

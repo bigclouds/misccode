@@ -1,0 +1,2 @@
+#https://github.com/kata-containers/kata-containers/blob/main/docs/how-to/how-to-use-kata-containers-with-firecracker.md
+ctr run --snapshotter devmapper --rm --runtime io.containerd.run.kata-fc.v2 -t docker.io/library/busybox:latest yyyy sh
