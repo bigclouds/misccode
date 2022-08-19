@@ -1,0 +1,70 @@
+###
+
+1. Format
+probe probe-point { statement }
+
+
+
+###
+
+1. List Event Point
+stap -l '*.*'           #列出对应格式的事件
+stap -L '*.*'         #列出对应格式的事件，并且包括支持的详细参数列表
+stap -L 'syscall.*'
+stap -L 'kernel.trace("*")'
+stap -L 'kernel.function("*")'
+stap -l 'vfs.*'
+stap -l module("module").function("*")
+————————————————
+
+###
+>>>
+
+#!/usr/bin/env stap
+  
+probe begin
+{
+        printf("hello world\n");
+}
+
+>>>
+
+
+###
+
+>>>
+
+#!/usr/bin/env stap
+  
+probe begin
+{
+        printf("helle,world\n");
+}
+
+probe end
+{
+        printf("Goodbye,world\n");
+}
+
+>>>
+
+###
+begin // 在脚本开始时触发
+end   // 在脚本结束时触发
+kernel.syscall.* // 执行系统调用时触发
+kernel.trace(PATTERN) //执行到内核tracepoin时触发
+kernel.function(PATTERN)        // 在函数执行时触发
+kernel.function(PATTERN).call  //在函数执行时触发
+kernel.function(PATTERN).return  //在函数返回时触发
+kernel.function(PATTERN).inline  //inline函数处执行
+kernel.function(PATTERN).label(LPATTERN) //执行到label时触发
+module(MPATTERN).function(PATTERN)    //执行到特定module特定函数时触发
+module(MPATTERN).function(PATTERN).call //执行到特定module特定函数时触发
+module(MPATTERN).function(PATTERN).return //执行到特定module特定函数返回时触发
+kernel.statement(*@kernel/time.c:296) // 探测到确切的代码行
+module("virtio_net").statement("receive_buf@drivers/net/virtio_net.c:1346")  // 探测到确切的代码行
+
+
+————————————————
+版权声明：本文为CSDN博主「程序猿Ricky的日常干货」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/rikeyone/article/details/111842674

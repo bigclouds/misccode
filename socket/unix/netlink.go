@@ -35,17 +35,25 @@ type NetworkInfo struct {
 }
 
 
-var ns1 string = "/var/run/netns/cnitest-319c6299-66b7-18ef-1871-8e2184c3723f"
+//var ns1 string = "/var/run/netns/cnitest-319c6299-66b7-18ef-1871-8e2184c3723f"
+var ns1 string = "/var/run/netns/mmtest"
+//var ns1 string = ""
 
 func main() {
 	main1()
 }
 
 func main1() error {
-	netnsHandle, err := netns.GetFromPath(ns1)
-        if err != nil {
-                return err
-        }
+	var netnsHandle netns.NsHandle
+	var err error
+	if ns1 != "" {
+		netnsHandle, err = netns.GetFromPath(ns1)
+	} else {
+		netnsHandle, err = netns.Get()
+	}
+	if err != nil {
+		return err
+	}
         defer netnsHandle.Close()
 
         netlinkHandle, err := netlink.NewHandleAt(netnsHandle)
@@ -67,7 +75,8 @@ func main1() error {
                         return err
                 }
 
-		fmt.Println(netInfo)
+		//fmt.Println(netInfo)
+		fmt.Println(netInfo.Iface.Name, netInfo.Iface.Index, netInfo.Iface.HardwareAddr)
                 if len(netInfo.Addrs) == 0 {
                         continue
                 }

@@ -1,0 +1,12 @@
+
+
+# q35, pci bridge is pci-bridge-0
+# serial mon:stdio 标准输入输出
+# monitor qmp管理
+/opt/kata/bin/qemu-system-x86_64 -name guest=test-dpdk -smp 2 -m 2048 -enable-kvm -machine q35,accel=kvm,kernel_irqchip=on,nvdimm=on -device pci-bridge,bus=pcie.0,id=pci-bridge-0,chassis_nr=1,shpc=off,addr=2,io-reserve=4k,mem-reserve=1m,pref64-reserve=1m -drive file=/root/ylg/centos/dpdk1.qcow2,if=none,id=drive-virtio-disk0 -device virtio-blk-pci,scsi=off,bus=pci-bridge-0,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1 -vga none  -netdev tap,id=nic1,script=ifup.sh -device driver=virtio-net-pci,netdev=nic1 -serial mon:stdio -monitor telnet:localhost:4321,server,nowait
+
+
+
+# hugepages
+/opt/kata/bin/qemu-system-x86_64 -name guest=test-dpdk -smp 2 -m 2048 -object memory-backend-file,id=mem,size=2048M,mem-path=/dev/hugepages,share=on -enable-kvm -machine q35,accel=kvm,kernel_irqchip=on,nvdimm=on -device pci-bridge,bus=pcie.0,id=pci-bridge-0,chassis_nr=1,shpc=off,addr=2,io-reserve=4k,mem-reserve=1m,pref64-reserve=1m -drive file=/root/ylg/centos/dpdk1.qcow2,if=none,id=drive-virtio-disk0 -device virtio-blk-pci,scsi=off,bus=pci-bridge-0,drive=drive-virtio-disk0,id=virtio-disk0,bootindex=1 -vga none  -netdev tap,id=nic1,script=ifup.sh -device driver=virtio-net-pci,netdev=nic1 -serial mon:stdio -monitor telnet:localhost:4321,server,nowait
+

@@ -20,7 +20,7 @@ root="/vdata/containerd"
   enable_selinux = false
   stats_collect_period = 10
   systemd_cgroup = false
-  sandbox_image = "harbor.local/cke-init-image/pause-amd64:3.0"
+  sandbox_image = "harbor.unicom.local/cke-init-image/pause-amd64:3.0"
   [plugins.cri.containerd]
     #snapshotter = "devmapper"
     snapshotter = "overlayfs"
