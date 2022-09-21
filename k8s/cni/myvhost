@@ -5,12 +5,16 @@ if [[ ${DEBUG} -gt 0 ]]; then set -x; fi
 exec 3>&1 # make stdout available as fd 3 for the result
 exec &>> /var/log/bash-cni-plugin.log
 
-echo "\n\nCNI command: $CNI_COMMAND" 
+echo -e "\n\nCNI command: $CNI_COMMAND" 
+BR=br-provider
 
 stdin=`cat /dev/stdin`
 echo "stdin: $stdin"
 echo "env: `env`\n\n"
 CNI_NETNS=$( echo $CNI_NETNS|awk -F/ '{print $NF}')
+if [ -z $CNI_NETNS ]; then
+	exit
+fi
 
 #POD=$(echo $CNI_ARGS | awk -F';' '{print $2}'|awk -F= '{print $2}')
 if [[ "$CNI_ARGS" == *"centos-sandbox0"* ]];then
@@ -21,26 +25,26 @@ else
 	exit 1
 fi
 
+bdg=$(echo "$stdin" |jq -r ".bridge")
 case $CNI_COMMAND in
 ADD)
 	network=$(echo "$stdin" | jq -r ".network")
 	subnet=$(echo "$stdin" | jq -r ".ipam.subnet")
 	pre=$(echo $subnet | awk -F  "/" '{print $1}'|awk -F0 '{print $1}')
 	subnet_mask_size=$(echo $subnet | awk -F  "/" '{print $2}')
-	bdg=$(echo "$stdin" |jq -r ".bridge")
 
 	gw_ip=$pre$(( (RANDOM % 1) + 1 ))
 	container_ip=$pre$(( (RANDOM % 100) + 1 ))
 
 	mkdir -p /var/run/kata-containers/vhost-user/netns/$CNI_NETNS
 	if [ $POD == "centos-sandbox0" ];then
-		ovs-vsctl add-port br0 vhost-user0 -- set Interface vhost-user0 type=dpdkvhostuser
+		ovs-vsctl add-port $bdg vhost-user0 -- set Interface vhost-user0 type=dpdkvhostuser
 		cp /tmp/eth0 /var/run/kata-containers/vhost-user/netns/$CNI_NETNS/
 		container_ip="192.168.123.3"
 		mac="00:00:00:00:00:11"
 		gw_ip="192.168.123.1"
 	elif [ $POD == "centos-sandbox1" ];then
-		ovs-vsctl add-port br0 vhost-user1 -- set Interface vhost-user1 type=dpdkvhostuser
+		ovs-vsctl add-port $bdg vhost-user1 -- set Interface vhost-user1 type=dpdkvhostuser
 		cp /tmp/eth1 /var/run/kata-containers/vhost-user/netns/$CNI_NETNS/
 		container_ip="192.168.123.4"
 		mac="00:00:00:00:00:22"
@@ -71,10 +75,10 @@ echo "{
 
 DEL)
 	if [ $POD == "centos-sandbox0" ];then
-		ovs-vsctl del-port br0 vhost-user0
+		ovs-vsctl del-port $bdg vhost-user0
 		rm -rf  /var/run/kata-containers/vhost-user/netns/$CNI_NETNS
 	elif [ $POD == "centos-sandbox1" ];then
-		ovs-vsctl del-port br0 vhost-user1
+		ovs-vsctl del-port $bdg vhost-user1
 		rm -rf  /var/run/kata-containers/vhost-user/netns/$CNI_NETNS
 	fi
 ;;
